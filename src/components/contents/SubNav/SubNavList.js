@@ -1,138 +1,125 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListSubheader from "@mui/material/ListSubheader";
-import styled from "styled-components";
-import EmailIcon from "@mui/icons-material/Email";
-import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
-import Link from "next/link";
-import useScrollFadeIn from "../../../hooks/useScrollFadeIn";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListSubheader from '@mui/material/ListSubheader';
+import styled from 'styled-components';
+import EmailIcon from '@mui/icons-material/Email';
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import Link from 'next/link';
+import useScrollFadeIn from '../../../hooks/useScrollFadeIn';
 
-import { useState, useEffect } from "react";
-import ViewBox from "../ViewBox/ViewBox";
-import FilloutIcon from "../Icon/FilloutIcon";
-import SimpleBar from "simplebar-react";
-import "simplebar/dist/simplebar.min.css";
+import {useState, useEffect} from 'react';
+import ViewBox from '../ViewBox/ViewBox';
+import FilloutIcon from '../Icon/FilloutIcon';
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
 
-const SubNavList = ( {
-  handleSelectedStorageIndex,
-  selectedStorageIndex,
+const SubNavList = ({
+  handleSelectedBaseIndex,
+  selectedBaseIndex,
   parentLink,
-  subNavListData
-} ) => {
+  subNavListData,
+}) => {
   return (
     <SubNavListWrapper
       forceVisible="y"
-      autoHide={ true }
+      autoHide={true}
       className="sub-nav__list"
       component="nav"
       aria-label="nav selection">
-      { subNavListData.map ( ( object, index, array ) => {
+      {subNavListData.map((object, index, array) => {
         return (
-          <div key={ object.name + "div" }>
+          <div key={object.name + 'div'}>
             {
               //Divider is generated for all the titles excluding first one.
               array.length > 0 &&
-              object != null &&
-              object != undefined &&
-              object.type == "title" &&
-              index > 0 && (
-                <Divider
-                  key={ object.name + "divider" }
-                  className="line-divider"
-                />
-              )
+                object != null &&
+                object != undefined &&
+                object.type == 'title' &&
+                index > 0 && (
+                  <Divider
+                    key={object.name + 'divider'}
+                    className="line-divider"
+                  />
+                )
             }
 
             {
               //Interactable title category generation
               array.length > 0 &&
-              object != null &&
-              object != undefined &&
-              object.type == "title" && (
-                <Link
-                  key={ object.name + "title-link" }
-                  href={ parentLink + object.link }>
-                  <SubNavListItem
-                    key={ object.name + "title" }
-                    className="sub-nav__title"
-                    type="title"
-                    selected={ selectedStorageIndex === index }
-                    onClick={ ( event ) => {
-                      handleSelectedStorageIndex ( index );
-                    } }>
-                    <SubNavIconContainer>{ object.icon }</SubNavIconContainer>
-                    <ListItemText
-                      key={ object.name + "title-text" }
-                      primary={ object.name }
-                    />
-                  </SubNavListItem>
-                </Link>
-              )
+                object != null &&
+                object != undefined &&
+                object.type == 'title' && (
+                  <Link
+                    key={object.name + 'title-link'}
+                    href={parentLink + object.link}>
+                    <SubNavListItem
+                      key={object.name + 'title'}
+                      className="sub-nav__title"
+                      type="title"
+                      selected={selectedBaseIndex === index}
+                      onClick={(event) => {
+                        handleSelectedBaseIndex(index);
+                      }}>
+                      <FilloutIcon
+                        sx={{marginRight: '4%'}}
+                        name={object.iconName}
+                        size="small"
+                        type="outlined"
+                      />
+                      <ListItemText
+                        key={object.name + 'title-text'}
+                        primary={object.name}
+                      />
+                    </SubNavListItem>
+                  </Link>
+                )
             }
 
             {
-              //Interactable general category category generation
+              //Interactable general category generation
               array.length > 0 &&
-              object != null &&
-              object != undefined &&
-              object.type != "title" && (
-                <Link
-                  key={ object.name + "item-link" }
-                  href={ parentLink + object.link }>
-                  <SubNavListItem
-                    key={ object.name + "item" }
-                    className="sub-nav__list-item"
-                    selected={ selectedStorageIndex === index }
-                    onClick={ ( event ) => {
-                      handleSelectedStorageIndex ( index );
-                    } }>
-                    <SubNavIconContainer>{ object.icon }</SubNavIconContainer>
-                    <ListItemText
-                      key={ object.name + "item-text" }
-                      primary={ object.name }
-                    />
-                  </SubNavListItem>
-                </Link>
-              )
+                object != null &&
+                object != undefined &&
+                object.type != 'title' && (
+                  <Link
+                    key={object.name + 'item-link'}
+                    href={parentLink + object.link}>
+                    <SubNavListItem
+                      key={object.name + 'item'}
+                      className="sub-nav__list-item"
+                      selected={selectedBaseIndex === index}
+                      onClick={(event) => {
+                        handleSelectedBaseIndex(index);
+                      }}>
+                      <FilloutIcon
+                        sx={{marginRight: '4%'}}
+                        name={object.iconName}
+                        size="small"
+                        type="outlined"
+                      />
+                      <ListItemText
+                        key={object.name + 'item-text'}
+                        primary={object.name}
+                      />
+                    </SubNavListItem>
+                  </Link>
+                )
             }
           </div>
         );
-      } ) }
+      })}
     </SubNavListWrapper>
   );
 };
 
-const SubNavIconContainer = styled ( ListItemIcon )`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: var(--small-icon-size);
-  min-height: var(--small-icon-size);
-  width: var(--small-icon-size);
-  height: var(--small-icon-size);
-  margin-right: 0.4rem;
-
-  z-index: 1;
-
-  & svg {
-    position: relative;
-    min-width: calc(var(--small-icon-size) * 0.84);
-    min-height: calc(var(--small-icon-size) * 0.84);
-    width: calc(var(--small-icon-size) * 0.84);
-    height: calc(var(--small-icon-size) * 0.84);
-    color: var(--light03);
-  }
-`;
-
 /* sub navigation */
-const SubNavListWrapper = styled ( SimpleBar )`
+const SubNavListWrapper = styled(SimpleBar)`
   position: relative;
   width: 100%;
   height: 100%;
@@ -141,7 +128,7 @@ const SubNavListWrapper = styled ( SimpleBar )`
   overflow-y: auto;
 `;
 
-const SubNavListItem = styled ( ListItem )`
+const SubNavListItem = styled(ListItem)`
   width: 100%;
   padding: 0.2rem 0rem;
   padding-left: 10%;
