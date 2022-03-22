@@ -64,10 +64,16 @@ const AssignmentNav = () => {
     },
   ];
 
+  /*
   const afterPath = router.pathname.substring(
-    router.pathname.indexOf('parentLink') + parentLink.length + 1,
+    router.pathname.indexOf(parentLink) + parentLink.length + 2,
   );
-  const isBase = afterPath == '' ? true : false;
+  const isBase =
+    afterPath == '' && router.pathname.includes(parentLink) ? true : false;
+    */
+
+  // base 화면을 출력해야 하는지 확인하는 hook
+  const [isBasePage, setIsBasePage] = React.useState(true);
 
   const [selectedBaseIndex, setSelectedBaseIndex] = useState(-1);
   const [selectedCreationIndex, setSelectedCreationIndex] = useState(-1);
@@ -86,7 +92,7 @@ const AssignmentNav = () => {
 
   return (
     <ViewBox>
-      {isBase && (
+      {isBasePage && (
         <Box className="sub-nav__container" role="presentation">
           <ConversionButton
             icon={
@@ -100,20 +106,21 @@ const AssignmentNav = () => {
               />
             }
             text="추가하기"
-            link={parentLink + '/creation'}
+            clickAction={setIsBasePage}
+            clickActionValue={false}
           />
 
           <Divider className="line-divider" />
 
           <SubNavList
-            handleSelectedBaseIndex={handleSelectedBaseIndex}
-            selectedBaseIndex={selectedBaseIndex}
+            handleSelectedIndex={handleSelectedBaseIndex}
+            selectedIndex={selectedBaseIndex}
             parentLink={parentLink}
             subNavListData={subNavListData_base}
             subNavTitles={null}></SubNavList>
         </Box>
       )}
-      {!isBase && (
+      {!isBasePage && (
         <Box className="sub-nav__container" role="presentation">
           <ConversionButton
             icon={
@@ -127,14 +134,15 @@ const AssignmentNav = () => {
               />
             }
             text="돌아가기"
-            link={parentLink}
+            clickAction={setIsBasePage}
+            clickActionValue={true}
           />
 
           <Divider className="line-divider" />
 
           <SubNavList
-            handleSelectedBaseIndex={handleSelectedCreationIndex}
-            selectedBaseIndex={selectedCreationIndex}
+            handleSelectedIndex={handleSelectedCreationIndex}
+            selectedIndex={selectedCreationIndex}
             parentLink={parentLink + '/creation'}
             subNavListData={subNavListData_creation}
             subNavTitles={null}></SubNavList>

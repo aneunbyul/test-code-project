@@ -16,14 +16,16 @@ import {useState, useEffect} from 'react';
 import FilloutIcon from '../Icon/FilloutIcon';
 import {PropaneSharp} from '@mui/icons-material';
 
-const ConversionButton = ({icon, text, link}) => {
+const ConversionButton = ({icon, text, clickAction, clickActionValue}) => {
   return (
-    <Link href={link}>
-      <InteractiveButton variant="contained" onClick={() => {}}>
-        {icon}
-        <span>{text}</span>
-      </InteractiveButton>
-    </Link>
+    <InteractiveButton
+      variant="contained"
+      onClick={() => {
+        clickAction(clickActionValue);
+      }}>
+      {icon}
+      <span>{text}</span>
+    </InteractiveButton>
   );
 };
 

@@ -12,6 +12,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 import Link from 'next/link';
 import useScrollFadeIn from '../../../hooks/useScrollFadeIn';
+import {useRouter} from 'next/router';
 
 import {useState, useEffect} from 'react';
 import ViewBox from '../ViewBox/ViewBox';
@@ -20,11 +21,34 @@ import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
 const SubNavList = ({
-  handleSelectedBaseIndex,
-  selectedBaseIndex,
+  handleSelectedIndex,
+  selectedIndex,
   parentLink,
   subNavListData,
 }) => {
+  const router = useRouter();
+
+  // 서브 네비게이션의 카테고리 주소에 접근 시
+  // 현재 주소를 확인하여서 선택되지 않은 카테고리가 하이라이트 되는 오류를 막음
+  useEffect(() => {
+    for (let ind = 0; ind < subNavListData.length; ind++) {
+      const afterSubPath = router.pathname.substring(
+        router.pathname.indexOf(subNavListData[ind].link) +
+          subNavListData[ind].link.length +
+          2,
+      );
+      const isSubBase =
+        afterSubPath == '' && router.pathname.includes(subNavListData[ind].link)
+          ? true
+          : false;
+
+      if (!isSubBase) {
+        handleSelectedIndex(-1);
+        break;
+      }
+    }
+  }, []);
+
   return (
     <SubNavListWrapper
       forceVisible="y"
@@ -61,11 +85,11 @@ const SubNavList = ({
                     <SubNavListItem
                       key={object.name + 'title'}
                       type="title"
-                      selected={selectedBaseIndex == index}
+                      selected={selectedIndex == index}
                       onClick={(event) => {
-                        handleSelectedBaseIndex(index);
+                        handleSelectedIndex(index);
                       }}>
-                      {selectedBaseIndex != index ? (
+                      {selectedIndex != index ? (
                         <FilloutIcon
                           sx={{marginRight: '4%'}}
                           name={object.iconName}
@@ -100,11 +124,11 @@ const SubNavList = ({
                     href={parentLink + object.link}>
                     <SubNavListItem
                       key={object.name + 'item'}
-                      selected={selectedBaseIndex === index}
+                      selected={selectedIndex === index}
                       onClick={(event) => {
-                        handleSelectedBaseIndex(index);
+                        handleSelectedIndex(index);
                       }}>
-                      {selectedBaseIndex != index ? (
+                      {selectedIndex != index ? (
                         <FilloutIcon
                           sx={{marginRight: '4%'}}
                           name={object.iconName}

@@ -69,7 +69,7 @@ const ClientLayout = styled.div`
 
   display: grid;
   grid-template-rows:
-    var(--box-contracted-length)
+    0
     auto;
   grid-template-columns:
     var(--box-contracted-length)

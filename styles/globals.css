@@ -1,56 +1,56 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
 :root {
-    --transparent: #00000000;
+  --transparent: #00000000;
 
-    --light01: #ecd4d4;
-    --light02: #d1b5b5;
-    --light03: #af9b9b;
-    --light04: #8b7e7e;
-    --light05: #695f5f;
+  --light01: #ecd4d4;
+  --light02: #d1b5b5;
+  --light03: #af9b9b;
+  --light04: #8b7e7e;
+  --light05: #695f5f;
 
-    --dark00: #181515;
-    --dark01: #201d1d;
-    --dark02: #2c2626;
-    --dark03: #383131;
-    --dark04: #443c3c;
-    --dark05: #615151;
+  --dark00: #181515;
+  --dark01: #201d1d;
+  --dark02: #2c2626;
+  --dark03: #383131;
+  --dark04: #443c3c;
+  --dark05: #615151;
 
-    --highlight01: rgb(255, 57, 57);
+  --highlight01: rgb(255, 57, 57);
 
-    --line-thickness: 0.06rem;
-    --big-icon-size: 1.8rem;
-    --small-icon-size: 1.45rem;
-    --box-contracted-length: 3rem;
-    --box-expanded-length: 15.5rem;
-    --tab-height: 2.1rem;
-    --tab-height-extended: 3rem;
+  --line-thickness: 0.06rem;
+  --big-icon-size: 1.8rem;
+  --small-icon-size: 1.45rem;
+  --box-contracted-length: 3.4rem;
+  --box-expanded-length: 15.5rem;
+  --tab-height: 2.1rem;
+  --tab-height-extended: 3rem;
 
-    --delay-nav-out: 0.5s;
-    --cubic01: cubic-bezier(0.52, 0.02, 0.21, 0.98);
+  --delay-nav-out: 0.5s;
+  --cubic01: cubic-bezier(0.52, 0.02, 0.21, 0.98);
 
-    --global-big-text-size: 0.92rem;
-    --global-text-size: 0.85rem;
-    --global-border-radius: 0.5rem;
+  --global-big-text-size: 0.92rem;
+  --global-text-size: 0.85rem;
+  --global-border-radius: 0.5rem;
 }
 
 html,
 body {
-    padding: 0;
-    margin: 0;
-    /*
+  padding: 0;
+  margin: 0;
+  /*
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
         */
 
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 a {
-    color: inherit;
+  color: inherit;
 
-    text-decoration: none;
+  text-decoration: none;
 }
 
 *,
@@ -58,80 +58,80 @@ button,
 input,
 select,
 textarea {
-    font-family: 'Noto Sans KR', sans-serif !important;
-    font-size: var(--global-text-size);
-    font-weight: 500;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  font-family: 'Noto Sans KR', sans-serif !important;
+  font-size: var(--global-text-size);
+  font-weight: 500;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 subject {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 
-    user-select: none;
+  user-select: none;
 }
 
 .line-divider {
-    width: 100%;
-    border-color: #1e1e1e;
-    border-width: 0.1rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.2rem;
+  width: 100%;
+  border-color: #1e1e1e;
+  border-width: 0.1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
 .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
-    background-color: var(--light04);
+  background-color: var(--light04);
 }
 
 .simplebar-track {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .sub-nav__container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    color: #dadada;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #dadada;
 
-    margin: 0.5rem 0;
+  margin: 0.5rem 0;
 }
 
 /* button */
 .adding-button {
-    position: relative;
-    width: 90%;
-    height: var(--box-contracted-length);
+  position: relative;
+  width: 90%;
+  height: var(--box-contracted-length);
 
-    background-color: var(--dark02);
-    border-radius: calc(var(--global-border-radius) * 0.9);
-    box-shadow: inset 0 0 0 var(--line-thickness) var(--dark04);
+  background-color: var(--dark02);
+  border-radius: calc(var(--global-border-radius) * 0.9);
+  box-shadow: inset 0 0 0 var(--line-thickness) var(--dark04);
 }
 
 .adding-button:hover {
-    background-color: var(--highlight01);
+  background-color: var(--highlight01);
 }
 
 .adding-button svg {
-    color: var(--light01);
-    margin-right: 0.32rem;
-    margin-left: -0.4rem;
+  color: var(--light01);
+  margin-right: 0.32rem;
+  margin-left: -0.4rem;
 }
 
 .adding-button span {
-    margin-bottom: 0.1rem !important;
-    color: var(--light01);
+  margin-bottom: 0.1rem !important;
+  color: var(--light01);
 }
 
 /* icon */
 path {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
