@@ -208,4 +208,4 @@ const nextTheme = {
   DeepSilverButtonCss,
 };
 
-export { theme, nextTheme };
+export {theme, nextTheme};

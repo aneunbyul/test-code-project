@@ -10,8 +10,6 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
-
-//component
 import SearchBox from '../contents/ReusableContent/SearchBox';
 
 const Header = () => {
@@ -56,5 +54,4 @@ const LogoBox = styled.div`
     z-index: 2;
   }
 `;
-
 export default Header;

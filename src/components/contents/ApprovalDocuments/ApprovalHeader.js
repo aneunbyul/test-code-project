@@ -11,7 +11,6 @@ const ApprovalHeader = () => {
         <Button variant="outlined">임시저장</Button>
         <Button variant="outlined">문서연결</Button>
       </Stack>
-      {/*<Button variant="contained">Contained</Button>*/}
     </>
   );
 };
