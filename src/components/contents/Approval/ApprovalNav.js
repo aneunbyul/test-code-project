@@ -97,11 +97,16 @@ const ApprovalNav = () => {
     },
   ];
 
+  /*
   const afterPath = router.pathname.substring(
     router.pathname.indexOf(parentLink) + parentLink.length + 2,
   );
   const isBase =
     afterPath == '' && router.pathname.includes(parentLink) ? true : false;
+    */
+
+  // base 화면을 출력해야 하는지 확인하는 hook
+  const [isBasePage, setIsBasePage] = React.useState(true);
 
   // selected category index hooks for base page & creation page
   const [selectedBaseIndex, setSelectedBaseIndex] = React.useState(-1);
@@ -117,7 +122,7 @@ const ApprovalNav = () => {
 
   return (
     <ViewBox>
-      {isBase && (
+      {isBasePage && (
         <Box className="sub-nav__container" role="presentation">
           <ConversionButton
             icon={
@@ -131,7 +136,8 @@ const ApprovalNav = () => {
               />
             }
             text="추가하기"
-            link={parentLink + '/creation'}
+            clickAction={setIsBasePage}
+            clickActionValue={false}
           />
 
           <Divider className="line-divider" />
@@ -143,7 +149,7 @@ const ApprovalNav = () => {
             subNavListData={subNavListData_base}></SubNavList>
         </Box>
       )}
-      {!isBase && (
+      {!isBasePage && (
         <Box className="sub-nav__container" role="presentation">
           <ConversionButton
             icon={
@@ -157,7 +163,8 @@ const ApprovalNav = () => {
               />
             }
             text="돌아가기"
-            link={parentLink}
+            clickAction={setIsBasePage}
+            clickActionValue={true}
           />
 
           <Divider className="line-divider" />

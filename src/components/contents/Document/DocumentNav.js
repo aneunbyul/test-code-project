@@ -88,11 +88,16 @@ const DocumentNav = () => {
     },
   ];
 
+  /*
   const afterPath = router.pathname.substring(
     router.pathname.indexOf(parentLink) + parentLink.length + 2,
   );
   const isBase =
     afterPath == '' && router.pathname.includes(parentLink) ? true : false;
+    */
+
+  // base 화면을 출력해야 하는지 확인하는 hook
+  const [isBasePage, setIsBasePage] = React.useState(true);
 
   const [selectedBaseIndex, setSelectedBaseIndex] = React.useState(-1);
 
@@ -102,7 +107,7 @@ const DocumentNav = () => {
 
   return (
     <ViewBox>
-      {isBase && (
+      {isBasePage && (
         <Box className="sub-nav__container" role="presentation">
           <SubNavList
             handleSelectedIndex={handleSelectedBaseIndex}
