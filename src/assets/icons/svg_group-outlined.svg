@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+    <defs>
+        <style>
+            .a,.b,.c{fill:none;}.b,.c{stroke:#000;stroke-miterlimit:10;stroke-width:2.5px;}.b{stroke-linecap:round;}
+        </style>
+    </defs>
+    <rect class="a" width="36" height="36"/>
+    <path class="b" d="M12.56,30.41V28.05c0-2.52,1.72-4.56,3.84-4.56h4.3c2.12,0,3.84,2,3.84,4.56v2.36"/>
+    <circle class="c" cx="18.18" cy="16.5" r="3.37"/>
+    <path class="b" d="M4,23.28V21.91c0-2.51,1.72-4.55,3.84-4.55h3.3"/>
+    <circle class="c" cx="9.62" cy="10.37" r="3.37"/>
+    <path class="b" d="M32.19,23.28V21.91c0-2.51-1.72-4.55-3.84-4.55h-3.3"/>
+    <circle class="c" cx="26.58" cy="10.37" r="3.37"/>
+</svg>

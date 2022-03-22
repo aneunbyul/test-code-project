@@ -1,0 +1,4 @@
+export const ICONS = {
+  DocFilled: require("../../../assets/icons/svg_doc-filled.svg"),
+  DocLined: require("../../../assets/icons/svg_doc-filled.svg"),
+};

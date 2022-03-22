@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+    <defs>
+        <style>.a{fill:none;}.b{stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px;}</style>
+    </defs>
+    <rect class="a" width="36" height="36"/>
+    <path d="M26.67,7.73H17.86V7.39A1.89,1.89,0,0,0,16,5.5H4.78A1.89,1.89,0,0,0,2.89,7.39v23l.06.25,2.44-7.32L8.87,12.82A1.25,1.25,0,0,1,10.06,12h18.5V9.62A1.89,1.89,0,0,0,26.67,7.73Z"/>
+    <polygon class="b" points="12.13 16 7.14 31 28.1 31 33.09 16 12.13 16"/>
+</svg>

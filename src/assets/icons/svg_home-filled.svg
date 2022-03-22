@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+    <defs>
+        <style>.a{fill:none;}.b{stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px;}</style>
+    </defs>
+    <rect class="a" width="36" height="36"/>
+    <polygon class="b"
+             points="18 4.94 6.04 16.07 6.04 31.06 12.62 31.06 12.62 21.06 23.38 21.06 23.38 31.06 29.96 31.06 29.96 16.07 18 4.94"/>
+</svg>
