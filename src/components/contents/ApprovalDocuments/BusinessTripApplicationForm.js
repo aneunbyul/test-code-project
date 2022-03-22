@@ -33,6 +33,9 @@ const BusinessTripApplicationForm = () => {
 const BusinessTripApplicationContainer = styled(Container)`
     background-color: white;
     height: 100%;
+    & > div{
+    border:1px solid;
+    }
 }
 `;
 export default BusinessTripApplicationForm;
