@@ -1,15 +1,15 @@
-import styled, {css} from 'styled-components';
-import Nav from './Nav';
-import Link from 'next/link';
-import {useContext, useEffect, useRef, useState} from 'react';
-import logoIcon from '../../assets/logos/TelepixLogo_v2_white.webp';
-import {Box} from '@material-ui/core';
-import CardMedia from '@mui/material/CardMedia';
-import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
+import styled, { css } from "styled-components";
+import Nav from "./Nav";
+import Link from "next/link";
+import { useContext, useEffect, useRef, useState } from "react";
+import logoIcon from "../../assets/logos/TelepixLogo_v2_white.webp";
+import { Box } from "@material-ui/core";
+import CardMedia from "@mui/material/CardMedia";
+import InputBase from "@mui/material/InputBase";
+import SearchIcon from "@mui/icons-material/Search";
 
-import IconButton from '@mui/material/IconButton';
-import Paper from '@mui/material/Paper';
+import IconButton from "@mui/material/IconButton";
+import Paper from "@mui/material/Paper";
 
 const SearchBox = () => {
   return (
@@ -19,7 +19,7 @@ const SearchBox = () => {
       </SearchButton>
       <SearchInputBox
         placeholder="직원이름, 소속 부서 기타 정보를 입력하세요."
-        inputProps={{'aria-label': 'search'}}
+        inputProps={ { "aria-label": "search" } }
       />
     </SearchBoxContainer>
   );
@@ -69,11 +69,11 @@ const SearchBoxContainer = styled.div`
   background-color: var(--dark00);
 `;
 
-const SearchButton = styled(IconButton)`
+const SearchButton = styled ( IconButton )`
   color: var(--light04);
 `;
 
-const SearchInputBox = styled(InputBase)`
+const SearchInputBox = styled ( InputBase )`
   position: relative;
   display: flex;
   align-items: center;

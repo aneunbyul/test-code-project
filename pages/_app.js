@@ -1,15 +1,15 @@
-import '../styles/globals.css';
-import Layout from '../src/components/layouts/Layout';
-import {ThemeProvider} from 'styled-components';
-import {GlobalStyle} from '../src/styles/global-style';
-import {theme} from '../src/styles/theme';
+import "../styles/globals.css";
+import Layout from "../src/components/layouts/Layout";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "../src/styles/global-style";
+import { theme } from "../src/styles/theme";
 
-function MyApp({Component, pageProps}) {
+function MyApp ( { Component, pageProps } ) {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={ theme }>
       <GlobalStyle />
       <Layout>
-        <Component {...pageProps} />
+        <Component { ...pageProps } />
       </Layout>
     </ThemeProvider>
   );

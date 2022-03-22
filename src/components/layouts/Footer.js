@@ -1,16 +1,16 @@
-import styled from 'styled-components';
-import LimitWidthLayout from '../base/LimitWidthLayout';
-import Link from 'next/link';
+import styled from "styled-components";
+import LimitWidthLayout from "../base/LimitWidthLayout";
+import Link from "next/link";
 
 const Footer = () => {
   return (
     <StyledFooter>
-      {/*<LimitWidthLayout padding="36px 0">*/}
+      {/*<LimitWidthLayout padding="36px 0">*/ }
       <InnerWrapper>
         <p>TelePIX © 2022</p>
         <TagBox></TagBox>
       </InnerWrapper>
-      {/*</LimitWidthLayout>*/}
+      {/*</LimitWidthLayout>*/ }
     </StyledFooter>
   );
 };

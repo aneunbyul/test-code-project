@@ -1,58 +1,58 @@
-import {useRef, useEffect, useCallback} from 'react';
+import { useRef, useEffect, useCallback } from "react";
 
 const useScrollFadeIn = (
-  direction = 'up',
+  direction = "up",
   duration = 1,
   delay = 0,
-  threshold = 0.7,
+  threshold = 0.7
 ) => {
-  const element = useRef(null);
-  const handleDirection = (name) => {
+  const element = useRef ( null );
+  const handleDirection = ( name ) => {
     switch (name) {
-      case 'up':
-        return 'translate3d(0, 50%, 0)';
-      case 'down':
-        return 'translate3d(0, -50%, 0)';
-      case 'left':
-        return 'translate3d(50%, 0, 0)';
-      case 'right':
-        return 'translate3d(-50%, 0, 0)';
+      case "up":
+        return "translate3d(0, 50%, 0)";
+      case "down":
+        return "translate3d(0, -50%, 0)";
+      case "left":
+        return "translate3d(50%, 0, 0)";
+      case "right":
+        return "translate3d(-50%, 0, 0)";
       default:
         return;
     }
   };
 
-  const onScroll = useCallback(
-    ([entry]) => {
-      const {current} = element;
+  const onScroll = useCallback (
+    ( [entry] ) => {
+      const { current } = element;
       if (current !== null) {
         if (entry.isIntersecting) {
-          current.style.transitionProperty = 'all';
-          current.style.transitionDuration = `${duration}s`;
-          current.style.transitionTimingFunction = 'cubic-bezier(0, 0, 0.2, 1)';
-          current.style.transitionDelay = `${delay}s`;
-          current.style.opacity = '1';
-          current.style.transform = 'translate3d(0, 0, 0)';
+          current.style.transitionProperty = "all";
+          current.style.transitionDuration = `${ duration }s`;
+          current.style.transitionTimingFunction = "cubic-bezier(0, 0, 0.2, 1)";
+          current.style.transitionDelay = `${ delay }s`;
+          current.style.opacity = "1";
+          current.style.transform = "translate3d(0, 0, 0)";
         }
       }
     },
-    [delay, duration],
+    [delay, duration]
   );
 
-  useEffect(() => {
-    const {current} = element;
+  useEffect ( () => {
+    const { current } = element;
     if (current) {
-      const observer = new IntersectionObserver(onScroll, {
-        threshold,
-      });
-      observer.observe(current);
-      return () => observer && observer.disconnect();
+      const observer = new IntersectionObserver ( onScroll, {
+        threshold
+      } );
+      observer.observe ( current );
+      return () => observer && observer.disconnect ();
     }
-  }, [onScroll]);
+  }, [onScroll] );
 
   return {
     ref: element,
-    style: {opacity: 0, transform: handleDirection(direction)},
+    style: { opacity: 0, transform: handleDirection ( direction ) }
   };
 };
 

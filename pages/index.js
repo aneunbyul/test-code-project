@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import BaseHead from '../src/components/base/BaseHead';
-import MainTop from '../src/components/contents/Main/MainTop';
+import styled from "styled-components";
+import BaseHead from "../src/components/base/BaseHead";
+import MainTop from "../src/components/contents/Main/MainTop";
 
 const Main = () => {
   return (

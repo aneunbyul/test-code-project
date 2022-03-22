@@ -1,34 +1,34 @@
-import {RefObject, useEffect, useCallback, useState} from 'react';
+import { RefObject, useEffect, useCallback, useState } from "react";
 
 const useIntersectionObserver = (
   element,
   threshold = 0.7,
   repeat = false,
-  rootMargin = '0px 0px 0px 0px',
+  rootMargin = "0px 0px 0px 0px"
 ) => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState ( false );
 
-  const handleScroll = useCallback(([entry]) => {
+  const handleScroll = useCallback ( ( [entry] ) => {
     if (entry.isIntersecting) {
-      setIsActive(true);
+      setIsActive ( true );
     } else {
       if (repeat) {
-        setIsActive(false);
+        setIsActive ( false );
       }
     }
-  }, []);
+  }, [] );
 
-  useEffect(() => {
-    const {current} = element;
+  useEffect ( () => {
+    const { current } = element;
     if (current) {
-      const observer = new IntersectionObserver(handleScroll, {
+      const observer = new IntersectionObserver ( handleScroll, {
         threshold,
-        rootMargin,
-      });
-      observer.observe(current);
-      return () => observer && observer.disconnect();
+        rootMargin
+      } );
+      observer.observe ( current );
+      return () => observer && observer.disconnect ();
     }
-  }, [handleScroll]);
+  }, [handleScroll] );
 
   return isActive;
 };
