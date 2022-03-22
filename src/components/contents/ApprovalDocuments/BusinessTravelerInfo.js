@@ -11,19 +11,9 @@ import {
 } from '@mui/material';
 import styled from 'styled-components';
 
+import TextField from '@mui/material/TextField';
+
 const BusinessTravelerInfo = () => {
-  const [Assignment, setAssignment] = React.useState('');
-
-  const handleChange = (event) => {
-    setAssignment(event.target.value);
-  };
-
-  const [BudgetMajorCategory, setBudgetMajorCategory] = React.useState('');
-
-  const BudgetMajorCategoryHandleChange = (event) => {
-    setBudgetMajorCategory(event.target.value);
-  };
-
   return (
     <>
       <GridContainer container>

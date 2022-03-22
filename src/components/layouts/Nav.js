@@ -282,7 +282,7 @@ const NavTabText = styled(ListItemText)`
   }
 `;
 
-const MyIcon = styled(Avatar)`
+const MyIcon = styled ( Avatar )`
   position: absolute;
   bottom: 20px;
 `;

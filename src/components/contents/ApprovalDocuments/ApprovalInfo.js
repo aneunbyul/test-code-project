@@ -12,17 +12,32 @@ import {
 import styled from 'styled-components';
 
 const ApprovalInfo = () => {
+  const [Team, setTeam] = React.useState('');
   const [Assignment, setAssignment] = React.useState('');
+  const [BudgetMajorCategory, setBudgetMajorCategory] = React.useState('');
+  const [BudgetSubCategory, setBudgetSubCategory] = React.useState('');
 
-  const handleChange = (event) => {
+  const TeamHandleChange = (event) => {
+    setTeam(event.target.value);
+  };
+  const AssignmentHandleChange = (event) => {
     setAssignment(event.target.value);
   };
-
-  const [BudgetMajorCategory, setBudgetMajorCategory] = React.useState('');
-
   const BudgetMajorCategoryHandleChange = (event) => {
     setBudgetMajorCategory(event.target.value);
   };
+  const BudgetSubCategoryHandleChange = (event) => {
+    setBudgetSubCategory(event.target.value);
+  };
+
+  const teamNames = [
+    '전자통신연구팀',
+    '광기계연구팀',
+    '광전자연구팀',
+    'AI연구팀',
+    '영상과학연구팀',
+    '전략기획연구팀',
+  ];
 
   return (
     <>
@@ -47,14 +62,15 @@ const ApprovalInfo = () => {
         </Grid>
         <Grid item xs={4}>
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">팀 선택</InputLabel>
+            <InputLabel id="team-select-label">팀 선택</InputLabel>
             <Select
-              labelId="demo-simple-select-label"
-              value={BudgetMajorCategory}
+              labelId="team-select-label"
+              value={Team}
               label="팀 선택"
-              onChange={BudgetMajorCategoryHandleChange}>
-              <MenuItem value={10}>영상과학연구팀</MenuItem>
-              <MenuItem value={20}>광기계연구팀</MenuItem>
+              onChange={TeamHandleChange}>
+              {teamNames.map((value, index, array) => (
+                <MenuItem value={value}>{value}</MenuItem>
+              ))}
             </Select>
           </FormControl>
         </Grid>
@@ -68,9 +84,9 @@ const ApprovalInfo = () => {
               labelId="demo-simple-select-label"
               value={Assignment}
               label="과제선택"
-              onChange={handleChange}>
-              <MenuItem value={10}>산자부</MenuItem>
-              <MenuItem value={20}>미도</MenuItem>
+              onChange={AssignmentHandleChange}>
+              <MenuItem value={10}>산자부 과제(PC-01-13)</MenuItem>
+              <MenuItem value={20}>미도 과제(PC-03-02)</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -102,9 +118,9 @@ const ApprovalInfo = () => {
             <InputLabel id="demo-simple-select-label">예산 선택</InputLabel>
             <Select
               labelId="demo-simple-select-label"
-              value={BudgetMajorCategory}
+              value={BudgetSubCategory}
               label="과제선택"
-              onChange={BudgetMajorCategoryHandleChange}>
+              onChange={BudgetSubCategoryHandleChange}>
               <MenuItem value={10}>연구활동비</MenuItem>
               <MenuItem value={20}>평가성성과급</MenuItem>
             </Select>

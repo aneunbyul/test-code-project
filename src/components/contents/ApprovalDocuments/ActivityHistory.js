@@ -8,6 +8,7 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  TextField,
 } from '@mui/material';
 import styled from 'styled-components';
 
@@ -45,7 +46,12 @@ const ActivityHistory = () => {
           <Box>2022/03/01</Box>
         </Grid>
         <Grid item xs={6}>
-          <Box>과제 책임자들과 미팅</Box>
+          <TextField
+            required
+            id="outlined-required"
+            label="선택입력"
+            placeholder="활동내역 입력"
+          />
         </Grid>
       </GridContainer>
     </>
