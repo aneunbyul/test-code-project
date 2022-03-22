@@ -63,7 +63,7 @@ const ApprovalNav = () => {
     {
       name: '출장 신청서',
       link: '/trip-request',
-      iconName: <FilloutIcon name="" size="small" type="outlined" />,
+      iconName: '',
     },
     {
       name: '출장 복명서',
