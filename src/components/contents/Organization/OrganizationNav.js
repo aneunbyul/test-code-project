@@ -28,34 +28,45 @@ const OrganizationNav = () => {
 
   // sub nav data for base
   const subNavListData_base = [
-    {name: '임직원', link: '/employee'},
-    {name: '팀 · 부서', link: '/dept'},
-    {name: '기타', link: '/etc'},
+    {
+      name: '임직원',
+      link: '/employee',
+      iconName: '',
+    },
+    {
+      name: '팀 · 부서',
+      link: '/dept',
+      iconName: '',
+    },
+    {
+      name: '기타',
+      link: '/etc',
+      iconName: '',
+    },
   ];
 
   const subNavTitles_base = [];
 
   // sub nav data for creation
   const subNavListData_creation = [
-    {name: '임직원', link: '/employee'},
-    {name: '팀 · 부서', link: '/dept'},
-    {name: '기타추가', link: '/etc'},
+    {
+      name: '임직원',
+      link: '/employee',
+      iconName: '',
+    },
+    {
+      name: '팀 · 부서',
+      link: '/dept',
+      iconName: '',
+    },
+    {
+      name: '기타',
+      link: '/etc',
+      iconName: '',
+    },
   ];
 
   const subNavTitles_creation = [null];
-
-  let navObject = [
-    {
-      navName: '',
-      isActive: true,
-      activeListIndex: -1,
-    },
-    {
-      navName: 'creation',
-      isActive: false,
-      activeListIndex: -1,
-    },
-  ];
 
   const afterPath = router.pathname.substring(
     router.pathname.indexOf('parentLink') + parentLink.length + 2,

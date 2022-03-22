@@ -28,34 +28,45 @@ const AssignmentNav = () => {
 
   // sub nav data for base
   const subNavListData_base = [
-    {name: '진행 과제', link: '/unfinished'},
-    {name: '완료 과제', link: '/completed'},
-    {name: '취소된 과제', link: '/canceld'},
+    {
+      name: '진행 과제',
+      link: '/unfinished',
+      iconName: '',
+    },
+    {
+      name: '완료 과제',
+      link: '/completed',
+      iconName: '',
+    },
+    {
+      name: '취소된 과제',
+      link: '/canceld',
+      iconName: '',
+    },
   ];
 
   const subNavTitles_base = [];
 
   // sub nav data for creation
   const subNavListData_creation = [
-    {name: '진행 과제', link: '/unfinished'},
-    {name: '완료 과제', link: '/completed'},
-    {name: '대기 과제', link: '/impending'},
+    {
+      name: '진행 과제',
+      link: '/unfinished',
+      iconName: '',
+    },
+    {
+      name: '완료 과제',
+      link: '/completed',
+      iconName: '',
+    },
+    {
+      name: '대기 과제',
+      link: '/impending',
+      iconName: '',
+    },
   ];
 
   const subNavTitles_creation = [null];
-
-  let navObject = [
-    {
-      navName: '',
-      isActive: true,
-      activeListIndex: -1,
-    },
-    {
-      navName: 'creation',
-      isActive: false,
-      activeListIndex: -1,
-    },
-  ];
 
   const afterPath = router.pathname.substring(
     router.pathname.indexOf('parentLink') + parentLink.length + 1,
