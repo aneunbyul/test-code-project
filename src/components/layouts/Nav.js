@@ -119,6 +119,7 @@ const Nav = () => {
 const NavLayout = styled(Box)`
   position: relative;
   width: var(--box-contracted-length);
+  height: 100%;
 `;
 
 const NavContainer = styled(Box)`
@@ -127,7 +128,7 @@ const NavContainer = styled(Box)`
   width: var(
     --box-contracted-length
   ); /* this width will be controlled by js, according to its parent */
-  height: calc(100vh - var(--box-contracted-length));
+  height: 100%;
   z-index: 1;
   background-color: var(--dark02);
   box-shadow: inset calc(var(--line-thickness) * -1) 0 0 0 var(--dark04);
@@ -148,7 +149,7 @@ const NavContainer = styled(Box)`
 
   & div.Mui-selected::before {
     border-radius: calc(var(--global-border-radius) * 2) !important;
-    padding: 0.45rem;
+    padding: 0.6rem;
     transition: 0.1s padding var(--cubic01) var(--delay-nav-out),
       0.1s border-radius var(--cubic01) var(--delay-nav-out),
       0.1s width var(--cubic01) var(--delay-nav-out),

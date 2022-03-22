@@ -65,9 +65,10 @@ const OrganizationNav = () => {
   ];
 
   const afterPath = router.pathname.substring(
-    router.pathname.indexOf('parentLink') + parentLink.length + 2,
+    router.pathname.indexOf(parentLink) + parentLink.length + 2,
   );
-  const isBase = afterPath == '' ? true : false;
+  const isBase =
+    afterPath == '' && router.pathname.includes(parentLink) ? true : false;
 
   const [selectedBaseIndex, setSelectedBaseIndex] = useState(-1);
   const [selectedCreationIndex, setSelectedCreationIndex] = useState(-1);
@@ -102,8 +103,8 @@ const OrganizationNav = () => {
           <Divider className="line-divider" />
 
           <SubNavList
-            handleSelectedBaseIndex={handleSelectedBaseIndex}
-            selectedBaseIndex={selectedBaseIndex}
+            handleSelectedIndex={handleSelectedBaseIndex}
+            selectedIndex={selectedBaseIndex}
             parentLink={parentLink}
             subNavListData={subNavListData_base}
             subNavTitles={null}></SubNavList>
@@ -129,8 +130,8 @@ const OrganizationNav = () => {
           <Divider className="line-divider" />
 
           <SubNavList
-            handleSelectedBaseIndex={handleSelectedCreationIndex}
-            selectedBaseIndex={selectedCreationIndex}
+            handleSelectedIndex={handleSelectedCreationIndex}
+            selectedIndex={selectedCreationIndex}
             parentLink={parentLink + '/creation'}
             subNavListData={subNavListData_creation}
             subNavTitles={null}></SubNavList>

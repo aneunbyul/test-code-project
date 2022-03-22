@@ -89,9 +89,10 @@ const DocumentNav = () => {
   ];
 
   const afterPath = router.pathname.substring(
-    router.pathname.indexOf('parentLink') + parentLink.length + 1,
+    router.pathname.indexOf(parentLink) + parentLink.length + 2,
   );
-  const isBase = afterPath == '' ? true : false;
+  const isBase =
+    afterPath == '' && router.pathname.includes(parentLink) ? true : false;
 
   const [selectedBaseIndex, setSelectedBaseIndex] = React.useState(-1);
 
@@ -104,8 +105,8 @@ const DocumentNav = () => {
       {isBase && (
         <Box className="sub-nav__container" role="presentation">
           <SubNavList
-            handleSelectedBaseIndex={handleSelectedBaseIndex}
-            selectedBaseIndex={selectedBaseIndex}
+            handleSelectedIndex={handleSelectedBaseIndex}
+            selectedIndex={selectedBaseIndex}
             parentLink={parentLink}
             subNavListData={subNavListData_base}></SubNavList>
         </Box>
