@@ -1,8 +1,6 @@
 import styled, {css} from 'styled-components';
-import Nav from './Nav';
 import Link from 'next/link';
 import {useContext, useEffect, useRef, useState} from 'react';
-import logoIcon from '../../assets/logos/TelepixLogo_v2_white.webp';
 import {Box} from '@material-ui/core';
 import CardMedia from '@mui/material/CardMedia';
 import InputBase from '@mui/material/InputBase';
@@ -24,37 +22,6 @@ const SearchBox = () => {
     </SearchBoxContainer>
   );
 };
-
-const HeaderLayout = styled.div`
-  position: relative;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  width: 100%;
-  height: var(--box-contracted-length);
-  box-shadow: inset 0 calc(var(--line-thickness) * -1) 0 0 var(--dark04);
-  background-color: var(--dark02);
-  z-index: 1;
-`;
-
-const Container = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: var(--box-expanded-length) auto;
-  align-items: center;
-`;
-
-const LogoBox = styled.div`
-  display: 'flex';
-  align-items: 'center';
-  & img {
-    margin-left: 1rem;
-    max-height: 1.72rem;
-    opacity: 0.7;
-    z-index: 2;
-  }
-`;
 
 const SearchBoxContainer = styled.div`
   display: flex;

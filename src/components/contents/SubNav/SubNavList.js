@@ -131,7 +131,7 @@ const SubNavListWrapper = styled(SimpleBar)`
 const SubNavListItem = styled(ListItem)`
   width: 100%;
   padding: 0.2rem 0rem;
-  padding-left: 10%;
+  padding-left: 5%;
   transition: all 0.1s var(--cubic01);
   background-color: var(--transaparent);
   z-index: 0;
@@ -184,7 +184,7 @@ const SubNavListItem = styled(ListItem)`
   }
 
   &[type='title'] {
-    padding-left: 8%;
+    padding-left: 3%;
   }
 
   &[type='title']::after {
