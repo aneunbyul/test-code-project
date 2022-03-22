@@ -122,10 +122,9 @@ const ApprovalNav = () => {
               <FilloutIcon
                 sx={{
                   marginLeft: '-12%',
-                  marginRight: '0.24rem',
                 }}
                 name="write"
-                size="big"
+                size="small"
                 type="outlined"
               />
             }
@@ -149,10 +148,9 @@ const ApprovalNav = () => {
               <FilloutIcon
                 sx={{
                   marginLeft: '-12%',
-                  marginRight: '0.24rem',
                 }}
                 name="toright"
-                size="big"
+                size="small"
                 type="outlined"
               />
             }

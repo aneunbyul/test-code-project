@@ -35,7 +35,7 @@ ConversionButton.defaultProps = {
         marginRight: '0.24rem',
       }}
       name="write"
-      size="big"
+      size="small"
       type="outlined"
     />
   ),
@@ -60,9 +60,7 @@ const InteractiveButton = styled(Button)`
   }
 
   & svg {
-    color: var(--light01);
-    margin-right: 0.32rem;
-    margin-left: -0.4rem;
+    fill: var(--light01);
   }
 
   & span {
