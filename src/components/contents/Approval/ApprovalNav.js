@@ -39,22 +39,22 @@ const ApprovalNav = () => {
     {
       name: '미결된 결재',
       link: '/unfinished',
-      iconName: <FilloutIcon name="" size="small" type="outlined" />,
+      iconName: '',
     },
     {
       name: '완료된 결재',
       link: '/completed',
-      iconName: <FilloutIcon name="" size="small" type="outlined" />,
+      iconName: '',
     },
     {
       name: '반려된 결재',
       link: '/rejected',
-      iconName: <FilloutIcon name="" size="small" type="outlined" />,
+      iconName: '',
     },
     {
       name: '취소된 결재',
       link: '/canceled',
-      iconName: <FilloutIcon name="" size="small" type="outlined" />,
+      iconName: '',
     },
   ];
 
@@ -63,37 +63,37 @@ const ApprovalNav = () => {
     {
       name: '출장 신청서',
       link: '/trip_request',
-      iconName: <FilloutIcon name="" size="small" type="outlined" />,
+      iconName: '',
     },
     {
       name: '출장 복명서',
       link: '/trip_report',
-      iconName: <FilloutIcon name="" size="small" type="outlined" />,
+      iconName: '',
     },
     {
       name: '지출 요청서',
       link: '/expenditure_request',
-      iconName: <FilloutIcon name="" size="small" type="outlined" />,
+      iconName: '',
     },
     {
       name: '회의비 보고서',
       link: '/conference_report',
-      iconName: <FilloutIcon name="" size="small" type="outlined" />,
+      iconName: '',
     },
     {
       name: '명함 신청서',
       link: '/card',
-      iconName: <FilloutIcon name="" size="small" type="outlined" />,
+      iconName: '',
     },
     {
       name: '임시 문서1',
       link: '/temp1',
-      iconName: <FilloutIcon name="" size="small" type="outlined" />,
+      iconName: '',
     },
     {
       name: '임시 문서2',
       link: '/temp2',
-      iconName: <FilloutIcon name="" size="small" type="outlined" />,
+      iconName: '',
     },
   ];
 
@@ -102,6 +102,7 @@ const ApprovalNav = () => {
   );
   const isBase = afterPath == '' ? true : false;
 
+  // selected category index hooks for base page & creation page
   const [selectedBaseIndex, setSelectedBaseIndex] = React.useState(-1);
   const [selectedCreationIndex, setSelectedCreationIndex] = React.useState(-1);
 

@@ -28,32 +28,39 @@ const OrganizationNav = () => {
 
   // sub nav data for base
   const subNavListData_base = [
-    {name: '임직원', link: '/employee'},
-    {name: '팀 · 부서', link: '/dept'},
-    {name: '기타', link: '/etc'},
+    {
+      name: '임직원',
+      link: '/employee',
+      iconName: '',
+    },
+    {
+      name: '팀 · 부서',
+      link: '/dept',
+      iconName: '',
+    },
+    {
+      name: '기타',
+      link: '/etc',
+      iconName: '',
+    },
   ];
-
-  const subNavTitles_base = [];
 
   // sub nav data for creation
   const subNavListData_creation = [
-    {name: '임직원', link: '/employee'},
-    {name: '팀 · 부서', link: '/dept'},
-    {name: '기타추가', link: '/etc'},
-  ];
-
-  const subNavTitles_creation = [null];
-
-  let navObject = [
     {
-      navName: '',
-      isActive: true,
-      activeListIndex: -1,
+      name: '임직원',
+      link: '/employee',
+      iconName: '',
     },
     {
-      navName: 'creation',
-      isActive: false,
-      activeListIndex: -1,
+      name: '팀 · 부서',
+      link: '/dept',
+      iconName: '',
+    },
+    {
+      name: '기타',
+      link: '/etc',
+      iconName: '',
     },
   ];
 
@@ -99,7 +106,7 @@ const OrganizationNav = () => {
             selectedBaseIndex={selectedBaseIndex}
             parentLink={parentLink}
             subNavListData={subNavListData_base}
-            subNavTitles={subNavTitles_base}></SubNavList>
+            subNavTitles={null}></SubNavList>
         </Box>
       )}
       {!isBase && (
@@ -126,7 +133,7 @@ const OrganizationNav = () => {
             selectedBaseIndex={selectedCreationIndex}
             parentLink={parentLink + '/creation'}
             subNavListData={subNavListData_creation}
-            subNavTitles={subNavTitles_creation}></SubNavList>
+            subNavTitles={null}></SubNavList>
         </Box>
       )}
     </ViewBox>
