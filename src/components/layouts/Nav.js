@@ -1,104 +1,112 @@
-import React, { useEffect, useState } from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/Inbox";
-import HomeIcon from "@mui/icons-material/Home";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import MailIcon from "@mui/icons-material/Mail";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import AssignmentIcon from "@mui/icons-material/Assignment";
-import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
-import WorkIcon from "@mui/icons-material/Work";
-import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
-import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
-import Avatar from "@mui/material/Avatar";
-import FilloutIcon from "../contents/Icon/FilloutIcon";
-import { Box } from "@material-ui/core";
-import styled from "styled-components";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import React, {useEffect, useState} from 'react';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/Inbox';
+import HomeIcon from '@mui/icons-material/Home';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import MailIcon from '@mui/icons-material/Mail';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
+import WorkIcon from '@mui/icons-material/Work';
+import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import Avatar from '@mui/material/Avatar';
+import FilloutIcon from '../contents/Icon/FilloutIcon';
+import {Box} from '@material-ui/core';
+import styled from 'styled-components';
+import Link from 'next/link';
+import {useRouter} from 'next/router';
 
 const Nav = () => {
-  const router = useRouter ();
-  const isApprovalPage = router.pathname.includes ( "/approval" );
-  const isAssignmentPage = router.pathname.includes ( "/assignment" );
-  const isDocumentPage = router.pathname.includes ( "/document" );
-  const isOrganization = router.pathname.includes ( "/organization" );
+  const router = useRouter();
+  const isApprovalPage = router.pathname.includes('/approval');
+  const isAssignmentPage = router.pathname.includes('/assignment');
+  const isDocumentPage = router.pathname.includes('/document');
+  const isOrganization = router.pathname.includes('/organization');
 
   const mainNavListData = [
     {
-      name: "홈 화면",
-      link: "",
-      icon: <FilloutIcon name="home" size="big" type="outlined" />
+      text: '홈 화면',
+      link: '',
+      iconName: 'home',
     },
     {
-      name: "전자 결재",
-      link: "approval",
-      icon: <FilloutIcon name="approval" size="big" type="outlined" />
+      text: '전자 결재',
+      link: 'approval',
+      iconName: 'approval',
     },
     {
-      name: "문서 관리",
-      link: "document",
-      icon: <FilloutIcon name="document" size="big" type="outlined" />
+      text: '문서 관리',
+      link: 'document',
+      iconName: 'document',
     },
     {
-      name: "과제 정보",
-      link: "assignment",
-      icon: <FilloutIcon name="assignment" size="big" type="outlined" />
+      text: '과제 정보',
+      link: 'assignment',
+      iconName: 'assignment',
     },
     {
-      name: "조직 정보",
-      link: "organization",
-      icon: <FilloutIcon name="organization" size="big" type="outlined" />
-    }
+      text: '조직 정보',
+      link: 'organization',
+      iconName: 'organization',
+    },
   ];
 
-  const [selectedIndex, setSelectedIndex] = React.useState ( -1 );
+  const [selectedIndex, setSelectedIndex] = React.useState(-1);
 
-  const handleListItemClick = ( event, index ) => {
-    setSelectedIndex ( index );
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
   };
 
-  useEffect ( () => {
-    if (isApprovalPage) setSelectedIndex ( 1 );
-    else if (isDocumentPage) setSelectedIndex ( 2 );
-    else if (isAssignmentPage) setSelectedIndex ( 3 );
-    else if (isOrganization) setSelectedIndex ( 4 );
-    else setSelectedIndex ( 0 );
-  }, [] );
+  useEffect(() => {
+    if (isApprovalPage) setSelectedIndex(1);
+    else if (isDocumentPage) setSelectedIndex(2);
+    else if (isAssignmentPage) setSelectedIndex(3);
+    else if (isOrganization) setSelectedIndex(4);
+    else setSelectedIndex(0);
+  }, []);
 
   return (
     <NavLayout>
       <NavContainer aria-label="main nav">
         <NavTabGroup>
           <NavTabList component="nav" aria-label="nav list selection">
-            { mainNavListData.map ( ( object, index ) => {
+            {mainNavListData.map((object, index) => {
               return (
-                <Link key={ object.name + "link" } href={ "/" + object.link }>
+                <Link key={object.text + 'link'} href={'/' + object.link}>
                   <NavTabItem
-                    key={ object.name + "link" }
-                    selected={ selectedIndex === index }
-                    onClick={ ( event ) => handleListItemClick ( event, index ) }>
+                    key={object.text + 'link'}
+                    selected={selectedIndex === index}
+                    onClick={(event) => handleListItemClick(event, index)}>
                     <NavTabIconContainer>
-                      { selectedIndex === index ? (
-                        object.icon
+                      {selectedIndex === index ? (
+                        <FilloutIcon
+                          name={object.iconName}
+                          size="big"
+                          type="filled"
+                        />
                       ) : (
-                        <HomeOutlinedIcon />
-                      ) }
+                        <FilloutIcon
+                          name={object.iconName}
+                          size="big"
+                          type="outlined"
+                        />
+                      )}
                     </NavTabIconContainer>
                     <NavTabText
-                      key={ object.name + "text" }
-                      primary={ object.name }
+                      key={object.text + 'text'}
+                      primary={object.text}
                     />
                   </NavTabItem>
                 </Link>
               );
-            } ) }
+            })}
           </NavTabList>
 
           <MyIcon>A</MyIcon>
@@ -108,12 +116,12 @@ const Nav = () => {
   );
 };
 
-const NavLayout = styled ( Box )`
+const NavLayout = styled(Box)`
   position: relative;
   width: var(--box-contracted-length);
 `;
 
-const NavContainer = styled ( Box )`
+const NavContainer = styled(Box)`
   position: relative;
   will-change: width;
   width: var(
@@ -148,7 +156,7 @@ const NavContainer = styled ( Box )`
   }
 `;
 
-const NavTabGroup = styled ( Box )`
+const NavTabGroup = styled(Box)`
   position: absolute;
   top: 0;
   left: 0;
@@ -157,12 +165,12 @@ const NavTabGroup = styled ( Box )`
   background-color: var(--transparnet);
 `;
 
-const NavTabList = styled ( List )`
+const NavTabList = styled(List)`
   position: relative;
   padding: 0.12rem 0;
 `;
 
-const NavTabItem = styled ( ListItemButton )`
+const NavTabItem = styled(ListItemButton)`
   position: relative;
   display: grid;
   grid-template-columns: 2.6rem auto;
@@ -219,7 +227,7 @@ const NavTabItem = styled ( ListItemButton )`
   }
 `;
 
-const NavTabIconContainer = styled ( ListItemIcon )`
+const NavTabIconContainer = styled(ListItemIcon)`
   position: relative;
   display: flex;
   align-items: center;
@@ -241,7 +249,7 @@ const NavTabIconContainer = styled ( ListItemIcon )`
   }
 `;
 
-const NavTabText = styled ( ListItemText )`
+const NavTabText = styled(ListItemText)`
   position: absolute;
   top: -10%;
   left: calc(var(--box-contracted-length) * 1.1);
@@ -273,7 +281,7 @@ const NavTabText = styled ( ListItemText )`
   }
 `;
 
-const MyIcon = styled ( Avatar )`
+const MyIcon = styled(Avatar)`
   position: absolute;
   bottom: 20px;
 `;
