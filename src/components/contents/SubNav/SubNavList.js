@@ -60,18 +60,26 @@ const SubNavList = ({
                     href={parentLink + object.link}>
                     <SubNavListItem
                       key={object.name + 'title'}
-                      className="sub-nav__title"
                       type="title"
-                      selected={selectedBaseIndex === index}
+                      selected={selectedBaseIndex == index}
                       onClick={(event) => {
                         handleSelectedBaseIndex(index);
                       }}>
-                      <FilloutIcon
-                        sx={{marginRight: '4%'}}
-                        name={object.iconName}
-                        size="small"
-                        type="outlined"
-                      />
+                      {selectedBaseIndex != index ? (
+                        <FilloutIcon
+                          sx={{marginRight: '4%'}}
+                          name={object.iconName}
+                          size="small"
+                          type="outlined"
+                        />
+                      ) : (
+                        <FilloutIcon
+                          sx={{marginRight: '4%'}}
+                          name={object.iconName}
+                          size="small"
+                          type="filled"
+                        />
+                      )}
                       <ListItemText
                         key={object.name + 'title-text'}
                         primary={object.name}
@@ -92,17 +100,25 @@ const SubNavList = ({
                     href={parentLink + object.link}>
                     <SubNavListItem
                       key={object.name + 'item'}
-                      className="sub-nav__list-item"
                       selected={selectedBaseIndex === index}
                       onClick={(event) => {
                         handleSelectedBaseIndex(index);
                       }}>
-                      <FilloutIcon
-                        sx={{marginRight: '4%'}}
-                        name={object.iconName}
-                        size="small"
-                        type="outlined"
-                      />
+                      {selectedBaseIndex != index ? (
+                        <FilloutIcon
+                          sx={{marginRight: '4%'}}
+                          name={object.iconName}
+                          size="small"
+                          type="outlined"
+                        />
+                      ) : (
+                        <FilloutIcon
+                          sx={{marginRight: '4%'}}
+                          name={object.iconName}
+                          size="small"
+                          type="filled"
+                        />
+                      )}
                       <ListItemText
                         key={object.name + 'item-text'}
                         primary={object.name}
@@ -156,6 +172,10 @@ const SubNavListItem = styled(ListItem)`
 
   &.Mui-selected {
     background-color: var(--transaparent);
+  }
+
+  &.Mui-selected svg {
+    fill: var(--light01);
   }
 
   &::before {

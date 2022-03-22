@@ -102,6 +102,7 @@ const ApprovalNav = () => {
   );
   const isBase = afterPath == '' ? true : false;
 
+  // selected category index hooks for base page & creation page
   const [selectedBaseIndex, setSelectedBaseIndex] = React.useState(-1);
   const [selectedCreationIndex, setSelectedCreationIndex] = React.useState(-1);
 

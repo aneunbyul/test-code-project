@@ -45,8 +45,6 @@ const OrganizationNav = () => {
     },
   ];
 
-  const subNavTitles_base = [];
-
   // sub nav data for creation
   const subNavListData_creation = [
     {
@@ -65,8 +63,6 @@ const OrganizationNav = () => {
       iconName: '',
     },
   ];
-
-  const subNavTitles_creation = [null];
 
   const afterPath = router.pathname.substring(
     router.pathname.indexOf('parentLink') + parentLink.length + 2,
@@ -110,7 +106,7 @@ const OrganizationNav = () => {
             selectedBaseIndex={selectedBaseIndex}
             parentLink={parentLink}
             subNavListData={subNavListData_base}
-            subNavTitles={subNavTitles_base}></SubNavList>
+            subNavTitles={null}></SubNavList>
         </Box>
       )}
       {!isBase && (
@@ -137,7 +133,7 @@ const OrganizationNav = () => {
             selectedBaseIndex={selectedCreationIndex}
             parentLink={parentLink + '/creation'}
             subNavListData={subNavListData_creation}
-            subNavTitles={subNavTitles_creation}></SubNavList>
+            subNavTitles={null}></SubNavList>
         </Box>
       )}
     </ViewBox>

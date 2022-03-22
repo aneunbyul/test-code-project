@@ -81,11 +81,6 @@ const DocumentNav = () => {
       iconName: '',
     },
     {
-      name: 'ㅇㅇ',
-      link: '/temp3',
-      iconName: '',
-    },
-    {
       name: '외부 문서',
       link: '/received',
       type: 'title',
