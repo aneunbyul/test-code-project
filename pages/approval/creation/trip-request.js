@@ -1,7 +1,6 @@
-import BaseHead from "../../../src/components/base/BaseHead";
-import BusinessTripApplicationForm
-  from "../../../src/components/contents/ApprovalDocuments/BusinessTripApplicationForm";
-import ApprovalHeader from "../../../src/components/contents/ApprovalDocuments/ApprovalHeader";
+import BaseHead from '../../../src/components/base/BaseHead';
+import BusinessTripApplicationForm from '../../../src/components/contents/ApprovalDocuments/BusinessTripApplicationForm';
+import ApprovalHeader from '../../../src/components/contents/ApprovalDocuments/ApprovalHeader';
 
 const Page = () => {
   return (
