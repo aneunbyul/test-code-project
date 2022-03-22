@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import useScrollFadeIn from "../../hooks/useScrollFadeIn";
+import styled from 'styled-components';
+import useScrollFadeIn from '../../hooks/useScrollFadeIn';
 
-const BaseTitle = ( { title } ) => {
-  return <StyledTitle { ...useScrollFadeIn () }>{ title }</StyledTitle>;
+const BaseTitle = ({title}) => {
+  return <StyledTitle {...useScrollFadeIn()}>{title}</StyledTitle>;
 };
 
 const StyledTitle = styled.p`

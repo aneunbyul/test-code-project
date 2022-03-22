@@ -62,8 +62,8 @@ const ApprovalNav = () => {
   const subNavListData_creation = [
     {
       name: '출장 신청서',
-      link: '/trip_request',
-      iconName: '',
+      link: '/trip-request',
+      iconName: <FilloutIcon name="" size="small" type="outlined" />,
     },
     {
       name: '출장 복명서',
