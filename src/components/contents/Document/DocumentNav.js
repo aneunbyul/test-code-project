@@ -37,7 +37,7 @@ const DocumentNav = () => {
     },
     {
       name: '출장 신청서',
-      link: '/trip_request',
+      link: '/trip-request',
       iconName: '',
     },
     {

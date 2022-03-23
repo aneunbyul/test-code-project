@@ -23,20 +23,21 @@ const EmployeeBasicInfo = () => {
     <>
       <GridContainer container>
         <Grid item xs={2}>
-          <Box>사용자 ID</Box>
+          <Box>사용자 ID(메일)</Box>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={10}>
           <TextField
             fullWidth
             required
             id="outlined-required"
-            label="id 입력"
+            label="메일주소"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="start">@telepix.net</InputAdornment>
+              ),
+            }}
           />
         </Grid>
-        <Grid item xs={2}>
-          <Button variant="outlined">중복체크</Button>
-        </Grid>
-        <Grid item xs={6}></Grid>
 
         <Grid item xs={2}>
           <Box>비밀번호</Box>
@@ -85,22 +86,6 @@ const EmployeeBasicInfo = () => {
         </Grid>
 
         <Grid item xs={2}>
-          <Box>메일</Box>
-        </Grid>
-        <Grid item xs={4}>
-          <TextField
-            fullWidth
-            required
-            id="outlined-required"
-            label="메일주소"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="start">@telepix.net</InputAdornment>
-              ),
-            }}
-          />
-        </Grid>
-        <Grid item xs={2}>
           <Box>전화번호</Box>
         </Grid>
         <Grid item xs={4}>
@@ -110,6 +95,26 @@ const EmployeeBasicInfo = () => {
             id="outlined-required"
             label="전화번호"
           />
+        </Grid>
+
+        {/*주소입력은 카카오 api 연결예정*/}
+        <Grid item xs={2}>
+          <Box>주소</Box>
+        </Grid>
+        <Grid item xs={4}>
+          <TextField fullWidth required id="outlined-required" label="주소" />
+        </Grid>
+        <Grid item xs={2}>
+          <Box>상세 주소</Box>
+        </Grid>
+        <Grid item xs={4}>
+          <TextField fullWidth required id="outlined-required" label="주소" />
+        </Grid>
+        <Grid item xs={2}>
+          <Box>우편번호</Box>
+        </Grid>
+        <Grid item xs={4}>
+          <TextField fullWidth required id="outlined-required" label="주소" />
         </Grid>
       </GridContainer>
     </>
