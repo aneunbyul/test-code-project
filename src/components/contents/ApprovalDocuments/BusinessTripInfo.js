@@ -126,9 +126,9 @@ const BusinessTripInfo = () => {
 };
 
 const GridContainer = styled(Grid)`
-    background-color: white;
-    height: 20vh;
-    align-items: center;
+  background-color: white;
+  height: 20vh;
+  align-items: center;
 }
 `;
 

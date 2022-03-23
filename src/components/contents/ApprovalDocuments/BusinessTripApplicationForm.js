@@ -33,11 +33,13 @@ const BusinessTripApplicationForm = () => {
 const BusinessTripApplicationContainer = styled(Container)`
   background-color: white;
   height: 100%;
+
   & > div {
     border: 1px solid;
-  & .MuiGrid-container {
-    border: 1px solid gray;
-    margin-bottom: 3rem;
-  }
+
+    & .MuiGrid-container {
+      border: 1px solid gray;
+      margin-bottom: 3rem;
+    }
 `;
 export default BusinessTripApplicationForm;

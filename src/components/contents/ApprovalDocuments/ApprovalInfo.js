@@ -132,10 +132,9 @@ const ApprovalInfo = () => {
 };
 
 const GridContainer = styled(Grid)`
-    background-color: white;
-    height: 5vh;
-    align-items: center;
-}
+  background-color: white;
+  height: 5vh;
+  align-items: center;
 `;
 
 export default ApprovalInfo;
