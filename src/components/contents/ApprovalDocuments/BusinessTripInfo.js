@@ -15,7 +15,7 @@ import styled from 'styled-components';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import {DesktopDateRangePicker} from '@mui/lab';
+import {DesktopDateRangePicker, MobileDateRangePicker} from '@mui/lab';
 
 const BusinessTripInfo = () => {
   const [value, setValue] = React.useState([null, null]);
@@ -50,10 +50,11 @@ const BusinessTripInfo = () => {
         </Grid>
         <Grid item xs={4}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <DesktopDateRangePicker
+            <MobileDateRangePicker
               startText="출발일"
               endText="도착일"
               value={value}
+              inputFormat="yyyy/MM/dd"
               onChange={(newValue) => {
                 setValue(newValue);
               }}
@@ -92,7 +93,17 @@ const BusinessTripInfo = () => {
           <Box>출장자</Box>
         </Grid>
         <Grid item xs={4}>
-          <Box>2명</Box>
+          <TextField
+            required
+            id="outlined-required"
+            label="필수입력"
+            type="number"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="start">명</InputAdornment>
+              ),
+            }}
+          />
         </Grid>
         <Grid item xs={2}>
           <Box>식비유보</Box>

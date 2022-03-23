@@ -43,19 +43,40 @@ const BusinessTravelerInfo = () => {
           <Box>안은별</Box>
         </Grid>
         <Grid item xs={2}>
-          <Box>서울</Box>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="선택입력"
+          />
         </Grid>
         <Grid item xs={2}>
-          <Box>없음</Box>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="선택입력"
+          />
         </Grid>
         <Grid item xs={2}>
-          <Box>부산</Box>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="선택입력"
+            defaultValue="부산"
+          />
         </Grid>
         <Grid item xs={2}>
           <Box>2020/08/07~2020/08/07</Box>
         </Grid>
         <Grid item xs={2}>
-          <Box>KTX</Box>
+          <TextField
+            fullWidth
+            required
+            id="outlined-required"
+            label="선택입력"
+          />
         </Grid>
       </GridContainer>
     </>

@@ -11,19 +11,12 @@ import {
   TextField,
 } from '@mui/material';
 import styled from 'styled-components';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import {MobileDateRangePicker} from '@mui/lab';
 
 const ActivityHistory = () => {
-  const [Assignment, setAssignment] = React.useState('');
-
-  const handleChange = (event) => {
-    setAssignment(event.target.value);
-  };
-
-  const [BudgetMajorCategory, setBudgetMajorCategory] = React.useState('');
-
-  const BudgetMajorCategoryHandleChange = (event) => {
-    setBudgetMajorCategory(event.target.value);
-  };
+  const [value, setValue] = React.useState([null, null]);
 
   return (
     <>
@@ -39,11 +32,24 @@ const ActivityHistory = () => {
         </Grid>
 
         {/*출장자가 추가될때마다 추가 생성*/}
-        <Grid item xs={3}>
-          <Box>2022/03/01</Box>
-        </Grid>
-        <Grid item xs={3}>
-          <Box>2022/03/01</Box>
+        <Grid item xs={6}>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <MobileDateRangePicker
+              startText="출발일자"
+              endText="종료일자"
+              value={value}
+              inputFormat="yyyy/MM/dd"
+              onChange={(newValue) => {
+                setValue(newValue);
+              }}
+              renderInput={(startProps, endProps) => (
+                <React.Fragment>
+                  <TextField {...startProps} />
+                  <TextField {...endProps} />
+                </React.Fragment>
+              )}
+            />
+          </LocalizationProvider>
         </Grid>
         <Grid item xs={6}>
           <TextField

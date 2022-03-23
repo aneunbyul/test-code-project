@@ -15,11 +15,26 @@ const AttachedFile = () => {
   return (
     <>
       <GridContainer container>
-        <Grid item xs={2}>
-          <Box>첨부파일</Box>
+        <Grid item xs={12}>
+          <Box bgcolor={'aliceblue'}>첨부목록</Box>
         </Grid>
-        <Grid item xs={10}>
-          <Box>파일리스트</Box>
+
+        <Grid item xs={2}>
+          <label htmlFor="contained-button-file">
+            <input
+              accept="*"
+              id="contained-button-file"
+              multiple
+              type="file"
+              style={{display: 'none'}}
+            />
+            <Button variant="contained" component="span">
+              파일추가
+            </Button>
+          </label>
+        </Grid>
+        <Grid item xs={2}>
+          <Button variant="outlined">파일삭제</Button>
         </Grid>
       </GridContainer>
     </>
