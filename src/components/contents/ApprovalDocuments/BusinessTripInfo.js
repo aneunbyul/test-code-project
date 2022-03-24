@@ -21,23 +21,17 @@ const BusinessTripInfo = () => {
   const [value, setValue] = React.useState([null, null]);
   return (
     <>
-      <GridContainer container>
-        <Grid item xs={2}>
-          <Box>신청인</Box>
+      <GridContainer container spacing={4}>
+        <Grid item xs={6}>
+          <Box component="h6">신청인</Box>
+          <Box component="h5">안은별</Box>
         </Grid>
-        <Grid item xs={4}>
-          <Box>안은별</Box>
+        <Grid item xs={6}>
+          <Box component="h6">신청번호(사번)</Box>
+          <Box component="h5">07</Box>
         </Grid>
-        <Grid item xs={2}>
-          <Box>신청번호(사번)</Box>
-        </Grid>
-        <Grid item xs={4}>
-          <Box>07</Box>
-        </Grid>
-        <Grid item xs={2}>
-          <Box>목적지</Box>
-        </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
+          <Box component="h6">목적지</Box>
           <TextField
             required
             id="outlined-required"
@@ -45,10 +39,8 @@ const BusinessTripInfo = () => {
             placeholder="목적지(도시)"
           />
         </Grid>
-        <Grid item xs={2}>
-          <Box>출장기간</Box>
-        </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
+          <Box component="h6">출장기간</Box>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <MobileDateRangePicker
               startText="출발일"
@@ -67,10 +59,8 @@ const BusinessTripInfo = () => {
             />
           </LocalizationProvider>
         </Grid>
-        <Grid item xs={2}>
-          <Box>출장목적</Box>
-        </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={12}>
+          <Box component="h6">출장목적</Box>
           <TextField
             fullWidth
             required
@@ -78,10 +68,8 @@ const BusinessTripInfo = () => {
             label="필수입력"
           />
         </Grid>
-        <Grid item xs={2}>
-          <Box>특이사항</Box>
-        </Grid>
-        <Grid item xs={10}>
+        <Grid item xs={12}>
+          <Box component="h6">특이사항</Box>
           <TextField
             fullWidth
             required
@@ -89,10 +77,8 @@ const BusinessTripInfo = () => {
             label="선택입력"
           />
         </Grid>
-        <Grid item xs={2}>
-          <Box>출장자</Box>
-        </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
+          <Box component="h6">출장자</Box>
           <TextField
             required
             id="outlined-required"
@@ -105,10 +91,8 @@ const BusinessTripInfo = () => {
             }}
           />
         </Grid>
-        <Grid item xs={2}>
-          <Box>식비유보</Box>
-        </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
+          <Box component="h6">식비유보</Box>
           <TextField
             required
             id="outlined-required"
@@ -126,10 +110,9 @@ const BusinessTripInfo = () => {
 };
 
 const GridContainer = styled(Grid)`
-  background-color: white;
-  height: 20vh;
+  width: 100%;
+  height: 100%;
   align-items: center;
-}
 `;
 
 export default BusinessTripInfo;

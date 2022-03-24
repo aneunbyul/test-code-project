@@ -16,31 +16,31 @@ import TextField from '@mui/material/TextField';
 const BusinessTravelerInfo = () => {
   return (
     <>
-      <GridContainer container>
+      <GridContainer container spacing={0}>
         <Grid item xs={2}>
-          <Box>출장자</Box>
+          <Box component="h6">출장자</Box>
         </Grid>
         <Grid item xs={2}>
-          <Box>출발지</Box>
+          <Box component="h6">출발지</Box>
         </Grid>
         <Grid item xs={2}>
-          <Box>경유지</Box>
+          <Box component="h6">경유지</Box>
         </Grid>
         <Grid item xs={2}>
-          <Box>목적지</Box>
+          <Box component="h6">목적지</Box>
         </Grid>
         <Grid item xs={2}>
-          <Box>출장기간</Box>
+          <Box component="h6">출장기간</Box>
         </Grid>
         <Grid item xs={2}>
-          <Box>교통수단</Box>
+          <Box component="h6">교통수단</Box>
         </Grid>
 
         {/*신청인이 디폴트값으로 들어감*/}
         {/*추가 버튼 누를때마다 한줄씩 추가*/}
         {/*추가버튼은 위치 미정*/}
         <Grid item xs={2}>
-          <Box>안은별</Box>
+          <Box component="h5">안은별</Box>
         </Grid>
         <Grid item xs={2}>
           <TextField
@@ -68,7 +68,7 @@ const BusinessTravelerInfo = () => {
           />
         </Grid>
         <Grid item xs={2}>
-          <Box>2020/08/07~2020/08/07</Box>
+          <Box component="h5">{'2020.08.07\n2020.08.07'}</Box>
         </Grid>
         <Grid item xs={2}>
           <TextField
@@ -84,8 +84,9 @@ const BusinessTravelerInfo = () => {
 };
 
 const GridContainer = styled(Grid)`
-  background-color: white;
-  height: 10vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
   align-items: center;
 `;
 

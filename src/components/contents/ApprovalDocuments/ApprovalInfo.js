@@ -11,7 +11,12 @@ import {
 } from '@mui/material';
 import styled from 'styled-components';
 
-const ApprovalInfo = () => {
+//components
+import {useStyles} from '../CustomMuiStyle';
+
+const ApprovalInfo = (props) => {
+  const classes = useStyles();
+
   const [Team, setTeam] = React.useState('');
   const [Assignment, setAssignment] = React.useState('');
   const [BudgetMajorCategory, setBudgetMajorCategory] = React.useState('');
@@ -41,28 +46,27 @@ const ApprovalInfo = () => {
 
   return (
     <>
-      <GridContainer container>
-        <Grid item xs={2}>
-          <Box>발의번호</Box>
+      <GridContainer container spacing={4}>
+        <Grid item xs={6}>
+          <Box component="h6">발의번호</Box>
+          <Box component="h5">TPX_BT_사번_20220103</Box>
         </Grid>
-        <Grid item xs={4}>
-          <Box>TPX_BT_사번_20220103</Box>
-        </Grid>
-        <Grid item xs={2}>
-          <Box>발의일자</Box>
-        </Grid>
-        <Grid item xs={4}>
-          <Box>2021/01/03</Box>
+        <Grid item xs={6}>
+          <Box component="h6">발의일자</Box>
+          <Box component="h5">2021/01/03</Box>
         </Grid>
       </GridContainer>
 
-      <GridContainer container>
-        <Grid item xs={2}>
-          <Box>문서분류</Box>
-        </Grid>
-        <Grid item xs={4}>
+      <GridContainer container spacing={4}>
+        <Grid item xs={6}>
+          <Box component="h6">문서분류</Box>
           <FormControl fullWidth>
-            <InputLabel id="team-select-label">팀 선택</InputLabel>
+            <InputLabel
+              className={classes.label}
+              id="team-select-label"
+              color="primary">
+              팀 선택
+            </InputLabel>
             <Select
               labelId="team-select-label"
               value={Team}
@@ -74,10 +78,8 @@ const ApprovalInfo = () => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={2}>
-          <Box>과제번호</Box>
-        </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
+          <Box component="h6">과제번호</Box>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">과제선택</InputLabel>
             <Select
@@ -93,11 +95,9 @@ const ApprovalInfo = () => {
       </GridContainer>
 
       {/*세부예산항목 제공된 양식이 없어서 임의로 생성함 -> 추후 변경 예정*/}
-      <GridContainer container>
-        <Grid item xs={2}>
-          <Box>중분류</Box>
-        </Grid>
-        <Grid item xs={4}>
+      <GridContainer container spacing={4}>
+        <Grid item xs={6}>
+          <Box component="h6">중분류</Box>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">예산 선택</InputLabel>
             <Select
@@ -110,10 +110,8 @@ const ApprovalInfo = () => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={2}>
-          <Box>소분류</Box>
-        </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
+          <Box component="h6">소분류</Box>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">예산 선택</InputLabel>
             <Select
@@ -132,8 +130,8 @@ const ApprovalInfo = () => {
 };
 
 const GridContainer = styled(Grid)`
-  background-color: white;
-  height: 5vh;
+  width: 100%;
+  height: 100%;
   align-items: center;
 `;
 

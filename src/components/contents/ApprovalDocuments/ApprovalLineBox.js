@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const ApprovalLineBox = () => {
   return (
     <ApprovalGrid direction="row" align="center">
-      <Box>결재</Box>
+      <Box component="h6">결재</Box>
       {/*결재선 컨텐츠 수는 유동적임*/}
       <Stack>
         <div>기안</div>

@@ -54,9 +54,7 @@ const Layout = ({children}) => {
         </SubNavContainer>
       </SubNavWrapper>
       <WorkspaceWrapper>
-        <WorkspaceContainer>
-          <main>{children}</main>
-        </WorkspaceContainer>
+        <WorkspaceContainer>{children}</WorkspaceContainer>
       </WorkspaceWrapper>
       {/*<Footer/>*/}
     </ClientLayout>
@@ -70,7 +68,7 @@ const ClientLayout = styled.div`
   display: grid;
   grid-template-rows:
     0
-    auto;
+    100%;
   grid-template-columns:
     var(--box-contracted-length)
     calc(var(--box-expanded-length) * 0.8)

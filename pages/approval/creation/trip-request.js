@@ -4,7 +4,6 @@ import BusinessTripApplicationForm from '../../../src/components/contents/Approv
 const Page = () => {
   return (
     <>
-      <BaseHead title="MAIN" />
       <BusinessTripApplicationForm />
     </>
   );
