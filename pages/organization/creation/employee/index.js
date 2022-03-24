@@ -4,7 +4,6 @@ import EmployeeForm from '../../../../src/components/contents/Organization/Creat
 const Page = () => {
   return (
     <>
-      <BaseHead title="MAIN" />
       <EmployeeForm />
     </>
   );

@@ -1,11 +1,7 @@
 import BaseHead from '../../../src/components/base/BaseHead';
 
 const Page = () => {
-  return (
-    <>
-      <BaseHead title="MAIN" />
-    </>
-  );
+  return <></>;
 };
 
 export default Page;

@@ -4,7 +4,6 @@ import ConferenceReportListForm from '../../../src/components/contents/Document/
 const Page = () => {
   return (
     <>
-      <BaseHead title="MAIN" />
       <ConferenceReportListForm />
     </>
   );

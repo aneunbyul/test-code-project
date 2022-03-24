@@ -4,7 +4,6 @@ import TripRequestListForm from '../../../src/components/contents/Document/TripR
 const Page = () => {
   return (
     <>
-      <BaseHead title="MAIN" />
       <TripRequestListForm />
     </>
   );

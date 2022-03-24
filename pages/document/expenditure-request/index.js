@@ -4,7 +4,6 @@ import ExpenditureRequestListForm from '../../../src/components/contents/Documen
 const Page = () => {
   return (
     <>
-      <BaseHead title="MAIN" />
       <ExpenditureRequestListForm />
     </>
   );
