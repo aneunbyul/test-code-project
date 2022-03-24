@@ -8,15 +8,13 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  GlobalStyle,
 } from '@mui/material';
 import styled from 'styled-components';
 
 //components
-import {useStyles} from '../CustomMuiStyle';
 
 const ApprovalInfo = (props) => {
-  const classes = useStyles();
-
   const [Team, setTeam] = React.useState('');
   const [Assignment, setAssignment] = React.useState('');
   const [BudgetMajorCategory, setBudgetMajorCategory] = React.useState('');
@@ -61,10 +59,7 @@ const ApprovalInfo = (props) => {
         <Grid item xs={6}>
           <Box component="h6">문서분류</Box>
           <FormControl fullWidth>
-            <InputLabel
-              className={classes.label}
-              id="team-select-label"
-              color="primary">
+            <InputLabel id="team-select-label" color="primary">
               팀 선택
             </InputLabel>
             <Select

@@ -36,6 +36,11 @@ const compConfig = withPlugins(
         optimizeImages: false,
       },
     ],
+    [
+      '@babel/plugin-proposal-class-properties',
+      'babel-plugin-styled-components',
+      'emotion',
+    ],
   ],
   nextConfig,
 );
