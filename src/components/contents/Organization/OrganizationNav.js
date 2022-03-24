@@ -21,6 +21,7 @@ import SubNavList from '../SubNav/SubNavList';
 import ConversionButton from '../ReusableContent/ConversionButton';
 import ViewBox from '../ViewBox/ViewBox';
 import FilloutIcon from '../Icon/FilloutIcon';
+import OrganizationChartForm from './OrganizationChart/OrganizationChartForm';
 
 const OrganizationNav = () => {
   const router = useRouter();
@@ -108,12 +109,13 @@ const OrganizationNav = () => {
 
           <Divider className="line-divider" />
 
-          <SubNavList
-            handleSelectedIndex={handleSelectedBaseIndex}
-            selectedIndex={selectedBaseIndex}
-            parentLink={parentLink}
-            subNavListData={subNavListData_base}
-            subNavTitles={null}></SubNavList>
+          {/*<SubNavList*/}
+          {/*  handleSelectedIndex={handleSelectedBaseIndex}*/}
+          {/*  selectedIndex={selectedBaseIndex}*/}
+          {/*  parentLink={parentLink}*/}
+          {/*  subNavListData={subNavListData_base}*/}
+          {/*  subNavTitles={null}></SubNavList>*/}
+          <OrganizationChartForm />
         </Box>
       )}
       {!isBasePage && (

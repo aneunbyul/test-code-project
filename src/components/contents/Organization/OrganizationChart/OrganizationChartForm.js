@@ -6,20 +6,32 @@ import {Container} from '@mui/material';
 
 const OrganizationChartForm = () => {
   const data = {
-    id: 'root',
-    name: 'Parent',
+    id: 'company',
+    name: '텔리픽스 주식회사',
     children: [
       {
-        id: '1',
-        name: 'Child - 1',
-      },
-      {
-        id: '3',
-        name: 'Child - 3',
+        id: 'center',
+        name: '미래혁신기술센터',
         children: [
           {
-            id: '4',
-            name: 'Child - 4',
+            id: 'category-1',
+            name: '위성시스템 부문',
+            children: [
+              {
+                id: 'department-1',
+                name: '지상체계사업부',
+                children: [
+                  {
+                    id: 'team-1',
+                    name: '전자통신연구팀',
+                  },
+                  {
+                    id: 'team-2',
+                    name: '전자통신연구팀',
+                  },
+                ],
+              },
+            ],
           },
         ],
       },
@@ -35,13 +47,13 @@ const OrganizationChartForm = () => {
   );
 
   return (
-    <Container sx={{backgroundColor: 'white'}}>
+    <Container>
       <TreeView
         aria-label="rich object"
         defaultCollapseIcon={<ExpandMoreIcon />}
         defaultExpanded={['root']}
         defaultExpandIcon={<ChevronRightIcon />}
-        sx={{height: 310, flexGrow: 1, maxWidth: 400, overflowY: 'auto'}}>
+        sx={{height: '100%', flexGrow: 1, maxWidth: '100%', overflowY: 'auto'}}>
         {renderTree(data)}
       </TreeView>
     </Container>
