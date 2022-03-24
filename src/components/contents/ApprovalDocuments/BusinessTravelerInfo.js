@@ -84,10 +84,12 @@ const BusinessTravelerInfo = () => {
 };
 
 const GridContainer = styled(Grid)`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  align-items: center;
+  &&& {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
 `;
 
 export default BusinessTravelerInfo;

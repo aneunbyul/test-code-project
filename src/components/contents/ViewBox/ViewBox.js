@@ -19,14 +19,16 @@ const ViewBox = (props) => {
 };
 
 const ViewBoxLayout = styled(Box)`
-  position: relative;
-  width: 100%;
-  height: 100%;
+  &&& {
+    position: relative;
+    width: 100%;
+    height: 100%;
 
-  background-color: var(--dark02);
-  border-radius: var(--global-border-radius);
-  box-shadow: 0 0 0 var(--line-thickness) var(--dark04);
-  overflow: hidden;
+    background-color: var(--dark02);
+    border-radius: var(--global-border-radius);
+    box-shadow: 0 0 0 var(--line-thickness) var(--dark04);
+    overflow: hidden;
+  }
 `;
 
 ViewBox.defaultProps = {

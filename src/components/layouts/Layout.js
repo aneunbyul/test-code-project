@@ -62,43 +62,53 @@ const Layout = ({children}) => {
 };
 
 const ClientLayout = styled.div`
-  width: 100vw;
-  height: 100vh;
+  &&& {
+    width: 100vw;
+    height: 100vh;
 
-  display: grid;
-  grid-template-rows:
-    0
-    100%;
-  grid-template-columns:
-    var(--box-contracted-length)
-    calc(var(--box-expanded-length) * 0.8)
-    auto;
+    display: grid;
+    grid-template-rows:
+      0
+      100%;
+    grid-template-columns:
+      var(--box-contracted-length)
+      calc(var(--box-expanded-length) * 0.8)
+      auto;
 
-  background-color: var(--dark01);
+    background-color: var(--dark01);
+  }
 `;
 
 const SubNavWrapper = styled(Box)`
-  padding: 0.6rem;
-  padding-right: 0;
+  &&& {
+    padding: 0.6rem;
+    padding-right: 0;
+  }
 `;
 
 const WorkspaceWrapper = styled(Box)`
-  padding: 0.6rem;
+  &&& {
+    padding: 0.6rem;
+  }
 `;
 
 const SubNavContainer = styled(Box)`
-  position: relative;
-  width: 100%;
-  height: 100%;
+  &&& {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const WorkspaceContainer = styled(Box)`
-  position: relative;
-  display: grid;
-  padding: 0rem;
-  column-gap: 0.6rem;
-  width: 100%;
-  height: 100%;
+  &&& {
+    position: relative;
+    display: grid;
+    padding: 0rem;
+    column-gap: 0.6rem;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export default Layout;

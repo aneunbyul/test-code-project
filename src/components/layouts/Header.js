@@ -27,31 +27,37 @@ const Header = () => {
 };
 
 const HeaderLayout = styled.div`
-  position: relative;
-  grid-column-start: 1;
-  grid-column-end: 4;
-  width: 100%;
-  height: 100%;
-  box-shadow: inset 0 calc(var(--line-thickness) * -1) 0 0 var(--dark04);
-  background-color: var(--dark02);
-  z-index: 1;
+  &&& {
+    position: relative;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 calc(var(--line-thickness) * -1) 0 0 var(--dark04);
+    background-color: var(--dark02);
+    z-index: 1;
+  }
 `;
 
 const Container = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: var(--box-expanded-length) auto;
-  align-items: center;
+  &&& {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: var(--box-expanded-length) auto;
+    align-items: center;
+  }
 `;
 
 const LogoBox = styled.div`
-  position: relative;
-  display: 'flex';
-  align-items: 'center';
-  height: 100%;
-  & img {
+  &&& {
+    position: relative;
+    display: 'flex';
+    align-items: 'center';
+    height: 100%;
+  }
+  &&& img {
     margin-left: 1rem;
     min-height: 0rem;
     max-height: 1.72rem;

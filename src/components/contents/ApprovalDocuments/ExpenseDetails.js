@@ -106,8 +106,10 @@ const ExpenseDetails = () => {
 };
 
 const GridContainer = styled(Grid)`
-  height: 100%;
-  align-items: center;
+  &&& {
+    height: 100%;
+    align-items: center;
+  }
 `;
 
 export default ExpenseDetails;
