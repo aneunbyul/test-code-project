@@ -18,7 +18,7 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import Avatar from '@mui/material/Avatar';
 import FilloutIcon from '../contents/Icon/FilloutIcon';
-import {Box} from '@material-ui/core';
+import Box from '@mui/material/Box';
 import styled from 'styled-components';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
@@ -282,7 +282,7 @@ const NavTabText = styled(ListItemText)`
   }
 `;
 
-const MyIcon = styled ( Avatar )`
+const MyIcon = styled(Avatar)`
   position: absolute;
   bottom: 20px;
 `;

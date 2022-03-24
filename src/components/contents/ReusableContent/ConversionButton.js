@@ -47,7 +47,7 @@ ConversionButton.defaultProps = {
 };
 
 const InteractiveButton = styled(Button)`
-  & {
+  &&& {
     position: relative;
     width: 90%;
     height: var(--box-contracted-length);
@@ -57,15 +57,15 @@ const InteractiveButton = styled(Button)`
     box-shadow: inset 0 0 0 var(--line-thickness) var(--dark04);
   }
 
-  &:hover {
+  &&&:hover {
     background-color: var(--highlight01);
   }
 
-  & svg {
+  &&& svg {
     fill: var(--light01);
   }
 
-  & span {
+  &&& span {
     margin-bottom: 0.1rem !important;
     color: var(--light01);
   }

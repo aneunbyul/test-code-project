@@ -9,14 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
+    "@mui/core": "latest",
     "@mui/icons-material": "^5.4.4",
     "@mui/lab": "^5.0.0-alpha.74",
-    "@mui/material": "^5.4.4",
+    "@mui/material": "latest",
+    "@mui/styles": "latest",
     "@mui/x-data-grid": "^5.6.1",
     "@mui/x-data-grid-generator": "^5.6.1",
     "build": "^0.1.4",
