@@ -2,15 +2,15 @@ import * as React from 'react';
 import ViewBox from '../../ViewBox/ViewBox';
 import {Typography} from '@mui/material';
 import TripRequestListHeader from './TripRequestListHeader';
-import TripRequestGrid from './TripRequestGrid';
-import TripRequestGridSearch from './TripRequestGridSearch';
+import TripRequestListGrid from './TripRequestListGrid';
+import TripRequestListSearch from './TripRequestListSearch';
 
 const TripRequestListForm = () => {
   return (
     <ViewBox>
       <TripRequestListHeader />
-      <TripRequestGridSearch />
-      <TripRequestGrid />
+      <TripRequestListSearch />
+      <TripRequestListGrid />
     </ViewBox>
   );
 };

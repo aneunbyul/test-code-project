@@ -42,17 +42,17 @@ const DocumentNav = () => {
     },
     {
       name: '출장 복명서',
-      link: '/trip_report',
+      link: '/trip-report',
       iconName: '',
     },
     {
       name: '지출 요청서',
-      link: '/expenditure_request',
+      link: '/expenditure-request',
       iconName: '',
     },
     {
-      name: '회의비 보고서',
-      link: '/conference_report',
+      name: '회의비 사용 보고',
+      link: '/conference-report',
       iconName: '',
     },
     {
@@ -62,22 +62,22 @@ const DocumentNav = () => {
     },
     {
       name: '품의서',
-      link: '/temp1',
+      link: '/#',
       iconName: '',
     },
     {
       name: '초과 근무 신청서',
-      link: '/temp2',
+      link: '/#',
       iconName: '',
     },
     {
       name: '개인카드 사용보고서',
-      link: '/temp3',
+      link: '/#',
       iconName: '',
     },
     {
       name: '휴가신청서',
-      link: '/temp2',
+      link: '/#',
       iconName: '',
     },
     {

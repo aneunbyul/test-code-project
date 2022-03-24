@@ -13,14 +13,15 @@ import {
   randomTraderName,
 } from '@mui/x-data-grid-generator';
 import Typography from '@mui/material/Typography';
-import TripRequestGridSearch from './TripRequestGridSearch';
+import ExpenditureRequestListSearch from './ExpenditureRequestListSearch';
 
-const TripRequestGrid = () => {
+const ExpenditureRequestListGrid = () => {
   const columns = [
     {field: 'name', headerName: '기안자', width: 180},
     {field: 'team', headerName: '담당 부서', width: 180},
     {field: 'subject', headerName: '제목', width: 500},
     {field: 'assignment', headerName: '과제', width: 300},
+    {field: 'Classification', headerName: '문서 종류', width: 300},
     {
       field: 'dateCreated',
       headerName: '결재일',
@@ -39,6 +40,7 @@ const TripRequestGrid = () => {
       subject: randomCommodity(),
       assignment: randomCommodity(),
       dateCreated: randomCreatedDate(),
+      Classification: '지출 요청서',
     });
   }
 
@@ -49,4 +51,4 @@ const TripRequestGrid = () => {
   );
 };
 
-export default TripRequestGrid;
+export default ExpenditureRequestListGrid;

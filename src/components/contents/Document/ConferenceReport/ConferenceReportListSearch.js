@@ -12,7 +12,7 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 import styled from 'styled-components';
 
-const TripRequestGridSearch = () => {
+const ConferenceReportListSearch = () => {
   const [Team, setTeam] = React.useState('');
   const [Assignment, setAssignment] = React.useState('');
 
@@ -85,4 +85,4 @@ const SelectBoxContainer = styled(Container)`
   justify-content: flex-end;
 `;
 
-export default TripRequestGridSearch;
+export default ConferenceReportListSearch;
