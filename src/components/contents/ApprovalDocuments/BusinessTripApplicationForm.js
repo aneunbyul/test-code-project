@@ -40,14 +40,16 @@ const BusinessTripApplicationForm = () => {
 };
 
 const BusinessTripApplicationContainer = styled(SimpleBar)`
-  position: relative;
-  min-width: 48rem;
-  max-width: 65vw;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 2rem;
-  background-color: var(--transparent);
+  &&& {
+    position: relative;
+    min-width: 48rem;
+    max-width: 65vw;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 2rem;
+    background-color: var(--transparent);
+  }
 `;
 
 export default BusinessTripApplicationForm;

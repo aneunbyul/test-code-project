@@ -160,49 +160,53 @@ const SubNavList = ({
 
 /* sub navigation */
 const SubNavListWrapper = styled(SimpleBar)`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+  &&& {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 `;
 
 const SubNavListItem = styled(ListItem)`
-  width: 100%;
-  padding: 0.2rem 0rem;
-  padding-left: 5%;
-  transition: all 0.1s var(--cubic01);
-  background-color: var(--transaparent);
-  z-index: 0;
+  &&& {
+    width: 100%;
+    padding: 0.2rem 0rem;
+    padding-left: 5%;
+    transition: all 0.1s var(--cubic01);
+    background-color: var(--transaparent);
+    z-index: 0;
+  }
 
-  & * {
+  &&& * {
     user-select: none;
   }
 
-  & span {
+  &&& span {
     font-size: var(--global-text-size);
     color: var(--light02);
     background-color: var(--transaparent);
   }
 
-  &:hover {
+  &&&:hover {
     background-color: var(--dark04);
   }
 
-  &:hover span {
+  &&&:hover span {
     color: var(--light01);
   }
 
-  &.Mui-selected {
+  &&&.Mui-selected {
     background-color: var(--transaparent);
   }
 
-  &.Mui-selected svg {
+  &&&.Mui-selected svg {
     fill: var(--light01);
   }
 
-  &::before {
+  &&&::before {
     content: '';
     position: absolute;
     top: 0;
@@ -214,24 +218,24 @@ const SubNavListItem = styled(ListItem)`
     background-color: var(--transaparent);
   }
 
-  &:not(.Mui-selected):hover::before {
+  &&&:not(.Mui-selected):hover::before {
     background-color: var(--dark04);
   }
 
-  &.Mui-selected::before {
+  &&&.Mui-selected::before {
     background-color: var(--highlight01);
   }
 
-  &.Mui-selected span,
-  &.Mui-selected svg {
+  &&&.Mui-selected span,
+  &&&.Mui-selected svg {
     color: var(--light01) !important;
   }
 
-  &[type='title'] {
+  &&&[type='title'] {
     padding-left: 3%;
   }
 
-  &[type='title']::after {
+  &&&[type='title']::after {
     content: '';
     position: absolute;
     top: 26%;
@@ -242,13 +246,13 @@ const SubNavListItem = styled(ListItem)`
     z-index: 12;
   }
 
-  &[type='title'] span {
+  &&&[type='title'] span {
     font-weight: 500;
     margin-left: -0.1rem;
     color: var(--light01) !important;
   }
 
-  &[type='title'] svg {
+  &&&[type='title'] svg {
     color: var(--light01);
   }
 `;

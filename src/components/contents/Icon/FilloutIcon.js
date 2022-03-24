@@ -117,47 +117,49 @@ FilloutIcon.defaultProps = {
 };
 
 const IconContainer = styled(Box)`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--transparent);
+  &&& {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--transparent);
+  }
 
-  &.fillout-icon--big {
+  &&&.fillout-icon--big {
     min-width: var(--big-icon-size);
     min-height: var(--big-icon-size);
     width: var(--big-icon-size);
     height: var(--big-icon-size);
   }
 
-  &.fillout-icon--small {
+  &&&.fillout-icon--small {
     min-width: var(--big-icon-size);
     min-height: var(--big-icon-size);
     width: var(--big-icon-size);
     height: var(--big-icon-size);
   }
 
-  & svg {
+  &&& svg {
     position: relative;
     fill: var(--light03);
     background-color: var(--transparent);
   }
 
-  &.fillout-icon--big svg {
+  &&&.fillout-icon--big svg {
     min-width: calc(var(--big-icon-size) * 0.8);
     min-height: calc(var(--big-icon-size) * 0.8);
     width: calc(var(--big-icon-size) * 0.8);
     height: calc(var(--big-icon-size) * 0.8);
   }
 
-  &.fillout-icon--small svg {
+  &&&.fillout-icon--small svg {
     min-width: calc(var(--small-icon-size) * 0.8);
     min-height: calc(var(--small-icon-size) * 0.8);
     width: calc(var(--small-icon-size) * 0.8);
     height: calc(var(--small-icon-size) * 0.8);
   }
 
-  & path {
+  &&& path {
     stroke-width: 0 !important;
   }
 `;

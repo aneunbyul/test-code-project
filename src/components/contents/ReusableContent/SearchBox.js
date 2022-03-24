@@ -24,30 +24,36 @@ const SearchBox = () => {
 };
 
 const SearchBoxContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  &&& {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-  width: 40%;
-  height: 70%;
+    width: 40%;
+    height: 70%;
 
-  box-shadow: inset 0 0 0 var(--line-thickness) var(--dark04);
-  border-radius: 99rem;
-  background-color: var(--dark00);
+    box-shadow: inset 0 0 0 var(--line-thickness) var(--dark04);
+    border-radius: 99rem;
+    background-color: var(--dark00);
+  }
 `;
 
 const SearchButton = styled(IconButton)`
-  color: var(--light04);
+  &&& {
+    color: var(--light04);
+  }
 `;
 
 const SearchInputBox = styled(InputBase)`
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  &&& {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
 
-  & input {
+  &&& input {
     width: 100%;
     font-size: 0.86rem;
     font-weight: 400;

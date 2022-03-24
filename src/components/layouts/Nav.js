@@ -117,37 +117,41 @@ const Nav = () => {
 };
 
 const NavLayout = styled(Box)`
-  position: relative;
-  width: var(--box-contracted-length);
-  height: 100%;
+  &&& {
+    position: relative;
+    width: var(--box-contracted-length);
+    height: 100%;
+  }
 `;
 
 const NavContainer = styled(Box)`
-  position: relative;
-  will-change: width;
-  width: var(
-    --box-contracted-length
-  ); /* this width will be controlled by js, according to its parent */
-  height: 100%;
-  z-index: 1;
-  background-color: var(--dark02);
-  box-shadow: inset calc(var(--line-thickness) * -1) 0 0 0 var(--dark04);
-  pointer-events: none;
+  &&& {
+    position: relative;
+    will-change: width;
+    width: var(
+      --box-contracted-length
+    ); /* this width will be controlled by js, according to its parent */
+    height: 100%;
+    z-index: 1;
+    background-color: var(--dark02);
+    box-shadow: inset calc(var(--line-thickness) * -1) 0 0 0 var(--dark04);
+    pointer-events: none;
 
-  transition: width 0.13s var(--cubic01) var(--delay-nav-out);
+    transition: width 0.13s var(--cubic01) var(--delay-nav-out);
+  }
 
-  & * {
+  &&& * {
     pointer-events: auto;
   }
 
-  & svg {
+  &&& svg {
     position: absolute;
     width: 100%;
     left: 0;
     top: 0;
   }
 
-  & div.Mui-selected::before {
+  &&& div.Mui-selected::before {
     border-radius: calc(var(--global-border-radius) * 2) !important;
     padding: 0.6rem;
     transition: 0.1s padding var(--cubic01) var(--delay-nav-out),
@@ -158,51 +162,57 @@ const NavContainer = styled(Box)`
 `;
 
 const NavTabGroup = styled(Box)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--transparnet);
+  &&& {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--transparnet);
+  }
 `;
 
 const NavTabList = styled(List)`
-  position: relative;
-  padding: 0.12rem 0;
+  &&& {
+    position: relative;
+    padding: 0.12rem 0;
+  }
 `;
 
 const NavTabItem = styled(ListItemButton)`
-  position: relative;
-  display: grid;
-  grid-template-columns: 2.6rem auto;
-  align-items: center;
-  width: 100%;
-  padding: calc((var(--box-contracted-length) - var(--big-icon-size)) / 2);
-  transition: all 0.1s var(--cubic01);
-  background-color: var(--transaparent);
-
-  &:hover {
+  &&& {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2.6rem auto;
+    align-items: center;
+    width: 100%;
+    padding: calc((var(--box-contracted-length) - var(--big-icon-size)) / 2);
+    transition: all 0.1s var(--cubic01);
     background-color: var(--transaparent);
   }
 
-  &:not(:hover) .MuiListItemText-root span {
+  &&&:hover {
+    background-color: var(--transaparent);
+  }
+
+  &&&:not(:hover) .MuiListItemText-root span {
     opacity: 0 !important;
   }
 
-  &:hover .MuiListItemText-root span {
+  &&&:hover .MuiListItemText-root span {
     opacity: 0.88;
   }
 
-  &.Mui-selected .MuiListItemText-root span {
+  &&&.Mui-selected .MuiListItemText-root span {
     opacity: 0.88;
     box-shadow: inset 0 0 0 calc(var(--line-thickness) * 1.4) var(--highlight01);
   }
 
-  &.Mui-selected {
+  &&&.Mui-selected {
     background-color: var(--transaparent);
   }
 
-  &::before {
+  &&&::before {
     position: absolute;
     top: 0;
     left: 0;
@@ -214,33 +224,35 @@ const NavTabItem = styled(ListItemButton)`
     background-color: var(--transaparent);
   }
 
-  &:not(.Mui-selected):hover::before {
+  &&&:not(.Mui-selected):hover::before {
     background-color: var(--dark04);
   }
 
-  &.Mui-selected::before {
+  &&&.Mui-selected::before {
     background-color: var(--highlight01);
   }
 
-  &.Mui-selected span,
-  &.Mui-selected svg {
+  &&&.Mui-selected span,
+  &&&.Mui-selected svg {
     fill: var(--light01) !important;
   }
 `;
 
 const NavTabIconContainer = styled(ListItemIcon)`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: var(--big-icon-size);
-  min-height: var(--big-icon-size);
-  width: var(--big-icon-size);
-  height: var(--big-icon-size);
+  &&& {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--big-icon-size);
+    min-height: var(--big-icon-size);
+    width: var(--big-icon-size);
+    height: var(--big-icon-size);
 
-  z-index: 1;
+    z-index: 1;
+  }
 
-  & svg {
+  &&& svg {
     position: relative;
     min-width: calc(var(--big-icon-size) * 0.8);
     min-height: calc(var(--big-icon-size) * 0.8);
@@ -251,18 +263,20 @@ const NavTabIconContainer = styled(ListItemIcon)`
 `;
 
 const NavTabText = styled(ListItemText)`
-  position: absolute;
-  top: -10%;
-  left: calc(var(--box-contracted-length) * 1.1);
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  &&& {
+    position: absolute;
+    top: -10%;
+    left: calc(var(--box-contracted-length) * 1.1);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 
-  user-select: none;
-  pointer-events: none;
+    user-select: none;
+    pointer-events: none;
+  }
 
-  & span {
+  &&& span {
     will-change: opacity, box-shadow;
     position: relative;
     font-size: calc(var(--global-text-size) * 0.96);
@@ -283,8 +297,10 @@ const NavTabText = styled(ListItemText)`
 `;
 
 const MyIcon = styled(Avatar)`
-  position: absolute;
-  bottom: 20px;
+  &&& {
+    position: absolute;
+    bottom: 20px;
+  }
 `;
 
 export default Nav;

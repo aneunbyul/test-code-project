@@ -42,9 +42,10 @@ const AttachedFile = () => {
 };
 
 const GridContainer = styled(Grid)`
-  height: 5vh;
-  align-items: center;
-}
+  &&& {
+    height: 5vh;
+    align-items: center;
+  }
 `;
 
 export default AttachedFile;

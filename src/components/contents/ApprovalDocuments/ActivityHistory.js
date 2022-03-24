@@ -65,10 +65,11 @@ const ActivityHistory = () => {
 };
 
 const GridContainer = styled(Grid)`
-  background-color: white;
-  height: 10vh;
-  align-items: center;
-}
+  &&& {
+    background-color: white;
+    height: 10vh;
+    align-items: center;
+  }
 `;
 
 export default ActivityHistory;
