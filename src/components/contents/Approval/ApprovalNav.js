@@ -23,6 +23,7 @@ import SubNavList from '../SubNav/SubNavList';
 import ConversionButton from '../ReusableContent/ConversionButton';
 import ViewBox from '../ViewBox/ViewBox';
 import FilloutIcon from '../Icon/FilloutIcon';
+import SubNavHeader from '../SubNav/SubNavHeader';
 
 const ApprovalNav = () => {
   const router = useRouter();
@@ -67,17 +68,17 @@ const ApprovalNav = () => {
     },
     {
       name: '출장 복명서',
-      link: '/trip_report',
+      link: '/trip-report',
       iconName: '',
     },
     {
       name: '지출 요청서',
-      link: '/expenditure_request',
+      link: '/expenditure-request',
       iconName: '',
     },
     {
       name: '회의비 보고서',
-      link: '/conference_report',
+      link: '/conference-report',
       iconName: '',
     },
     {
@@ -120,24 +121,24 @@ const ApprovalNav = () => {
     setSelectedCreationIndex((selectedCreationIndex) => selectedIndex);
   };
 
+  const convertToCreationPage = (linkPath) => {
+    setIsBasePage(false);
+    router.push(linkPath);
+  };
+
   return (
     <ViewBox>
       {isBasePage && (
         <Box className="sub-nav__container" role="presentation">
-          <ConversionButton
-            icon={
-              <FilloutIcon
-                sx={{
-                  marginLeft: '-12%',
-                }}
-                name="write"
-                size="small"
-                type="outlined"
+          <SubNavHeader
+            text="전자 결재"
+            button={
+              <ConversionButton
+                icon={<FilloutIcon name="write" size="small" type="outlined" />}
+                clickAction={convertToCreationPage}
+                clickActionValue={parentLink + '/creation'}
               />
             }
-            text="추가하기"
-            clickAction={setIsBasePage}
-            clickActionValue={false}
           />
 
           <Divider className="line-divider" />
@@ -147,33 +148,6 @@ const ApprovalNav = () => {
             selectedIndex={selectedBaseIndex}
             parentLink={parentLink}
             subNavListData={subNavListData_base}></SubNavList>
-        </Box>
-      )}
-      {!isBasePage && (
-        <Box className="sub-nav__container" role="presentation">
-          <ConversionButton
-            icon={
-              <FilloutIcon
-                sx={{
-                  marginLeft: '-12%',
-                }}
-                name="toright"
-                size="small"
-                type="outlined"
-              />
-            }
-            text="돌아가기"
-            clickAction={setIsBasePage}
-            clickActionValue={true}
-          />
-
-          <Divider className="line-divider" />
-
-          <SubNavList
-            handleSelectedIndex={handleSelectedCreationIndex}
-            selectedIndex={selectedCreationIndex}
-            parentLink={parentLink + '/creation'}
-            subNavListData={subNavListData_creation}></SubNavList>
         </Box>
       )}
     </ViewBox>

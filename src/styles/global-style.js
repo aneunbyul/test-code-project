@@ -85,34 +85,34 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-overflow-scrolling: touch;
     }
 
-    input {
+    &&& input {
     outline:none;
     }
 
-    p {
+    &&& p {
       padding:0;
       margin: 0;
     }
 
-    button {
+    &&& button {
       cursor: pointer;
       outline: none;
       background: none;
       border: none;
     }
 
-    & p,
+    &&& p,
     span {
       color: var(--light02);
     }
 
-    & h5 {
+    &&& h5 {
       font-size: calc(var(--global-text-size) * 1.1);
       color: var(--light01);
       white-space: pre-wrap;
     }
 
-    & h6 {
+    &&& h6 {
       position: relative;
       color: var(--light04);
       font-weight: 400;
@@ -122,49 +122,67 @@ export const GlobalStyle = createGlobalStyle`
       white-space: pre-wrap;
     }
 
-    &.MuiTypography-root{
+    &&&.MuiTypography-root{
       color: var(--light01);
       font-weight: 500;
       font-size: calc(var(--global-text-size) * 2.2);
     }
 
-    & .MuiGrid-root .MuiGrid-container {
-      margin-bottom: 0.2rem;
-    }
 
-    & .MuiOutlinedInput-input {
+    &&& .MuiOutlinedInput-input{
       line-height: 0rem;
+      border-color: var(--light01);
     }
+/*
+    &&& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+      
+      border-color: var(--light01);
 
-    & .MuiInputBase-input {
+      &&&:hover{
+        border-color: var(--light01);
+      }
+
+      &&&:focused{
+        border-color: var(--light01);
+      }
+    }
+    8/
+
+    &&& .MuiInputBase-input {
       border: 0;
       font-size: var(--global-text-size);
       background-color: var(--dark01);
-      border : 0;
     }
 
-    & .MuiInputLabel-root {
+    &&& .MuiInputLabel-root {
+      font-size: var(--global-text-size);
+      color: var(--light02);
+      opacity: 1;
+      transition-property: all;
+    }
+
+    &&& .MuiInputLabel-shrink {
+      opacity: 0;
+      transform: translate(5rem, 1rem) scale(1);
+    }
+
+    &&& .MuiPaper-root {
+      font-size: var(--global-text-size);
+      color: var(--light02);
+      background-color: var(--dark01);
+      border-radius: var(--global-border-radius);
+    }
+
+    &&& .MuiMenuItem-root {
+      font-size: var(--global-text-size);
+      color: var(--light02);
+      background-color: var(--dark01);
+    }
+
+    &&& .MuiMenuItem-gutters {
       font-size: var(--global-text-size);
       color: var(--light02);
     }
 
-    & .MuiPaper-root {
-      font-size: var(--global-text-size);
-      color: var(--light02);
-      background-color: var(--transparent);
-      backdrop-filter: blur(2px);
-    }
-
-    & .MuiMenuItem-root {
-      font-size: var(--global-text-size);
-      color: var(--light02);
-      background-color: var(--transparent);
-      
-      backdrop-filter: blur(2px);
-    }
-
-    & .MuiMenuItem-gutters {
-      font-size: var(--global-text-size);
-      color: var(--light02);
-    }
+    
 `;

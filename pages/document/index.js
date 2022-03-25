@@ -1,5 +1,5 @@
 import BaseHead from '../../src/components/base/BaseHead';
-import ApprovalNav from '../../src/components/contents/Approval/ApprovalNav';
+import DocumentNav from '../../src/components/contents/Document/DocumentNav';
 
 const Page = () => {
   return (

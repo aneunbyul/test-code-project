@@ -23,6 +23,17 @@ export const HeaderBgContext = createContext();
 
 const Layout = ({children}) => {
   const router = useRouter();
+
+  const isApprovalBasePage =
+    router.pathname.substring(
+      router.pathname.indexOf('/approval') + '/approval'.length + 2,
+    ) == '' && router.pathname.includes('/approval')
+      ? true
+      : false;
+
+  const isInApprovalCreationPage =
+    router.pathname.includes('/approval/creation');
+
   const isApprovalPage = router.pathname.includes('/approval');
   const isAssignmentPage = router.pathname.includes('/assignment');
   const isDocumentPage = router.pathname.includes('/document');
@@ -34,29 +45,27 @@ const Layout = ({children}) => {
       <ScrollToTop />
       <Header />
       <Nav />
-      <SubNavWrapper>
-        <SubNavContainer
-          style={{
-            gridTemplateColumns: isApprovalPage
-              ? 'calc(var(--box-expanded-length) * 0.8) auto'
-              : isAssignmentPage
-              ? 'calc(var(--box-expanded-length) * 0.8) auto'
-              : isDocumentPage
-              ? 'calc(var(--box-expanded-length) * 0.8) auto'
-              : isOrganizationPage
-              ? 'calc(var(--box-expanded-length) * 0.8) auto'
-              : '',
-          }}>
-          {isApprovalPage && <ApprovalNav />}
-          {isAssignmentPage && <AssignmentNav />}
-          {isOrganizationPage && <OrganizationNav />}
-          {isDocumentPage && <DoucmentNav />}
-        </SubNavContainer>
-      </SubNavWrapper>
-      <WorkspaceWrapper>
-        <WorkspaceContainer>{children}</WorkspaceContainer>
-      </WorkspaceWrapper>
-      {/*<Footer/>*/}
+      <Main
+        style={{
+          gridTemplateColumns: isApprovalBasePage
+            ? 'calc(var(--box-expanded-length)*0.8) auto'
+            : isInApprovalCreationPage
+            ? '2fr 1fr'
+            : isAssignmentPage
+            ? 'calc(var(--box-expanded-length)*0.8) auto'
+            : isDocumentPage
+            ? 'calc(var(--box-expanded-length)*0.8) auto'
+            : isOrganizationPage
+            ? 'calc(var(--box-expanded-length)*1.5) auto'
+            : 'auto',
+        }}>
+        {children}
+        {/*
+        <WorkspaceWrapper>
+          <WorkspaceContainer>{children}</WorkspaceContainer>
+        </WorkspaceWrapper>
+      */}
+      </Main>
     </ClientLayout>
   );
 };
@@ -70,44 +79,20 @@ const ClientLayout = styled.div`
     grid-template-rows:
       0
       100%;
-    grid-template-columns:
-      var(--box-contracted-length)
-      calc(var(--box-expanded-length) * 0.8)
-      auto;
+    grid-template-columns: var(--box-contracted-length) auto;
 
     background-color: var(--dark01);
   }
 `;
 
-const SubNavWrapper = styled(Box)`
+const Main = styled(Box)`
   &&& {
-    padding: 0.6rem;
-    padding-right: 0;
-  }
-`;
-
-const WorkspaceWrapper = styled(Box)`
-  &&& {
-    padding: 0.6rem;
-  }
-`;
-
-const SubNavContainer = styled(Box)`
-  &&& {
-    position: relative;
     width: 100%;
     height: 100%;
-  }
-`;
-
-const WorkspaceContainer = styled(Box)`
-  &&& {
-    position: relative;
     display: grid;
-    padding: 0rem;
-    column-gap: 0.6rem;
-    width: 100%;
-    height: 100%;
+    grid-template-rows: auto;
+    padding: 0.6rem;
+    gap: 0.6rem;
   }
 `;
 

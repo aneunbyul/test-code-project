@@ -15,16 +15,15 @@ import AttachedFile from './AttachedFile';
 import {CssBaseline} from '@material-ui/core';
 
 //components
-import {useStyles} from '../CustomMuiStyle';
-import ViewBox from '../ViewBox/ViewBox';
+import {useStyles} from '../../CustomMuiStyle';
+import ViewBox from '../../ViewBox/ViewBox';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
-const BusinessTripApplicationForm = () => {
+const TripRequestForm = () => {
   return (
     <ViewBox>
-      <CssBaseline />
-      <BusinessTripApplicationContainer>
+      <TripRequestContainer>
         <ApprovalHeader />
         <ApprovalSubject />
         <ApprovalLineBox />
@@ -34,12 +33,12 @@ const BusinessTripApplicationForm = () => {
         <ActivityHistory />
         <ExpenseDetails />
         <AttachedFile />
-      </BusinessTripApplicationContainer>
+      </TripRequestContainer>
     </ViewBox>
   );
 };
 
-const BusinessTripApplicationContainer = styled(SimpleBar)`
+const TripRequestContainer = styled(SimpleBar)`
   &&& {
     position: relative;
     min-width: 48rem;
@@ -52,4 +51,4 @@ const BusinessTripApplicationContainer = styled(SimpleBar)`
   }
 `;
 
-export default BusinessTripApplicationForm;
+export default TripRequestForm;
