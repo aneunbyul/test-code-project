@@ -5,7 +5,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {Container} from '@mui/material';
 
 const OrganizationChartForm = () => {
-  const data = {
+  const company = {
     id: 'company',
     name: '텔리픽스 주식회사',
     children: [
@@ -37,6 +37,14 @@ const OrganizationChartForm = () => {
       },
     ],
   };
+
+  const data = {
+    id: company.id,
+    name: company.name,
+    children: company.children.length === 0 ? null : company.children,
+  };
+
+  console.log(company.children.length);
 
   const renderTree = (nodes) => (
     <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
