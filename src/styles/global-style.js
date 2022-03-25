@@ -133,56 +133,6 @@ export const GlobalStyle = createGlobalStyle`
       line-height: 0rem;
       border-color: var(--light01);
     }
-/*
-    &&& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
-      
-      border-color: var(--light01);
-
-      &&&:hover{
-        border-color: var(--light01);
-      }
-
-      &&&:focused{
-        border-color: var(--light01);
-      }
-    }
-    8/
-
-    &&& .MuiInputBase-input {
-      border: 0;
-      font-size: var(--global-text-size);
-      background-color: var(--dark01);
-    }
-
-    &&& .MuiInputLabel-root {
-      font-size: var(--global-text-size);
-      color: var(--light02);
-      opacity: 1;
-      transition-property: all;
-    }
-
-    &&& .MuiInputLabel-shrink {
-      opacity: 0;
-      transform: translate(5rem, 1rem) scale(1);
-    }
-
-    &&& .MuiPaper-root {
-      font-size: var(--global-text-size);
-      color: var(--light02);
-      background-color: var(--dark01);
-      border-radius: var(--global-border-radius);
-    }
-
-    &&& .MuiMenuItem-root {
-      font-size: var(--global-text-size);
-      color: var(--light02);
-      background-color: var(--dark01);
-    }
-
-    &&& .MuiMenuItem-gutters {
-      font-size: var(--global-text-size);
-      color: var(--light02);
-    }
 
     
 `;
