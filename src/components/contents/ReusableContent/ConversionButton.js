@@ -30,35 +30,30 @@ const ConversionButton = ({icon, text, clickAction, clickActionValue}) => {
 };
 
 ConversionButton.defaultProps = {
-  icon: (
-    <FilloutIcon
-      sx={{
-        marginLeft: '-12%',
-        marginRight: '0.24rem',
-      }}
-      name="write"
-      size="small"
-      type="outlined"
-    />
-  ),
-
-  text: 'Null',
+  icon: <FilloutIcon sx={{}} name="write" size="small" type="outlined" />,
+  text: '',
   link: '',
+  clickAction: function () {},
+  clickActionValue: true,
 };
 
 const InteractiveButton = styled(Button)`
   &&& {
-    position: relative;
-    width: 90%;
-    height: var(--box-contracted-length);
+    position: absolute;
+    right: 0.6rem;
+    width: calc(var(--box-contracted-length) * 0.6);
+    height: calc(var(--box-contracted-length) * 0.6);
 
-    background-color: var(--dark02);
+    min-width: calc(var(--box-contracted-length) * 0.6);
+    min-height: calc(var(--box-contracted-length) * 0.6);
+
+    background-color: var(--highlight01);
     border-radius: calc(var(--global-border-radius) * 0.9);
     box-shadow: inset 0 0 0 var(--line-thickness) var(--dark04);
   }
 
   &&&:hover {
-    background-color: var(--highlight01);
+    background-color: var(--highlight02);
   }
 
   &&& svg {

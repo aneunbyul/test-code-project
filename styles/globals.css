@@ -11,12 +11,14 @@
 
   --dark00: #181515;
   --dark01: #201d1d;
+  --dark01-transparent: #201d1d56;
   --dark02: #2c2626;
   --dark03: #383131;
   --dark04: #443c3c;
   --dark05: #615151;
 
   --highlight01: rgb(255, 57, 57);
+  --highlight02: rgb(255, 16, 16);
 
   --line-thickness: 0.06rem;
   --big-icon-size: 1.8rem;
@@ -25,6 +27,7 @@
   --box-expanded-length: 15.5rem;
   --tab-height: 2.1rem;
   --tab-height-extended: 3rem;
+  --writing-padding: 2rem;
 
   --delay-nav-out: 0.5s;
   --cubic01: cubic-bezier(0.52, 0.02, 0.21, 0.98);
@@ -71,6 +74,15 @@ textarea {
   border-width: 0.1rem;
   margin-top: 0.5rem;
   margin-bottom: 0.2rem;
+}
+
+hr.hr-divider {
+  width: 100%;
+  border-top: 2px solid var(--dark01);
+  border-bottom: 2px solid var(--dark03);
+  border-width: 0.1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .simplebar-track.simplebar-vertical .simplebar-scrollbar:before {

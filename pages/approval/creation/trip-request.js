@@ -1,5 +1,5 @@
 import BaseHead from '../../../src/components/base/BaseHead';
-import BusinessTripApplicationForm from '../../../src/components/contents/ApprovalDocuments/BusinessTripApplicationForm';
+import BusinessTripApplicationForm from '../../../src/components/contents/Approval/Form/BusinessTripApplicationForm';
 
 const Page = () => {
   return (

@@ -30,7 +30,7 @@ const HeaderLayout = styled.div`
   &&& {
     position: relative;
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: 3;
     width: 100%;
     height: 100%;
     box-shadow: inset 0 calc(var(--line-thickness) * -1) 0 0 var(--dark04);

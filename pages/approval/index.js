@@ -5,8 +5,7 @@ import ApprovalTable from '../../src/components/contents/Approval/ApprovalTable'
 const Page = () => {
   return (
     <>
-      <BaseHead title="MAIN" />
-      {/*<ApprovalTable />*/}
+      <ApprovalNav />
     </>
   );
 };

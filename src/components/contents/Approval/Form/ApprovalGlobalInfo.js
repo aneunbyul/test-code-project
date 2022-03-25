@@ -12,9 +12,7 @@ import {
 } from '@mui/material';
 import styled from 'styled-components';
 
-//components
-
-const ApprovalInfo = (props) => {
+const ApprovalGlobalInfo = (props) => {
   const [Team, setTeam] = React.useState('');
   const [Assignment, setAssignment] = React.useState('');
   const [BudgetMajorCategory, setBudgetMajorCategory] = React.useState('');
@@ -59,16 +57,15 @@ const ApprovalInfo = (props) => {
         <Grid item xs={6}>
           <Box component="h6">문서분류</Box>
           <FormControl fullWidth>
-            <InputLabel id="team-select-label" color="primary">
-              팀 선택
-            </InputLabel>
+            <InputLabel id="team-select-label">팀 선택</InputLabel>
             <Select
               labelId="team-select-label"
               value={Team}
-              label="팀 선택"
               onChange={TeamHandleChange}>
               {teamNames.map((value, index, array) => (
-                <MenuItem value={value}>{value}</MenuItem>
+                <MenuItem key={value + index} value={value}>
+                  {value}
+                </MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -80,7 +77,6 @@ const ApprovalInfo = (props) => {
             <Select
               labelId="demo-simple-select-label"
               value={Assignment}
-              label="과제선택"
               onChange={AssignmentHandleChange}>
               <MenuItem value={10}>산자부 과제(PC-01-13)</MenuItem>
               <MenuItem value={20}>미도 과제(PC-03-02)</MenuItem>
@@ -98,7 +94,6 @@ const ApprovalInfo = (props) => {
             <Select
               labelId="demo-simple-select-label"
               value={BudgetMajorCategory}
-              label="과제선택"
               onChange={BudgetMajorCategoryHandleChange}>
               <MenuItem value={10}>내부인건비</MenuItem>
               <MenuItem value={20}>외부인건비</MenuItem>
@@ -112,7 +107,6 @@ const ApprovalInfo = (props) => {
             <Select
               labelId="demo-simple-select-label"
               value={BudgetSubCategory}
-              label="과제선택"
               onChange={BudgetSubCategoryHandleChange}>
               <MenuItem value={10}>연구활동비</MenuItem>
               <MenuItem value={20}>평가성성과급</MenuItem>
@@ -129,7 +123,9 @@ const GridContainer = styled(Grid)`
     width: 100%;
     height: 100%;
     align-items: center;
+
+    padding: 0rem var(--writing-padding);
   }
 `;
 
-export default ApprovalInfo;
+export default ApprovalGlobalInfo;
