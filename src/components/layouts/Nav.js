@@ -1,34 +1,40 @@
-import React, {useEffect, useState} from 'react';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/Inbox';
-import HomeIcon from '@mui/icons-material/Home';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import MailIcon from '@mui/icons-material/Mail';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import AssignmentIcon from '@mui/icons-material/Assignment';
-import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
-import WorkIcon from '@mui/icons-material/Work';
-import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import Avatar from '@mui/material/Avatar';
-import FilloutIcon from '../contents/Icon/FilloutIcon';
-import Box from '@mui/material/Box';
-import styled from 'styled-components';
-import Link from 'next/link';
-import {useRouter} from 'next/router';
+import React, { useEffect, useState } from 'react'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
+import InboxIcon from '@mui/icons-material/Inbox'
+import HomeIcon from '@mui/icons-material/Home'
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
+import MailIcon from '@mui/icons-material/Mail'
+import MailOutlineIcon from '@mui/icons-material/MailOutline'
+import AssignmentIcon from '@mui/icons-material/Assignment'
+import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined'
+import WorkIcon from '@mui/icons-material/Work'
+import WorkOutlineOutlinedIcon from '@mui/icons-material/WorkOutlineOutlined'
+import AccountBoxIcon from '@mui/icons-material/AccountBox'
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined'
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt'
+import Avatar from '@mui/material/Avatar'
+import FilloutIcon from '../contents/Icon/FilloutIcon'
+import Box from '@mui/material/Box'
+import styled from 'styled-components'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import ProfileModal from '../contents/Profile/ProfileModal'
+import { Button, Modal } from '@mui/material'
 
 const Nav = () => {
-  const router = useRouter();
-  const isApprovalPage = router.pathname.includes('/approval');
-  const isAssignmentPage = router.pathname.includes('/assignment');
-  const isDocumentPage = router.pathname.includes('/document');
-  const isOrganization = router.pathname.includes('/organization');
+  const [profileOpen, setProfileOpen] = React.useState ( false )
+  const handleOpen = () => setProfileOpen ( true )
+  const handleClose = () => setProfileOpen ( false )
+
+  const router = useRouter ()
+  const isApprovalPage = router.pathname.includes ( '/approval' )
+  const isAssignmentPage = router.pathname.includes ( '/assignment' )
+  const isDocumentPage = router.pathname.includes ( '/document' )
+  const isOrganization = router.pathname.includes ( '/organization' )
 
   const mainNavListData = [
     {
@@ -56,81 +62,85 @@ const Nav = () => {
       link: 'organization',
       iconName: 'organization',
     },
-  ];
+  ]
 
-  const [selectedIndex, setSelectedIndex] = React.useState(-1);
+  const [selectedIndex, setSelectedIndex] = React.useState ( -1 )
 
-  const handleListItemClick = (event, index) => {
-    setSelectedIndex(index);
-  };
+  const handleListItemClick = ( event, index ) => {
+    setSelectedIndex ( index )
+  }
 
-  useEffect(() => {
-    if (isApprovalPage) setSelectedIndex(1);
-    else if (isDocumentPage) setSelectedIndex(2);
-    else if (isAssignmentPage) setSelectedIndex(3);
-    else if (isOrganization) setSelectedIndex(4);
-    else setSelectedIndex(0);
-  }, []);
+  useEffect ( () => {
+    if (isApprovalPage) setSelectedIndex ( 1 )
+    else if (isDocumentPage) setSelectedIndex ( 2 )
+    else if (isAssignmentPage) setSelectedIndex ( 3 )
+    else if (isOrganization) setSelectedIndex ( 4 )
+    else setSelectedIndex ( 0 )
+  }, [] )
 
   return (
-    <NavLayout>
-      <NavContainer aria-label="main nav">
-        <NavTabGroup>
-          <NavTabList component="nav" aria-label="nav list selection">
-            {mainNavListData.map((object, index) => {
-              return (
-                <Link key={object.text + 'link'} href={'/' + object.link}>
-                  <NavTabItem
-                    key={object.text + 'link'}
-                    selected={selectedIndex === index}
-                    onClick={(event) => handleListItemClick(event, index)}>
-                    <NavTabIconContainer>
-                      {selectedIndex === index ? (
-                        <FilloutIcon
-                          name={object.iconName}
-                          size="big"
-                          type="filled"
+      <NavLayout>
+        <NavContainer aria-label="main nav">
+          <NavTabGroup>
+            <NavTabList component="nav" aria-label="nav list selection">
+              { mainNavListData.map ( ( object, index ) => {
+                return (
+                    <Link key={ object.text + 'link' } href={ '/' + object.link }>
+                      <NavTabItem
+                          key={ object.text + 'link' }
+                          selected={ selectedIndex === index }
+                          onClick={ ( event ) => handleListItemClick ( event, index ) }>
+                        <NavTabIconContainer>
+                          { selectedIndex === index ? (
+                              <FilloutIcon
+                                  name={ object.iconName }
+                                  size="big"
+                                  type="filled"
+                              />
+                          ) : (
+                              <FilloutIcon
+                                  name={ object.iconName }
+                                  size="big"
+                                  type="outlined"
+                              />
+                          ) }
+                        </NavTabIconContainer>
+                        <NavTabText
+                            key={ object.text + 'text' }
+                            primary={ object.text }
                         />
-                      ) : (
-                        <FilloutIcon
-                          name={object.iconName}
-                          size="big"
-                          type="outlined"
-                        />
-                      )}
-                    </NavTabIconContainer>
-                    <NavTabText
-                      key={object.text + 'text'}
-                      primary={object.text}
-                    />
-                  </NavTabItem>
-                </Link>
-              );
-            })}
-          </NavTabList>
+                      </NavTabItem>
+                    </Link>
+                )
+              } ) }
+            </NavTabList>
+            <MyIcon onClick={ handleOpen }>A</MyIcon>
+            <Modal
+                open={ profileOpen }
+                onClose={ handleClose }
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description">
+              <ProfileModal/>
+            </Modal>
+          </NavTabGroup>
+        </NavContainer>
+      </NavLayout>
+  )
+}
 
-          <MyIcon>A</MyIcon>
-        </NavTabGroup>
-      </NavContainer>
-    </NavLayout>
-  );
-};
-
-const NavLayout = styled(Box)`
+const NavLayout = styled ( Box )`
   &&& {
     position: relative;
     width: var(--box-contracted-length);
     height: 100%;
   }
-`;
+`
 
-const NavContainer = styled(Box)`
+const NavContainer = styled ( Box )`
   &&& {
     position: relative;
     will-change: width;
-    width: var(
-      --box-contracted-length
-    ); /* this width will be controlled by js, according to its parent */
+    width: var(--box-contracted-length); /* this width will be controlled by js, according to its parent */
     height: 100%;
     z-index: 1;
     background-color: var(--dark02);
@@ -155,13 +165,13 @@ const NavContainer = styled(Box)`
     border-radius: calc(var(--global-border-radius) * 2) !important;
     padding: 0.6rem;
     transition: 0.1s padding var(--cubic01) var(--delay-nav-out),
-      0.1s border-radius var(--cubic01) var(--delay-nav-out),
-      0.1s width var(--cubic01) var(--delay-nav-out),
-      0.1s background-color var(--cubic01) !important;
+    0.1s border-radius var(--cubic01) var(--delay-nav-out),
+    0.1s width var(--cubic01) var(--delay-nav-out),
+    0.1s background-color var(--cubic01) !important;
   }
-`;
+`
 
-const NavTabGroup = styled(Box)`
+const NavTabGroup = styled ( Box )`
   &&& {
     position: absolute;
     top: 0;
@@ -170,16 +180,16 @@ const NavTabGroup = styled(Box)`
     bottom: 0;
     background-color: var(--transparnet);
   }
-`;
+`
 
-const NavTabList = styled(List)`
+const NavTabList = styled ( List )`
   &&& {
     position: relative;
     padding: 0.12rem 0;
   }
-`;
+`
 
-const NavTabItem = styled(ListItemButton)`
+const NavTabItem = styled ( ListItemButton )`
   &&& {
     position: relative;
     display: grid;
@@ -236,9 +246,9 @@ const NavTabItem = styled(ListItemButton)`
   &&&.Mui-selected svg {
     fill: var(--light01) !important;
   }
-`;
+`
 
-const NavTabIconContainer = styled(ListItemIcon)`
+const NavTabIconContainer = styled ( ListItemIcon )`
   &&& {
     position: relative;
     display: flex;
@@ -260,9 +270,9 @@ const NavTabIconContainer = styled(ListItemIcon)`
     height: calc(var(--big-icon-size) * 0.8);
     color: var(--light03);
   }
-`;
+`
 
-const NavTabText = styled(ListItemText)`
+const NavTabText = styled ( ListItemText )`
   &&& {
     position: absolute;
     top: -10%;
@@ -292,15 +302,15 @@ const NavTabText = styled(ListItemText)`
     pointer-events: none;
 
     transition: opacity 0.1s var(--cubic01) 0.37s,
-      box-shadow 0.1s var(--cubic01);
+    box-shadow 0.1s var(--cubic01);
   }
-`;
+`
 
-const MyIcon = styled(Avatar)`
+const MyIcon = styled ( Avatar )`
   &&& {
     position: absolute;
     bottom: 20px;
   }
-`;
+`
 
-export default Nav;
+export default Nav
