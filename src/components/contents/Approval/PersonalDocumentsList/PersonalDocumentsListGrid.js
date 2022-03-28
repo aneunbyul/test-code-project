@@ -9,13 +9,12 @@ import {
 } from '@mui/x-data-grid'
 import {
   randomCommodity,
-  randomCreatedDate,
-  randomTraderName,
+  randomCreatedDate, randomDate,
+  randomTraderName, randomUpdatedDate,
 } from '@mui/x-data-grid-generator'
 import Typography from '@mui/material/Typography'
-import TripRequestListSearch from './TripRequestListSearch'
 
-const TripRequestListGrid = () => {
+const PersonalDocumentsListGrid = () => {
   const columns = [
     { field: 'name', headerName: '기안자', width: 180 },
     { field: 'team', headerName: '담당 부서', width: 180 },
@@ -51,4 +50,4 @@ const TripRequestListGrid = () => {
   )
 }
 
-export default TripRequestListGrid
+export default PersonalDocumentsListGrid
