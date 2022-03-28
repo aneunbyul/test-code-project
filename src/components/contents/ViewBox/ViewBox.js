@@ -12,7 +12,8 @@ import useScrollFadeIn from '../../../hooks/useScrollFadeIn';
 
 const ViewBox = (props) => {
   return (
-    <ViewBoxLayout {...useScrollFadeIn('', 0.1, 0.05)}>
+    <ViewBoxLayout
+      {...(props.animation ? useScrollFadeIn('', 0.1, 0.05) : null)}>
       {props.children}
     </ViewBoxLayout>
   );
@@ -34,6 +35,7 @@ const ViewBoxLayout = styled(Box)`
 ViewBox.defaultProps = {
   children: null,
   scrollable: false,
+  animation: true,
 };
 
 export default ViewBox;

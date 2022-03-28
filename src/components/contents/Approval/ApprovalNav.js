@@ -1,33 +1,33 @@
-import * as React from 'react'
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import List from '@mui/material/List'
-import Divider from '@mui/material/Divider'
-import ListItem from '@mui/material/ListItem'
-import ListItemText from '@mui/material/ListItemText'
-import ListSubheader from '@mui/material/ListSubheader'
-import styled from 'styled-components'
-import AddBoxIcon from '@mui/icons-material/AddBox'
-import BackspaceIcon from '@mui/icons-material/Backspace'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import useScrollFadeIn from '../../../hooks/useScrollFadeIn'
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListSubheader from '@mui/material/ListSubheader';
+import styled from 'styled-components';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import BackspaceIcon from '@mui/icons-material/Backspace';
+import Link from 'next/link';
+import {useRouter} from 'next/router';
+import useScrollFadeIn from '../../../hooks/useScrollFadeIn';
 
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react';
 
-import SimpleBar from 'simplebar-react'
-import 'simplebar/dist/simplebar.min.css'
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
 
 //components
-import SubNavList from '../SubNav/SubNavList'
-import ConversionButton from '../ReusableContent/ConversionButton'
-import ViewBox from '../ViewBox/ViewBox'
-import FilloutIcon from '../Icon/FilloutIcon'
-import SubNavHeader from '../SubNav/SubNavHeader'
+import SubNavList from '../SubNav/SubNavList';
+import ConversionButton from '../ReusableContent/ConversionButton';
+import ViewBox from '../ViewBox/ViewBox';
+import FilloutIcon from '../Icon/FilloutIcon';
+import SubNavHeader from '../SubNav/SubNavHeader';
 
-const ApprovalNav = () => {
-  const router = useRouter ()
-  const parentLink = '/approval'
+const ApprovalNav = ({animation}) => {
+  const router = useRouter();
+  const parentLink = '/approval';
   //
   // sub nav data for base
   const subNavListData_base = [
@@ -57,7 +57,7 @@ const ApprovalNav = () => {
       link: '/canceled',
       iconName: '',
     },
-  ]
+  ];
 
   // sub nav data for creation
   const subNavListData_creation = [
@@ -96,7 +96,7 @@ const ApprovalNav = () => {
       link: '/temp2',
       iconName: '',
     },
-  ]
+  ];
 
   /*
   const afterPath = router.pathname.substring(
@@ -107,51 +107,55 @@ const ApprovalNav = () => {
     */
 
   // base 화면을 출력해야 하는지 확인하는 hook
-  const [isBasePage, setIsBasePage] = React.useState ( true )
+  const [isBasePage, setIsBasePage] = React.useState(true);
 
   // selected category index hooks for base page & creation page
-  const [selectedBaseIndex, setSelectedBaseIndex] = React.useState ( -1 )
-  const [selectedCreationIndex, setSelectedCreationIndex] = React.useState ( -1 )
+  const [selectedBaseIndex, setSelectedBaseIndex] = React.useState(-1);
+  const [selectedCreationIndex, setSelectedCreationIndex] = React.useState(-1);
 
-  const handleSelectedBaseIndex = ( selectedIndex ) => {
-    setSelectedBaseIndex ( ( selectedBaseIndex ) => selectedIndex )
-  }
+  const handleSelectedBaseIndex = (selectedIndex) => {
+    setSelectedBaseIndex((selectedBaseIndex) => selectedIndex);
+  };
 
-  const handleSelectedCreationIndex = ( selectedIndex ) => {
-    setSelectedCreationIndex ( ( selectedCreationIndex ) => selectedIndex )
-  }
+  const handleSelectedCreationIndex = (selectedIndex) => {
+    setSelectedCreationIndex((selectedCreationIndex) => selectedIndex);
+  };
 
-  const convertToCreationPage = ( linkPath ) => {
-    setIsBasePage ( false )
-    router.push ( linkPath )
-  }
+  const convertToCreationPage = (linkPath) => {
+    setIsBasePage(false);
+    router.push(linkPath);
+  };
 
   return (
-      <ViewBox>
-        { isBasePage && (
-            <Box className="sub-nav__container" role="presentation">
-              <SubNavHeader
-                  text="전자 결재"
-                  button={
-                    <ConversionButton
-                        icon={ <FilloutIcon name="write" size="small" type="outlined"/> }
-                        clickAction={ convertToCreationPage }
-                        clickActionValue={ parentLink + '/creation' }
-                    />
-                  }
+    <ViewBox>
+      {isBasePage && (
+        <Box className="sub-nav__container" role="presentation">
+          <SubNavHeader
+            text="전자 결재"
+            button={
+              <ConversionButton
+                icon={<FilloutIcon name="write" size="small" type="outlined" />}
+                clickAction={convertToCreationPage}
+                clickActionValue={parentLink + '/creation'}
               />
+            }
+          />
 
-              <Divider className="line-divider"/>
+          <Divider className="line-divider" />
 
-              <SubNavList
-                  handleSelectedIndex={ handleSelectedBaseIndex }
-                  selectedIndex={ selectedBaseIndex }
-                  parentLink={ parentLink }
-                  subNavListData={ subNavListData_base }></SubNavList>
-            </Box>
-        ) }
-      </ViewBox>
-  )
-}
+          <SubNavList
+            handleSelectedIndex={handleSelectedBaseIndex}
+            selectedIndex={selectedBaseIndex}
+            parentLink={parentLink}
+            subNavListData={subNavListData_base}></SubNavList>
+        </Box>
+      )}
+    </ViewBox>
+  );
+};
 
-export default ApprovalNav
+ApprovalNav.defaultProps = {
+  animation: true,
+};
+
+export default ApprovalNav;

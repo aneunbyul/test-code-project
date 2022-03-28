@@ -1,31 +1,31 @@
-import * as React from 'react'
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import List from '@mui/material/List'
-import Divider from '@mui/material/Divider'
-import ListItem from '@mui/material/ListItem'
-import ListItemText from '@mui/material/ListItemText'
-import ListSubheader from '@mui/material/ListSubheader'
-import styled from 'styled-components'
-import AddBoxIcon from '@mui/icons-material/AddBox'
-import Link from 'next/link'
-import useScrollFadeIn from '../../../hooks/useScrollFadeIn'
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListSubheader from '@mui/material/ListSubheader';
+import styled from 'styled-components';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import Link from 'next/link';
+import useScrollFadeIn from '../../../hooks/useScrollFadeIn';
 
-import { useRouter } from 'next/router'
-import SimpleBar from 'simplebar-react'
-import 'simplebar/dist/simplebar.min.css'
-import { useEffect, useRef, useState } from 'react'
+import {useRouter} from 'next/router';
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
+import {useEffect, useRef, useState} from 'react';
 
 //components
-import SubNavList from '../SubNav/SubNavList'
-import ConversionButton from '../ReusableContent/ConversionButton'
-import ViewBox from '../ViewBox/ViewBox'
-import FilloutIcon from '../Icon/FilloutIcon'
-import SubNavHeader from '../SubNav/SubNavHeader'
+import SubNavList from '../SubNav/SubNavList';
+import ConversionButton from '../ReusableContent/ConversionButton';
+import ViewBox from '../ViewBox/ViewBox';
+import FilloutIcon from '../Icon/FilloutIcon';
+import SubNavHeader from '../SubNav/SubNavHeader';
 
-const AssignmentNav = () => {
-  const router = useRouter ()
-  const parentLink = '/assignment'
+const AssignmentNav = ({animation}) => {
+  const router = useRouter();
+  const parentLink = '/assignment';
 
   // sub nav data for base
   const subNavListData_base = [
@@ -44,7 +44,7 @@ const AssignmentNav = () => {
       link: '/canceld',
       iconName: '',
     },
-  ]
+  ];
 
   // sub nav data for creation
   const subNavListData_creation = [
@@ -63,7 +63,7 @@ const AssignmentNav = () => {
       link: '/impending',
       iconName: '',
     },
-  ]
+  ];
 
   /*
   const afterPath = router.pathname.substring(
@@ -74,56 +74,52 @@ const AssignmentNav = () => {
     */
 
   // base 화면을 출력해야 하는지 확인하는 hook
-  const [isBasePage, setIsBasePage] = React.useState ( true )
+  const [isBasePage, setIsBasePage] = React.useState(true);
 
-  const [selectedBaseIndex, setSelectedBaseIndex] = useState ( -1 )
-  const [selectedCreationIndex, setSelectedCreationIndex] = useState ( -1 )
+  const [selectedBaseIndex, setSelectedBaseIndex] = useState(-1);
+  const [selectedCreationIndex, setSelectedCreationIndex] = useState(-1);
 
-  const handleSelectedBaseIndex = ( selectedIndex ) => {
-    setSelectedBaseIndex ( ( selectedBaseIndex ) => selectedIndex )
-    console.log ( selectedIndex )
-    console.log ( selectedBaseIndex )
-  }
+  const handleSelectedBaseIndex = (selectedIndex) => {
+    setSelectedBaseIndex((selectedBaseIndex) => selectedIndex);
+  };
 
-  const handleSelectedCreationIndex = ( selectedIndex ) => {
-    setSelectedCreationIndex ( ( selectedCreationIndex ) => selectedIndex )
-    console.log ( selectedIndex )
-    console.log ( selectedCreationIndex )
-  }
+  const handleSelectedCreationIndex = (selectedIndex) => {
+    setSelectedCreationIndex((selectedCreationIndex) => selectedIndex);
+  };
 
-  const convertToCreationPage = ( linkPath ) => {
-    setIsBasePage ( false )
-    router.push ( linkPath )
-  }
+  const convertToCreationPage = (linkPath) => {
+    setIsBasePage(false);
+    router.push(linkPath);
+  };
 
   return (
-      <ViewBox>
-        { isBasePage && (
-            <Box className="sub-nav__container" role="presentation">
-              <SubNavHeader
-                  text="과제 정보"
-                  button={
-                    <ConversionButton
-                        icon={ <FilloutIcon name="write" size="small" type="outlined"/> }
-                        clickAction={ convertToCreationPage }
-                        clickActionValue={ parentLink + '/creation' }
-                    />
-                  }
+    <ViewBox>
+      {isBasePage && (
+        <Box className="sub-nav__container" role="presentation">
+          <SubNavHeader
+            text="과제 정보"
+            button={
+              <ConversionButton
+                icon={<FilloutIcon name="write" size="small" type="outlined" />}
+                clickAction={convertToCreationPage}
+                clickActionValue={parentLink + '/creation'}
               />
+            }
+          />
 
-              <Divider className="line-divider"/>
+          <Divider className="line-divider" />
 
-              <SubNavList
-                  handleSelectedIndex={ handleSelectedBaseIndex }
-                  selectedIndex={ selectedBaseIndex }
-                  parentLink={ parentLink }
-                  subNavListData={ subNavListData_base }
-                  subNavTitles={ null }></SubNavList>
-            </Box>
-        ) }
-        { !isBasePage && (
-            <Box className="sub-nav__container" role="presentation">
-              {/*<ConversionButton
+          <SubNavList
+            handleSelectedIndex={handleSelectedBaseIndex}
+            selectedIndex={selectedBaseIndex}
+            parentLink={parentLink}
+            subNavListData={subNavListData_base}
+            subNavTitles={null}></SubNavList>
+        </Box>
+      )}
+      {!isBasePage && (
+        <Box className="sub-nav__container" role="presentation">
+          {/*<ConversionButton
             icon={
               <FilloutIcon
                 sx={{
@@ -147,11 +143,11 @@ const AssignmentNav = () => {
             parentLink={parentLink + '/creation'}
             subNavListData={subNavListData_creation}
             subNavTitles={null}></SubNavList>
-          */ }
-            </Box>
-        ) }
-      </ViewBox>
-  )
-}
+          */}
+        </Box>
+      )}
+    </ViewBox>
+  );
+};
 
-export default AssignmentNav
+export default AssignmentNav;

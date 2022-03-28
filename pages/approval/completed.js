@@ -4,9 +4,9 @@ import ApprovalTable from '../../src/components/contents/Approval/ApprovalTable'
 
 const Page = () => {
   return (
-      <>
-        <ApprovalNav />
-      </>
+    <>
+      <ApprovalNav animation={false} />
+    </>
   );
 };
 

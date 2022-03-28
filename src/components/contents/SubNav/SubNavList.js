@@ -37,13 +37,15 @@ const SubNavList = ({
           subNavListData[ind].link.length +
           2,
       );
+
       const isSubBase =
         afterSubPath == '' && router.pathname.includes(subNavListData[ind].link)
           ? true
           : false;
 
-      if (!isSubBase) {
-        handleSelectedIndex(-1);
+      console.log(subNavListData[ind].link);
+      if (isSubBase) {
+        handleSelectedIndex(ind);
         break;
       }
     }

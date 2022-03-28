@@ -10,6 +10,7 @@ import ApprovalNav from '../contents/Approval/ApprovalNav';
 import OrganizationNav from '../contents/Organization/OrganizationNav';
 import AssignmentNav from '../contents/Assignment/AssignmentNav';
 import DoucmentNav from '../contents/Document/DocumentNav';
+import {FastfoodOutlined} from '@mui/icons-material';
 
 const ScrollToTop = () => {
   const router = useRouter();
@@ -23,30 +24,40 @@ export const HeaderBgContext = createContext();
 
 const Layout = ({children}) => {
   const router = useRouter();
-
+  /*
   const isApprovalBasePage =
     router.pathname.substring(
       router.pathname.indexOf('/approval') + '/approval'.length + 2,
     ) == '' && router.pathname.includes('/approval')
+      ? true
+      : false;*/
+
+  const isApprovalBasePage =
+    router.pathname.includes('/approval/creation') == false &&
+    router.pathname.includes('/approval') == true
       ? true
       : false;
 
   const isInApprovalCreationPage =
     router.pathname.includes('/approval/creation');
 
+  /*
   const isAssignmentBasePage =
     router.pathname.substring(
       router.pathname.indexOf('/assignment') + '/assignment'.length + 2,
     ) == '' && router.pathname.includes('/assignment')
       ? true
       : false;
-
+*/
+  const isAssignmentBasePage =
+    router.pathname.includes('/assignment/creation') == false &&
+    router.pathname.includes('/assignment') == true
+      ? true
+      : false;
   const isInAssignmentCreationPage = router.pathname.includes(
     '/assignment/creation',
   );
 
-  //const isApprovalPage = router.pathname.includes('/approval');
-  //const isAssignmentPage = router.pathname.includes('/assignment');
   const isDocumentPage = router.pathname.includes('/document');
   const isOrganizationPage = router.pathname.includes('/organization');
   const config = {};
@@ -64,8 +75,6 @@ const Layout = ({children}) => {
             ? 'minmax(32rem, 3fr) 2fr'
             : isAssignmentBasePage
             ? 'calc(var(--box-expanded-length)*0.8) auto'
-            : isInApprovalCreationPage
-            ? 'auto'
             : isDocumentPage
             ? 'calc(var(--box-expanded-length)*0.8) auto'
             : isOrganizationPage
@@ -73,11 +82,6 @@ const Layout = ({children}) => {
             : 'auto',
         }}>
         {children}
-        {/*
-        <WorkspaceWrapper>
-          <WorkspaceContainer>{children}</WorkspaceContainer>
-        </WorkspaceWrapper>
-      */}
       </Main>
     </ClientLayout>
   );
