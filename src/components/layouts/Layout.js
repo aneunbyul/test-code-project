@@ -34,8 +34,19 @@ const Layout = ({children}) => {
   const isInApprovalCreationPage =
     router.pathname.includes('/approval/creation');
 
-  const isApprovalPage = router.pathname.includes('/approval');
-  const isAssignmentPage = router.pathname.includes('/assignment');
+  const isAssignmentBasePage =
+    router.pathname.substring(
+      router.pathname.indexOf('/assignment') + '/assignment'.length + 2,
+    ) == '' && router.pathname.includes('/assignment')
+      ? true
+      : false;
+
+  const isInAssignmentCreationPage = router.pathname.includes(
+    '/assignment/creation',
+  );
+
+  //const isApprovalPage = router.pathname.includes('/approval');
+  //const isAssignmentPage = router.pathname.includes('/assignment');
   const isDocumentPage = router.pathname.includes('/document');
   const isOrganizationPage = router.pathname.includes('/organization');
   const config = {};
@@ -50,9 +61,11 @@ const Layout = ({children}) => {
           gridTemplateColumns: isApprovalBasePage
             ? 'calc(var(--box-expanded-length)*0.8) auto'
             : isInApprovalCreationPage
-            ? '2fr 1fr'
-            : isAssignmentPage
+            ? '3fr 2fr'
+            : isAssignmentBasePage
             ? 'calc(var(--box-expanded-length)*0.8) auto'
+            : isInApprovalCreationPage
+            ? 'auto'
             : isDocumentPage
             ? 'calc(var(--box-expanded-length)*0.8) auto'
             : isOrganizationPage

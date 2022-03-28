@@ -85,34 +85,34 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-overflow-scrolling: touch;
     }
 
-    &&& input {
+     input {
     outline:none;
     }
 
-    &&& p {
+     p {
       padding:0;
       margin: 0;
     }
 
-    &&& button {
+     button {
       cursor: pointer;
       outline: none;
       background: none;
       border: none;
     }
 
-    &&& p,
+     p,
     span {
       color: var(--light02);
     }
 
-    &&& h5 {
+     h5 {
       font-size: calc(var(--global-text-size) * 1.1);
       color: var(--light01);
       white-space: pre-wrap;
     }
 
-    &&& h6 {
+     h6 {
       position: relative;
       color: var(--light04);
       font-weight: 400;
@@ -122,32 +122,58 @@ export const GlobalStyle = createGlobalStyle`
       white-space: pre-wrap;
     }
 
-    &&&.MuiTypography-root{
+     .Mui-focused *{
+      border-color: var(--highlight01) !important;
+    }
+
+     .Mui-focused.MuiInputLabel-root{
+      color: var(--light03) !important;
+    }
+
+     .MuiTypography-root{
       color: var(--light01);
       font-weight: 500;
       font-size: calc(var(--global-text-size) * 2.2);
     }
 
-
-    &&& .MuiOutlinedInput-input{
+     .MuiOutlinedInput-root{
       line-height: 0rem;
+      background-color: var(--dark01);
       border-color: var(--light01);
+
+       .MuiOutlinedInput-input{
+        color: var(--light02);
+        min-height: var(--global-text-size);
+      }
+    }
+     .MuiOutlinedInput-notchedOutline{
+      border-color: var(--dark04);
     }
 
-    &&& .MuiOutlinedInput-notchedOutline{
-      border-color: var(--transparent);
+     .MuiPaper-root{
+      background-color: var(--dark01-tranparent);
+      backdrop-filter: blur(1rem);
+      transform: translate(0,2px) !important;
+       *{
+        font-size : var(--global-text-size);
+      }
+
+       .MuiMenuItem-root{
+        color: var(--light02);
+      }
     }
 
-    &&&.Mui-focused *{
-      border-color: var(--highlight01) !important;
+     .MuiInputLabel-root{
+      font-size: var(--global-text-size);
+      line-height: var(--global-text-size);
+      top: 35%;
+      left: var(--global-text-size);
+      transform: none;
+      color : var(--light02);
     }
 
-    &&&.Mui-focused.MuiInputLabel-root{
-      color: var(--light03) !important;
+     .MuiButton-root{
+      background-color:var(--dark03);
     }
 
-    &&& .MuiInputLabel-root{
-      transform: translate(var(--global-text-size), var(--global-text-size)) scale(1);
-    }
-    
 `;
