@@ -1,11 +1,8 @@
-import BaseHead from '../../../src/components/base/BaseHead';
+import BaseHead from '../../../src/components/base/BaseHead'
+import AssignmentCreationForm from '../../../src/components/contents/Assignment/Creation/AssignmentCreationForm'
 
 const Page = () => {
-  return (
-    <>
-      <BaseHead title="MAIN" />
-    </>
-  );
-};
+  return <AssignmentCreationForm/>
+}
 
-export default Page;
+export default Page
