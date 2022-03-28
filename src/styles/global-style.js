@@ -66,13 +66,13 @@ export const GlobalStyle = createGlobalStyle`
         --header_height: 70px;
         --header_mobile_height: 47px;
         --title_color: #2C2C2C;
-        --font_color: #C5C5C5;
+        --font_color: #123123;
         --sub_color: #FF515C;
         --disable_color: #36373c;
     }
 
     html {
-    font-size: 16px;
+    font-size: var(--global-text-size);
     }
     
     * {
@@ -134,5 +134,20 @@ export const GlobalStyle = createGlobalStyle`
       border-color: var(--light01);
     }
 
+    &&& .MuiOutlinedInput-notchedOutline{
+      border-color: var(--transparent);
+    }
+
+    &&&.Mui-focused *{
+      border-color: var(--highlight01) !important;
+    }
+
+    &&&.Mui-focused.MuiInputLabel-root{
+      color: var(--light03) !important;
+    }
+
+    &&& .MuiInputLabel-root{
+      transform: translate(var(--global-text-size), var(--global-text-size)) scale(1);
+    }
     
 `;

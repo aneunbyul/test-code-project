@@ -21,6 +21,7 @@ import SubNavList from '../SubNav/SubNavList';
 import ConversionButton from '../ReusableContent/ConversionButton';
 import ViewBox from '../ViewBox/ViewBox';
 import FilloutIcon from '../Icon/FilloutIcon';
+import SubNavHeader from '../SubNav/SubNavHeader';
 
 const AssignmentNav = () => {
   const router = useRouter();
@@ -90,24 +91,24 @@ const AssignmentNav = () => {
     console.log(selectedCreationIndex);
   };
 
+  const convertToCreationPage = (linkPath) => {
+    setIsBasePage(false);
+    router.push(linkPath);
+  };
+
   return (
     <ViewBox>
       {isBasePage && (
         <Box className="sub-nav__container" role="presentation">
-          <ConversionButton
-            icon={
-              <FilloutIcon
-                sx={{
-                  marginLeft: '-12%',
-                }}
-                name="write"
-                size="small"
-                type="outlined"
+          <SubNavHeader
+            text="과제 정보"
+            button={
+              <ConversionButton
+                icon={<FilloutIcon name="write" size="small" type="outlined" />}
+                clickAction={convertToCreationPage}
+                clickActionValue={parentLink + '/creation'}
               />
             }
-            text="추가하기"
-            clickAction={setIsBasePage}
-            clickActionValue={false}
           />
 
           <Divider className="line-divider" />
@@ -122,7 +123,7 @@ const AssignmentNav = () => {
       )}
       {!isBasePage && (
         <Box className="sub-nav__container" role="presentation">
-          <ConversionButton
+          {/*<ConversionButton
             icon={
               <FilloutIcon
                 sx={{
@@ -146,6 +147,7 @@ const AssignmentNav = () => {
             parentLink={parentLink + '/creation'}
             subNavListData={subNavListData_creation}
             subNavTitles={null}></SubNavList>
+          */}
         </Box>
       )}
     </ViewBox>

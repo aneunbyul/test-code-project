@@ -1,13 +1,11 @@
 import BaseHead from '../../src/components/base/BaseHead';
-
-import {Assignment} from '@material-ui/icons';
+import AssignmentNav from '../../src/components/contents/Assignment/AssignmentNav';
 import AssignmentTable from '../../src/components/contents/Assignment/AssignmentTable';
 
 const Page = () => {
   return (
     <>
-      <BaseHead title="MAIN" />
-      <AssignmentTable />
+      <AssignmentNav />
     </>
   );
 };

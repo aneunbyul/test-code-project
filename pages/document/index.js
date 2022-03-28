@@ -4,7 +4,7 @@ import DocumentNav from '../../src/components/contents/Document/DocumentNav';
 const Page = () => {
   return (
     <>
-      <BaseHead title="MAIN" />
+      <DocumentNav />
     </>
   );
 };

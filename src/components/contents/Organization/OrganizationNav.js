@@ -22,6 +22,7 @@ import ConversionButton from '../ReusableContent/ConversionButton';
 import ViewBox from '../ViewBox/ViewBox';
 import FilloutIcon from '../Icon/FilloutIcon';
 import OrganizationChartForm from './OrganizationChart/OrganizationChartForm';
+import SubNavHeader from '../SubNav/SubNavHeader';
 
 const OrganizationNav = () => {
   const router = useRouter();
@@ -65,14 +66,6 @@ const OrganizationNav = () => {
     },
   ];
 
-  /*
-  const afterPath = router.pathname.substring(
-    router.pathname.indexOf(parentLink) + parentLink.length + 2,
-  );
-  const isBase =
-    afterPath == '' && router.pathname.includes(parentLink) ? true : false;
-    */
-
   // base 화면을 출력해야 하는지 확인하는 hook
   const [isBasePage, setIsBasePage] = React.useState(true);
 
@@ -87,24 +80,24 @@ const OrganizationNav = () => {
     setSelectedCreationIndex((selectedCreationIndex) => selectedIndex);
   };
 
+  const convertToCreationPage = (linkPath) => {
+    setIsBasePage(false);
+    router.push(linkPath);
+  };
+
   return (
     <ViewBox>
       {isBasePage && (
         <Box className="sub-nav__container" role="presentation">
-          <ConversionButton
-            icon={
-              <FilloutIcon
-                sx={{
-                  marginLeft: '-12%',
-                }}
-                name="write"
-                size="small"
-                type="outlined"
+          <SubNavHeader
+            text="조직 정보"
+            button={
+              <ConversionButton
+                icon={<FilloutIcon name="write" size="small" type="outlined" />}
+                clickAction={convertToCreationPage}
+                clickActionValue={parentLink + '/creation'}
               />
             }
-            text="추가하기"
-            clickAction={setIsBasePage}
-            clickActionValue={false}
           />
 
           <Divider className="line-divider" />
@@ -120,6 +113,7 @@ const OrganizationNav = () => {
       )}
       {!isBasePage && (
         <Box className="sub-nav__container" role="presentation">
+          {/*
           <ConversionButton
             icon={
               <FilloutIcon
@@ -143,7 +137,7 @@ const OrganizationNav = () => {
             selectedIndex={selectedCreationIndex}
             parentLink={parentLink + '/creation'}
             subNavListData={subNavListData_creation}
-            subNavTitles={null}></SubNavList>
+            subNavTitles={null}></SubNavList>*/}
         </Box>
       )}
     </ViewBox>

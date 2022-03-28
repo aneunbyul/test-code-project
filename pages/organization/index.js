@@ -6,7 +6,7 @@ import EmployeeListForm from '../../src/components/contents/Organization/Employe
 const Page = () => {
   return (
     <>
-      <BaseHead title="MAIN" />
+      <OrganizationNav />
       <EmployeeListForm />
     </>
   );
