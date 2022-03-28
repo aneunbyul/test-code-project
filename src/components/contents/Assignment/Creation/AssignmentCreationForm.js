@@ -5,15 +5,26 @@ import AssignmentBasicInfo from './AssignmentBasicInfo'
 import ViewBox from '../../ViewBox/ViewBox'
 import ParticipatingResearcher from './ParticipatingResearcher'
 import AssignmentBudget from './AssignmentBudget'
+import SimpleBar from 'simplebar-react'
+import 'simplebar/dist/simplebar.min.css'
+import { Box, Container, Stack, Typography } from '@mui/material'
+import AssignmentAccount from './AssignmentAccount'
+import BusinessExpenseCard from './BusinessExpenseCard'
 
 const AssignmentCreationForm = () => {
   return (
-      <ViewBox>
+      <Temp xs={ { width: '100vw' } }>
         <AssignmentBasicInfo/>
         <ParticipatingResearcher/>
         <AssignmentBudget/>
-      </ViewBox>
+        <AssignmentAccount/>
+        <BusinessExpenseCard/>
+      </Temp>
   )
 }
 
+const Temp = styled ( Container )`
+  &&& {
+    width: 100vw;
+`
 export default AssignmentCreationForm

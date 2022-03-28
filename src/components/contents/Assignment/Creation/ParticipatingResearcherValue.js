@@ -1,15 +1,15 @@
-import * as React from 'react';
+import * as React from 'react'
 
 const ParticipatingResearcherValue = [
   {
-    label: 'Name',
+    label: '이름',
     name: 'name',
-    validation: (e) => {
-      const name = e.target.value;
+    validation: ( e ) => {
+      const name = e.target.value
       if (name.length < 1) {
-        return false;
+        return false
       } else {
-        return true;
+        return true
       }
     },
     error: '이름을 입력하세요',
@@ -17,12 +17,12 @@ const ParticipatingResearcherValue = [
   {
     label: '참여시작일자',
     name: 'start',
-    validation: (e) => {
-      const name = e.target.value;
+    validation: ( e ) => {
+      const name = e.target.value
       if (name.length !== 8) {
-        return false;
+        return false
       } else {
-        return true;
+        return true
       }
     },
     error: 'YYYYMMdd 형식으로 입력하세요',
@@ -30,12 +30,12 @@ const ParticipatingResearcherValue = [
   {
     label: '참여종료일자',
     name: 'finish',
-    validation: (e) => {
-      const name = e.target.value;
+    validation: ( e ) => {
+      const name = e.target.value
       if (name.length !== 8) {
-        return false;
+        return false
       } else {
-        return true;
+        return true
       }
     },
     error: 'YYYYMMdd 형식으로 입력하세요',
@@ -62,5 +62,5 @@ const ParticipatingResearcherValue = [
   //   },
   //   error: 'go home kid',
   // },
-];
-export default ParticipatingResearcherValue;
+]
+export default ParticipatingResearcherValue
