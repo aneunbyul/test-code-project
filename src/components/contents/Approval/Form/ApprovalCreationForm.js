@@ -14,11 +14,8 @@ import ViewBox from '../../ViewBox/ViewBox';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
-import ApprovalGlobalHeader from './ApprovalGlobalHeader';
-import ApprovalGlobalInfo from './ApprovalGlobalInfo';
-import ApprovalLineBox from './ApprovalLineBox';
-import ApprovalSubject from './ApprovalSubject';
-import ApprovalInfo from './ApprovalInfo';
+import FormCreationHeader from '../../Format/FormCreationHeader';
+import FormCreationInfo from '../../Format/FormCreationInfo';
 import BusinessTripInfo from './BusinessTripInfo';
 import BusinessTravelerInfo from './BusinessTravelerInfo';
 import ActivityHistory from './ActivityHistory';
@@ -35,11 +32,11 @@ const ApprovalCreationForm = () => {
   return (
     <ViewBox>
       <ApprovalCreationContainer>
-        <ApprovalGlobalHeader
+        <FormCreationHeader
           selectedFormName={selectedFormName}
           handleSelectedFormName={handleSelectedFormName}
         />
-        <ApprovalGlobalInfo />
+        <FormCreationInfo />
 
         <hr className="hr-divider" />
         <BusinessTripInfo />
