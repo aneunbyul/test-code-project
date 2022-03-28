@@ -77,13 +77,15 @@ const ExpenseDetails = () => {
         <Grid item xs={3 / 2}>
           <Box component="h5">255,000</Box>
         </Grid>
-
         {/**/}
-        <Grid item xs={3}>
-          <Box component="h5">합계</Box>
+        <Grid item xs={3 / 2}>
+          <Box component="h5">사용경비</Box>
         </Grid>
         <Grid item xs={3 / 2}>
-          <Box component="h5">125,0000</Box>
+          <Box component="h5">조지헌</Box>
+        </Grid>
+        <Grid item xs={3 / 2}>
+          <Box component="h5">100,0000</Box>
         </Grid>
         <Grid item xs={3 / 2}>
           <Box component="h5">20,000</Box>
@@ -95,10 +97,33 @@ const ExpenseDetails = () => {
           <Box component="h5">50,000</Box>
         </Grid>
         <Grid item xs={3 / 2}>
+          <Box component="h5">0</Box>
+        </Grid>
+        <Grid item xs={3 / 2}>
+          <Box component="h5">217,000</Box>
+        </Grid>
+
+        {/**/}
+        <Grid item xs={3}>
+          <Box component="h5">합계</Box>
+        </Grid>
+        <Grid item xs={3 / 2}>
+          <Box component="h5">225,0000</Box>
+        </Grid>
+        <Grid item xs={3 / 2}>
+          <Box component="h5">40,000</Box>
+        </Grid>
+        <Grid item xs={3 / 2}>
+          <Box component="h5">54,000</Box>
+        </Grid>
+        <Grid item xs={3 / 2}>
+          <Box component="h5">100,000</Box>
+        </Grid>
+        <Grid item xs={3 / 2}>
           <Box component="h5">13,000</Box>
         </Grid>
         <Grid item xs={3 / 2}>
-          <Box component="h5">255,000</Box>
+          <Box component="h5">472,000</Box>
         </Grid>
       </GridContainer>
     </>
