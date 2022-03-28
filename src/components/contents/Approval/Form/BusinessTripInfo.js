@@ -27,23 +27,31 @@ const BusinessTripInfo = () => {
       <GridContainer container spacing={4}>
         <Grid item xs={6}>
           <Box component="h6">신청인</Box>
-          <Box component="h5">안은별</Box>
         </Grid>
         <Grid item xs={6}>
           <Box component="h6">신청번호(사번)</Box>
+        </Grid>
+        <Grid item xs={6}>
+          <Box component="h5">안은별</Box>
+        </Grid>
+        <Grid item xs={6}>
           <Box component="h5">07</Box>
         </Grid>
         <Grid item xs={6}>
           <Box component="h6">목적지</Box>
-          <TextField
-            required
-            id="outlined-required"
-            label="필수입력"
-            placeholder="목적지(도시)"
-          />
         </Grid>
         <Grid item xs={6}>
           <Box component="h6">출장기간</Box>
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            InputLabelProps={{shrink: false}}
+            required
+            id="outlined-required"
+            label="필수입력"
+          />
+        </Grid>
+        <Grid item xs={6}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <MobileDateRangePicker
               startText="출발일"
@@ -55,8 +63,32 @@ const BusinessTripInfo = () => {
               }}
               renderInput={(startProps, endProps) => (
                 <React.Fragment>
-                  <TextField {...startProps} />
-                  <TextField {...endProps} />
+                  <TextField
+                    InputLabelProps={{shrink: false}}
+                    {...startProps}
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        borderRadius:
+                          'var(--global-border-radius) 0 0 var(--global-border-radius)',
+                      },
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        borderRightWidth: '0',
+                      },
+                    }}
+                  />
+                  <TextField
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        borderRadius:
+                          '0 var(--global-border-radius) var(--global-border-radius) 0',
+                      },
+                      '& .MuiOutlinedInput-notchedOutline': {
+                        borderLeftWidth: '0',
+                      },
+                    }}
+                    InputLabelProps={{shrink: false}}
+                    {...endProps}
+                  />
                 </React.Fragment>
               )}
             />
@@ -64,7 +96,10 @@ const BusinessTripInfo = () => {
         </Grid>
         <Grid item xs={12}>
           <Box component="h6">출장목적</Box>
+        </Grid>
+        <Grid item xs={12}>
           <TextField
+            InputLabelProps={{shrink: false}}
             fullWidth
             required
             id="outlined-required"
@@ -73,7 +108,10 @@ const BusinessTripInfo = () => {
         </Grid>
         <Grid item xs={12}>
           <Box component="h6">특이사항</Box>
+        </Grid>
+        <Grid item xs={12}>
           <TextField
+            InputLabelProps={{shrink: false}}
             fullWidth
             required
             id="outlined-required"
@@ -82,7 +120,13 @@ const BusinessTripInfo = () => {
         </Grid>
         <Grid item xs={6}>
           <Box component="h6">출장자</Box>
+        </Grid>
+        <Grid item xs={6}>
+          <Box component="h6">식비유보</Box>
+        </Grid>
+        <Grid item xs={6}>
           <TextField
+            InputLabelProps={{shrink: false}}
             required
             id="outlined-required"
             label="필수입력"
@@ -95,8 +139,8 @@ const BusinessTripInfo = () => {
           />
         </Grid>
         <Grid item xs={6}>
-          <Box component="h6">식비유보</Box>
           <TextField
+            InputLabelProps={{shrink: false}}
             required
             id="outlined-required"
             label="선택입력"
@@ -117,6 +161,8 @@ const GridContainer = styled(Grid)`
     width: 100%;
     height: 100%;
     align-items: center;
+
+    padding: 0rem var(--writing-padding);
   }
 `;
 

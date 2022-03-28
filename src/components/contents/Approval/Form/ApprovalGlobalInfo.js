@@ -45,10 +45,15 @@ const ApprovalGlobalInfo = (props) => {
       <GridContainer container spacing={4}>
         <Grid item xs={6}>
           <Box component="h6">발의번호</Box>
-          <Box component="h5">TPX_BT_사번_20220103</Box>
         </Grid>
         <Grid item xs={6}>
           <Box component="h6">발의일자</Box>
+        </Grid>
+
+        <Grid item xs={6}>
+          <Box component="h5">TPX_BT_사번_20220103</Box>
+        </Grid>
+        <Grid item xs={6}>
           <Box component="h5">2021/01/03</Box>
         </Grid>
       </GridContainer>
@@ -56,9 +61,15 @@ const ApprovalGlobalInfo = (props) => {
       <GridContainer container spacing={4}>
         <Grid item xs={6}>
           <Box component="h6">문서분류</Box>
+        </Grid>
+        <Grid item xs={6}>
+          <Box component="h6">과제번호</Box>
+        </Grid>
+        <Grid item xs={6}>
           <FormControl fullWidth>
             <InputLabel id="team-select-label">팀 선택</InputLabel>
             <Select
+              InputLabelProps={{shrink: false}}
               labelId="team-select-label"
               value={Team}
               onChange={TeamHandleChange}>
@@ -71,10 +82,10 @@ const ApprovalGlobalInfo = (props) => {
           </FormControl>
         </Grid>
         <Grid item xs={6}>
-          <Box component="h6">과제번호</Box>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">과제선택</InputLabel>
             <Select
+              InputLabelProps={{shrink: false}}
               labelId="demo-simple-select-label"
               value={Assignment}
               onChange={AssignmentHandleChange}>
@@ -89,9 +100,15 @@ const ApprovalGlobalInfo = (props) => {
       <GridContainer container spacing={4}>
         <Grid item xs={6}>
           <Box component="h6">중분류</Box>
+        </Grid>
+        <Grid item xs={6}>
+          <Box component="h6">소분류</Box>
+        </Grid>
+        <Grid item xs={6}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">예산 선택</InputLabel>
             <Select
+              InputLabelProps={{shrink: false}}
               labelId="demo-simple-select-label"
               value={BudgetMajorCategory}
               onChange={BudgetMajorCategoryHandleChange}>
@@ -101,10 +118,10 @@ const ApprovalGlobalInfo = (props) => {
           </FormControl>
         </Grid>
         <Grid item xs={6}>
-          <Box component="h6">소분류</Box>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">예산 선택</InputLabel>
             <Select
+              InputLabelProps={{shrink: false}}
               labelId="demo-simple-select-label"
               value={BudgetSubCategory}
               onChange={BudgetSubCategoryHandleChange}>

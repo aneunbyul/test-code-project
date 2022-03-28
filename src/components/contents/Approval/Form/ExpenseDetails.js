@@ -107,8 +107,11 @@ const ExpenseDetails = () => {
 
 const GridContainer = styled(Grid)`
   &&& {
+    width: 100%;
     height: 100%;
     align-items: center;
+
+    padding: 0rem var(--writing-padding);
   }
 `;
 

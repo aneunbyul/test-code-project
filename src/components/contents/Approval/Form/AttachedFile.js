@@ -16,7 +16,7 @@ const AttachedFile = () => {
     <>
       <GridContainer container>
         <Grid item xs={12}>
-          <Box bgcolor={'aliceblue'}>첨부목록</Box>
+          <Box component="h6">첨부목록</Box>
         </Grid>
 
         <Grid item xs={2}>
@@ -43,8 +43,11 @@ const AttachedFile = () => {
 
 const GridContainer = styled(Grid)`
   &&& {
-    height: 5vh;
+    width: 100%;
+    height: 100%;
     align-items: center;
+
+    padding: 0rem var(--writing-padding);
   }
 `;
 

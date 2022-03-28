@@ -11,7 +11,7 @@
 
   --dark00: #181515;
   --dark01: #201d1d;
-  --dark01-transparent: #201d1d88;
+  --dark01-transparent: #201d1daf;
   --dark02: #2c2626;
   --dark03: #383131;
   --dark04: #443c3c;
@@ -32,8 +32,8 @@
   --delay-nav-out: 0.5s;
   --cubic01: cubic-bezier(0.52, 0.02, 0.21, 0.98);
 
-  --global-big-text-size: 1.02rem;
-  --global-text-size: 0.92rem;
+  --global-big-text-size: 1.12rem;
+  --global-text-size: 0.97rem;
   --global-border-radius: 0.5rem;
 }
 

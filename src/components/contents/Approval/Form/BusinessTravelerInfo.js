@@ -16,7 +16,7 @@ import TextField from '@mui/material/TextField';
 const BusinessTravelerInfo = () => {
   return (
     <>
-      <GridContainer container spacing={0}>
+      <GridContainer container row-spacing={0}>
         <Grid item xs={2}>
           <Box component="h6">출장자</Box>
         </Grid>
@@ -44,26 +44,29 @@ const BusinessTravelerInfo = () => {
         </Grid>
         <Grid item xs={2}>
           <TextField
+            InputLabelProps={{shrink: false}}
             fullWidth
             required
             id="outlined-required"
-            label="선택입력"
+            label="입력"
           />
         </Grid>
         <Grid item xs={2}>
           <TextField
+            InputLabelProps={{shrink: false}}
             fullWidth
             required
             id="outlined-required"
-            label="선택입력"
+            label="입력"
           />
         </Grid>
         <Grid item xs={2}>
           <TextField
+            InputLabelProps={{shrink: false}}
             fullWidth
             required
             id="outlined-required"
-            label="선택입력"
+            label="입력"
             defaultValue="부산"
           />
         </Grid>
@@ -72,10 +75,11 @@ const BusinessTravelerInfo = () => {
         </Grid>
         <Grid item xs={2}>
           <TextField
+            InputLabelProps={{shrink: false}}
             fullWidth
             required
             id="outlined-required"
-            label="선택입력"
+            label="입력"
           />
         </Grid>
       </GridContainer>
@@ -85,10 +89,11 @@ const BusinessTravelerInfo = () => {
 
 const GridContainer = styled(Grid)`
   &&& {
-    position: relative;
     width: 100%;
     height: 100%;
     align-items: center;
+
+    padding: 0rem var(--writing-padding);
   }
 `;
 

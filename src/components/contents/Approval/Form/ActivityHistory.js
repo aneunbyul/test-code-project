@@ -22,19 +22,20 @@ const ActivityHistory = () => {
     <>
       <GridContainer container>
         <Grid item xs={3}>
-          <Box>출발일자</Box>
+          <Box component="h6">출발일자</Box>
         </Grid>
         <Grid item xs={3}>
-          <Box>종료일자</Box>
+          <Box component="h6">종료일자</Box>
         </Grid>
         <Grid item xs={6}>
-          <Box>활동내역</Box>
+          <Box component="h6">활동내역</Box>
         </Grid>
 
         {/*출장자가 추가될때마다 추가 생성*/}
         <Grid item xs={6}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <MobileDateRangePicker
+              InputLabelProps={{shrink: false}}
               startText="출발일자"
               endText="종료일자"
               value={value}
@@ -44,8 +45,34 @@ const ActivityHistory = () => {
               }}
               renderInput={(startProps, endProps) => (
                 <React.Fragment>
-                  <TextField {...startProps} />
-                  <TextField {...endProps} />
+                  <React.Fragment>
+                    <TextField
+                      InputLabelProps={{shrink: false}}
+                      {...startProps}
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius:
+                            'var(--global-border-radius) 0 0 var(--global-border-radius)',
+                        },
+                        '& .MuiOutlinedInput-notchedOutline': {
+                          borderRightWidth: '0',
+                        },
+                      }}
+                    />
+                    <TextField
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          borderRadius:
+                            '0 var(--global-border-radius) var(--global-border-radius) 0',
+                        },
+                        '& .MuiOutlinedInput-notchedOutline': {
+                          borderLeftWidth: '0',
+                        },
+                      }}
+                      InputLabelProps={{shrink: false}}
+                      {...endProps}
+                    />
+                  </React.Fragment>
                 </React.Fragment>
               )}
             />
@@ -53,6 +80,7 @@ const ActivityHistory = () => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            InputLabelProps={{shrink: false}}
             required
             id="outlined-required"
             label="선택입력"
@@ -66,9 +94,11 @@ const ActivityHistory = () => {
 
 const GridContainer = styled(Grid)`
   &&& {
-    background-color: white;
-    height: 10vh;
+    width: 100%;
+    height: 100%;
     align-items: center;
+
+    padding: 0rem var(--writing-padding);
   }
 `;
 

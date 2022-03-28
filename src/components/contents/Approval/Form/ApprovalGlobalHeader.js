@@ -12,8 +12,11 @@ import {
   GlobalStyle,
 } from '@mui/material';
 import styled from 'styled-components';
+import {propsToClassKey} from '@mui/styles';
 
-const ApprovalGlobalHeader = () => {
+const ApprovalGlobalHeader = ({selectedFormName, handleSelectedFormName}) => {
+  const formNames = ['출장신청서', '출장복명서'];
+
   return (
     <>
       <ToolContainer>
@@ -25,13 +28,29 @@ const ApprovalGlobalHeader = () => {
         </Stack>
       </ToolContainer>
 
-      <GridContainer>
-        <Typography variant="h4" align="center">
-          출장신청서
-        </Typography>
+      <GridContainer className="approval-header__grid">
+        <FormControl className="approval-header__form-select">
+          <InputLabel id="team-select-label">결재문서 선택</InputLabel>
+          <Select
+            InputLabelProps={{shrink: false}}
+            labelId="team-select-label"
+            value={selectedFormName}
+            onChange={handleSelectedFormName}>
+            {formNames.map((value, index) => (
+              <MenuItem key={value + index} value={value}>
+                {value}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </GridContainer>
     </>
   );
+};
+
+ApprovalGlobalHeader.defaultProps = {
+  selectedFormName: '',
+  handleSelectedFormName: function () {},
 };
 
 const ToolContainer = styled(Box)`
