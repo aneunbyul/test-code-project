@@ -77,7 +77,7 @@ const Layout = ({children}) => {
             : isInAssignmentCreationPage
             ? 'minmax(32rem, 3.5fr) 2.9fr'
             : isDocumentBasePage
-            ? 'calc(var(--box-expanded-length)*0.8) auto'
+            ? 'calc(var(--box-expanded-length)*0.9) auto'
             : isOrganizationBasePage
             ? 'calc(var(--box-expanded-length)*1.5) auto'
             : 'auto',

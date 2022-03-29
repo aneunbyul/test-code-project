@@ -155,7 +155,7 @@ export const GlobalStyle = createGlobalStyle`
 
       &:hover .MuiOutlinedInput-notchedOutline{
         border-color: var(--light03);
-        border-width: 0.08rem;
+        border-width: 0.12rem;
       }
 
       &.Mui-focused{
@@ -169,6 +169,31 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 500;
         min-height: var(--global-text-size);
       }
+
+      &.Mui-disabled{
+        color:var(--light01);
+        background-color: transparent;
+
+        & .MuiSelect-select{
+          color:var(--light01);
+          -webkit-text-fill-color:var(--light01) !important;
+        }
+
+        & .MuiOutlinedInput-notchedOutline{
+          border-color: var(--dark03);
+          border-width: 0.08rem;
+        }
+
+        &:hover .MuiOutlinedInput-notchedOutline{
+          border-color: var(--dark05);
+          border-width: 0.08rem;
+        }
+
+        & svg {
+          display: none;
+        }
+      }
+
     }
 
     .MuiOutlinedInput-notchedOutline{
@@ -191,6 +216,11 @@ export const GlobalStyle = createGlobalStyle`
 
       &.MuiFormLabel-filled {
         opacity: 0;
+      }
+
+      &.Mui-disabled{
+        color:transparent;
+        -webkit-text-fill-color: transparent;
       }
     }
 
@@ -244,7 +274,7 @@ export const GlobalStyle = createGlobalStyle`
           border-color: transparent;
         }
 
-        & *:hover .MuiOutlinedInput-notchedOutline{
+        & *:not(.Mui-disabled):hover .MuiOutlinedInput-notchedOutline{
           border-color: var(--highlight02) !important;
         }
       }

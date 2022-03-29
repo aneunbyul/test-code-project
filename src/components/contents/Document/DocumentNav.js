@@ -22,6 +22,7 @@ import SubNavList from '../SubNav/SubNavList';
 import ConversionButton from '../ReusableContent/ConversionButton';
 import ViewBox from '../ViewBox/ViewBox';
 import FilloutIcon from '../Icon/FilloutIcon';
+import SubNavHeader from '../SubNav/SubNavHeader';
 
 const DocumentNav = () => {
   const router = useRouter();
@@ -106,6 +107,8 @@ const DocumentNav = () => {
     <ViewBox>
       {isBasePage && (
         <Box className="sub-nav__container" role="presentation">
+          <SubNavHeader text="문서 관리" />
+          <Divider className="line-divider" />
           <SubNavList
             handleSelectedIndex={handleSelectedBaseIndex}
             selectedIndex={selectedBaseIndex}

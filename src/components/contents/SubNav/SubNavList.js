@@ -27,6 +27,7 @@ const SubNavList = ({
   subNavListData,
 }) => {
   const router = useRouter();
+  let titleFlag = false;
 
   // 서브 네비게이션의 카테고리 주소에 접근 시
   // 현재 주소를 확인하여서 선택되지 않은 카테고리가 하이라이트 되는 오류를 막음
@@ -56,6 +57,8 @@ const SubNavList = ({
       component="nav"
       aria-label="nav selection">
       {subNavListData.map((object, index, array) => {
+        if (object.type == 'title') titleFlag = true;
+
         return (
           <div key={object.name + 'div'}>
             {
@@ -64,12 +67,14 @@ const SubNavList = ({
                 object != null &&
                 object != undefined &&
                 object.type == 'title' &&
-                index > 0 && (
+                index > 0 &&
+                ((titleFlag = false),
+                (
                   <Divider
                     key={object.name + 'divider'}
                     className="line-divider"
                   />
-                )
+                ))
             }
 
             {
@@ -135,14 +140,26 @@ const SubNavList = ({
                       }}>
                       {selectedIndex != index ? (
                         <FilloutIcon
-                          sx={{marginRight: '4%'}}
+                          sx={{
+                            marginRight: '4%',
+                            marginLeft: '0%',
+                            ...(titleFlag == true && {
+                              marginLeft: '4%',
+                            }),
+                          }}
                           name={object.iconName}
                           size="small"
                           type="outlined"
                         />
                       ) : (
                         <FilloutIcon
-                          sx={{marginRight: '4%'}}
+                          sx={{
+                            marginRight: '4%',
+                            marginLeft: '0%',
+                            ...(titleFlag == true && {
+                              marginLeft: '4%',
+                            }),
+                          }}
                           name={object.iconName}
                           size="small"
                           type="filled"
@@ -178,15 +195,18 @@ const SubNavListWrapper = styled(SimpleBar)`
 const SubNavListItem = styled(ListItem)`
   &&& {
     width: 100%;
+    height: var(--tab-height);
     padding: 0.2rem 0rem;
     padding-left: 5%;
     transition: all 0.1s var(--cubic01);
     background-color: var(--transaparent);
     z-index: 0;
+    transition: all 0.2s ease-in-out;
   }
 
   &&& * {
     user-select: none;
+    transition: all 0.1s ease-in-out;
   }
 
   &&& span {
@@ -228,12 +248,13 @@ const SubNavListItem = styled(ListItem)`
   }
 
   &&&.Mui-selected::before {
-    background-color: var(--highlight01);
+    background-color: var(--dark01);
   }
 
   &&&.Mui-selected span,
   &&&.Mui-selected svg {
     color: var(--light01) !important;
+    font-weight: 500;
   }
 
   &&&[type='title'] {
@@ -252,8 +273,7 @@ const SubNavListItem = styled(ListItem)`
   }
 
   &&&[type='title'] span {
-    font-weight: 500;
-    margin-left: -0.1rem;
+    font-weight: 400;
     color: var(--light01) !important;
   }
 

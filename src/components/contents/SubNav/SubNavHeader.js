@@ -27,6 +27,10 @@ const SubNavHeaderContainer = styled(Box)`
     height: calc(var(--box-contracted-length) * 0.72);
     padding: 0 1rem;
   }
+  &,
+  & * {
+    user-select: none;
+  }
 `;
 
 const SubNavHeaderTitle = styled(Box)`
