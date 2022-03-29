@@ -31,26 +31,7 @@ const AssignmentNav = ({animation}) => {
   const subNavListData_base = [
     {
       name: '진행 과제',
-      link: '/progressive-assignment',
-      iconName: '',
-    },
-    {
-      name: '완료 과제',
-      link: '/completion-assignment',
-      iconName: '',
-    },
-    {
-      name: '취소된 과제',
-      link: '/canceld',
-      iconName: '',
-    },
-  ];
-
-  // sub nav data for creation
-  const subNavListData_creation = [
-    {
-      name: '진행 과제',
-      link: '/unfinished',
+      link: '/ongoing',
       iconName: '',
     },
     {
@@ -59,8 +40,8 @@ const AssignmentNav = ({animation}) => {
       iconName: '',
     },
     {
-      name: '대기 과제',
-      link: '/impending',
+      name: '취소된 과제',
+      link: '/canceled',
       iconName: '',
     },
   ];

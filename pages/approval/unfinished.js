@@ -1,12 +1,12 @@
 import BaseHead from '../../src/components/base/BaseHead';
-import ApprovalNav from '../../src/components/contents/Approval/ApprovalNav';
-import PersonalDocumentsListForm from '../../src/components/contents/Approval/PersonalDocumentsList/PersonalDocumentsListForm';
+import SubNav from '../../src/components/contents/Approval/ApprovalNav';
+import TableForm from '../../src/components/contents/Approval/TableForm/UnfinishedTableForm';
 
 const Page = () => {
   return (
     <>
-      <ApprovalNav animation={false} />
-      <PersonalDocumentsListForm />
+      <SubNav animation={false} />
+      <TableForm />
     </>
   );
 };

@@ -1,10 +1,12 @@
 import BaseHead from '../../src/components/base/BaseHead';
-import ApprovalNav from '../../src/components/contents/Approval/ApprovalNav';
+import SubNav from '../../src/components/contents/Approval/ApprovalNav';
+import TableForm from '../../src/components/contents/Approval/TableForm/RejectedTableForm';
 
 const Page = () => {
   return (
     <>
-      <ApprovalNav animation={false} />
+      <SubNav animation={false} />
+      <TableForm />
     </>
   );
 };
