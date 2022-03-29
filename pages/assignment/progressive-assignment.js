@@ -1,5 +1,5 @@
 import BaseHead from '../../src/components/base/BaseHead';
-import BusinessTripApplicationForm from '../../src/components/contents/Approval/Form/BusinessTripApplicationForm';
+import BusinessTripApplicationFormTest from '../../src/components/contents/Approval/Form/BusinessTripApplicationFormTest';
 import AssignmentListForm from '../../src/components/contents/Assignment/List/AssignmentListForm';
 import AssignmentNav from '../../src/components/contents/Assignment/AssignmentNav';
 
