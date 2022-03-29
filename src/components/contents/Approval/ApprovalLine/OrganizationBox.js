@@ -1,9 +1,13 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import {Container, Typography} from '@mui/material'
-import {TreeItem, TreeView} from '@mui/lab'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import ChevronRightIcon from '@mui/icons-material/ChevronRight'
+import * as React from 'react';
+import styled from 'styled-components';
+import {Box, Container, Typography} from '@mui/material';
+import {TreeItem, TreeView} from '@mui/lab';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
+//components
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
 
 const OrganizationBox = () => {
   const company = {
@@ -37,15 +41,15 @@ const OrganizationBox = () => {
         ],
       },
     ],
-  }
+  };
 
   const data = {
     id: company.id,
     name: company.name,
     children: company.children.length === 0 ? null : company.children,
-  }
+  };
 
-  console.log(company.children.length)
+  console.log(company.children.length);
 
   const renderTree = (nodes) => (
     <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
@@ -53,20 +57,36 @@ const OrganizationBox = () => {
         ? nodes.children.map((node) => renderTree(node))
         : null}
     </TreeItem>
-  )
+  );
 
   return (
     <Container sx={{width: '15vw', border: '1px solid white'}}>
-      <TreeView
-        aria-label="rich object"
-        defaultCollapseIcon={<ExpandMoreIcon/>}
-        defaultExpanded={['1', '2', '3', '4']}
-        defaultExpandIcon={<ChevronRightIcon/>}
-        sx={{height: '100%', flexGrow: 1, maxWidth: '100%', overflowY: 'auto'}}>
-        {renderTree(data)}
-      </TreeView>
+      <SliderContainer>
+        <TreeView
+          aria-label="rich object"
+          defaultCollapseIcon={<ExpandMoreIcon />}
+          defaultExpanded={['1', '2', '3', '4']}
+          defaultExpandIcon={<ChevronRightIcon />}
+          sx={{
+            height: '100%',
+            flexGrow: 1,
+            maxWidth: '100%',
+            overflowY: 'auto',
+          }}>
+          {renderTree(data)}
+        </TreeView>
+      </SliderContainer>
     </Container>
-  )
-}
+  );
+};
 
-export default OrganizationBox
+const SliderContainer = styled(SimpleBar)`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+`;
+
+export default OrganizationBox;

@@ -149,7 +149,8 @@ export const GlobalStyle = createGlobalStyle`
       border-radius: var(--global-border-radius);
 
       &:hover .MuiOutlinedInput-notchedOutline{
-        border-color: var(--highlight02);
+        border-color: var(--light03);
+        border-width: 0.08rem;
       }
 
       .MuiOutlinedInput-input{
@@ -165,9 +166,7 @@ export const GlobalStyle = createGlobalStyle`
 
     .MuiOutlinedInput-notchedOutline{
       border-color: var(--dark04);
-
-      & span{
-      }
+      transition: border-color 0.12s ease-in-out , border-width 0.1s ease-in-out;
     }
     
     .MuiInputLabel-root{
@@ -271,11 +270,19 @@ export const GlobalStyle = createGlobalStyle`
     .MuiButton-root{
       background-color:var(--dark03);
       color: var(--light02);
-      box-shadow: 0 0 0 var(--line-thickness) var(--dark04);
+      box-shadow: 0 0 0 var(--line-thickness) var(--dark05);
+      border: none !important;
       
       &:hover{
-        background-color: transparent !important;
+        background-color: var(--dark02) !important;
+        box-shadow: 0 0 0 calc(var(--line-thickness)*2) var(--light03);
         color: var(--light01);
+      }
+
+      &.Mui-disabled {
+      background-color:var(--dark02);
+        color : var(--dark05);
+        box-shadow: 0 0 0 var(--line-thickness) var(--dark04);
       }
     }
 
@@ -293,5 +300,25 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
 
+    .MuiCheckbox-root {
+      & svg {fill: var(--light01);}
+    }
+
+    .MuiTreeItem-content {
+      color : var(--light02);
+      padding: 0.4rem 0.1rem;
+
+      & * {
+        font-size: calc(var(--global-text-size) * 0.8) !important;
+      }
+
+      &.Mui-selected, .Mui-selected.Mui-focused {
+        background-color: transparent !important;
+        font-weight: 500;
+        color: var(--light01);
+        box-shadow: 0 0 0 var(--line-thickness) var(--dark05);
+        border-radius: var(--global-border-radius);
+      }
+    }
 
 `;

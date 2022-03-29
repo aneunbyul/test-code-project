@@ -24,15 +24,12 @@ const BusinessTravelerInfo = () => {
           <Box component="h6">출발지</Box>
         </Grid>
         <Grid item xs={2}>
-          <Box component="h6">경유지</Box>
-        </Grid>
-        <Grid item xs={2}>
           <Box component="h6">목적지</Box>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={3}>
           <Box component="h6">출장기간</Box>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={3}>
           <Box component="h6">교통수단</Box>
         </Grid>
 
@@ -58,22 +55,13 @@ const BusinessTravelerInfo = () => {
             required
             id="outlined-required"
             label="입력"
-          />
-        </Grid>
-        <Grid item xs={2}>
-          <TextField
-            InputLabelProps={{shrink: false}}
-            fullWidth
-            required
-            id="outlined-required"
-            label="입력"
             defaultValue="부산"
           />
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={3}>
           <Box component="h5">{'2020.08.07\n2020.08.07'}</Box>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={3}>
           <TextField
             InputLabelProps={{shrink: false}}
             fullWidth
