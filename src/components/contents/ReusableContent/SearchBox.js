@@ -1,15 +1,14 @@
 import styled, {css} from 'styled-components';
 import Link from 'next/link';
 import {useContext, useEffect, useRef, useState} from 'react';
-import {Box} from '@material-ui/core';
+import Box from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 
-const SearchBox = () => {
+const SearchBox = ({searchWords, handleSearchWords}) => {
   return (
     <SearchBoxContainer component="form">
       <SearchButton type="submit" aria-label="search">
@@ -23,17 +22,22 @@ const SearchBox = () => {
   );
 };
 
+SearchBox.defualtProps = {
+  searchWords: '',
+  handleSearchWords: function () {},
+};
+
 const SearchBoxContainer = styled.div`
   &&& {
     display: flex;
     flex-direction: row;
     align-items: center;
 
-    width: 40%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
 
     box-shadow: inset 0 0 0 var(--line-thickness) var(--dark04);
-    border-radius: 99rem;
+    border-radius: var(--global-border-radius);
     background-color: var(--dark00);
   }
 `;
@@ -41,6 +45,7 @@ const SearchBoxContainer = styled.div`
 const SearchButton = styled(IconButton)`
   &&& {
     color: var(--light04);
+    margin-left: 0.4rem;
   }
 `;
 
@@ -55,9 +60,10 @@ const SearchInputBox = styled(InputBase)`
 
   &&& input {
     width: 100%;
-    font-size: 0.86rem;
+    font-size: var(--global-font-size);
     font-weight: 400;
-    color: white;
+    color: var(--light01);
+    padding-right: 1rem;
   }
 `;
 

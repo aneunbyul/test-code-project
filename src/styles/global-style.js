@@ -122,12 +122,17 @@ export const GlobalStyle = createGlobalStyle`
       white-space: pre-wrap;
     }
 
+    .Mui-selected {
+      outline: none !important;
+    }
+
     .Mui-focused *{
       border-color: var(--highlight01) !important;
     }
 
     .Mui-focused.MuiInputLabel-root{
       color: var(--light03) !important;
+      font-size: var(--global-text-size);
     }
 
     .MuiInputAdornment-root *{
@@ -151,6 +156,12 @@ export const GlobalStyle = createGlobalStyle`
       &:hover .MuiOutlinedInput-notchedOutline{
         border-color: var(--light03);
         border-width: 0.08rem;
+      }
+
+      &.Mui-focused{
+        & legend, span {
+          width:0 !important;
+        }
       }
 
       .MuiOutlinedInput-input{
@@ -265,8 +276,6 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
 
-
-
     .MuiButton-root{
       background-color:var(--dark03);
       color: var(--light02);
@@ -318,6 +327,87 @@ export const GlobalStyle = createGlobalStyle`
         color: var(--light01);
         box-shadow: 0 0 0 var(--line-thickness) var(--dark05);
         border-radius: var(--global-border-radius);
+      }
+    }
+
+    .MuiInput-root {
+      & *{
+        font-size: calc(var(--global-text-size) * 0.85);
+        color: var(--light02);
+      }
+      
+      & .MuiNativeSelet-select{
+      
+      }
+    }
+
+    .MuiDataGrid-root{
+      border: none;
+
+      & .MuiDataGrid-cellContent {
+        font-size: calc(var(--global-text-size) * 0.85);
+        color: var(--light02);
+      }
+      
+      & .MuiDataGrid-columnHeaders {
+        border: none;
+        box-shadow: 0 var(--line-thickness) var(--light04);
+      }
+
+      & .MuiDataGrid-footerContainer {
+        border: none;
+        box-shadow: 0 calc(var(--line-thickness)*-1) var(--light04);
+      }
+
+      & .MuiDataGrid-columnHeader {
+        font-size: calc(var(--global-text-size) * 0.85);
+        color: var(--light02);
+
+        & svg {
+          fill: var(--light02);
+        }
+      }
+
+      & .Mui-selected {
+        background-color: var(--dark00) !important; 
+      }
+
+      & .MuiDataGrid-cell , .MuiDataGrid-columnHeader{
+        border:none !important;
+        box-shadow: 0 var(--line-thickness) var(--dark04);
+      }
+
+      .MuiDataGrid-cell:focus , .MuiDataGrid-columnHeader:focus{
+        outline: none;
+        box-shadow: 0 0 0 var(--line-thickness) var(--light05);
+        border-radius: var(--global-border-radius);
+        z-index: 100;
+        & .MuiDataGrid-cellContent {
+          color: var(--light01) !important;
+        }
+      }
+
+      .MuiDataGrid-cell:focus-within {
+          outline: none;
+      }
+
+      .MuiDataGrid-cellCheckbox {
+        & *{
+          box-shadow: 0 0 0 0 !important;
+        }
+      }
+
+      .MuiDataGrid-selectedRowCount{
+        color: var(--light01);
+        font-size:var(--global-text-size);
+      }
+
+      .MuiTablePagination-select{
+        color : var(--light02);
+      }
+
+      svg{
+        fill : var(--light02);
       }
     }
 
