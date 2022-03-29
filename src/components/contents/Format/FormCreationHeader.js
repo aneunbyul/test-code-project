@@ -8,13 +8,19 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  Typography,
-  GlobalStyle,
 } from '@mui/material'
 import styled from 'styled-components'
-import { propsToClassKey } from '@mui/styles'
+import { useRecoilState } from 'recoil'
+import { isApprovalLineState } from '../Approval/ApprovalAtoms'
 
 const FormCreationHeader = ( { selectedFormName, handleSelectedFormName } ) => {
+
+  const [isApprovalLine, setIsApprovalLine] = useRecoilState ( isApprovalLineState )
+
+  const ClickApprovalLine = () => {
+    {isApprovalLine === true ? setIsApprovalLine ( false ) : setIsApprovalLine ( true )}
+  }
+
   const formNames = ['출장신청서', '출장복명서', '지출요청서', '회의비 사용보고']
 
   return (
@@ -22,7 +28,7 @@ const FormCreationHeader = ( { selectedFormName, handleSelectedFormName } ) => {
         <ToolContainer>
           <Stack spacing={ 2 } direction="row">
             <Button variant="contained">기안</Button>
-            <Button variant="outlined">결재선</Button>
+            <Button variant="outlined" onClick={ ClickApprovalLine }>결재선</Button>
             <Button variant="outlined">임시저장</Button>
             <Button variant="outlined">문서연결</Button>
           </Stack>
