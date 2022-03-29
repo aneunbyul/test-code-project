@@ -11,13 +11,14 @@ import {
   Select,
 } from '@mui/material'
 import styled from 'styled-components'
-import DeleteIcon from '@mui/icons-material/Delete'
 import FolderIcon from '@mui/icons-material/Folder'
+import DeleteIcon from '@mui/icons-material/Delete'
 
-const AttachedFile = () => {
+const ConferenceAttachedFile = () => {
   return (
       <>
         <GridContainer container>
+          <Box component="h6">※ 카드사용전표, 참석자 명단 필수 첨부 바람</Box>
           <Grid item xs={ 12 }>
             <Box component="h6">첨부목록</Box>
           </Grid>
@@ -36,6 +37,7 @@ const AttachedFile = () => {
               </Button>
             </label>
           </Grid>
+
           <Grid item xs={ 12 } md={ 6 }>
             <List>
               <ListItem
@@ -51,7 +53,7 @@ const AttachedFile = () => {
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText
-                    primary="세부내용.pdf"
+                    primary="참석자 명단.pdf"
                 />
               </ListItem>
               <ListItem
@@ -67,11 +69,12 @@ const AttachedFile = () => {
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText
-                    primary="세부내용2.pdf"
+                    primary="카드사용전표.pdf"
                 />
               </ListItem>
             </List>
           </Grid>
+
         </GridContainer>
       </>
   )
@@ -83,8 +86,8 @@ const GridContainer = styled ( Grid )`
     height: 100%;
     align-items: center;
 
-    padding: 0rem var(--writing-padding);
+    padding: 0 var(--writing-padding);
   }
 `
 
-export default AttachedFile
+export default ConferenceAttachedFile

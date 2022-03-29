@@ -19,6 +19,7 @@ import FormCreationInfo from '../../Format/FormCreationInfo'
 import BusinessTripApplicationForm from './BusinessTripApplicationForm/BusinessTripApplicationForm'
 import BusinessTripReportForm from './BusinessTripReportForm/BusinessTripReportForm'
 import ExpenditureRequestForm from './ExpenditureRequestForm/ExpenditureRequestForm'
+import ConferenceReportForm from './ConferenceReportForm/ConferenceReportForm'
 
 const ApprovalCreationForm = () => {
   const [selectedFormName, setSelectedFormName] = useState ( '' )
@@ -28,6 +29,7 @@ const ApprovalCreationForm = () => {
     setSelectedFormName ( event.target.value )
     setFormName ( event.target.value )
 
+    console.log ( formName )
   }
 
   return (
@@ -39,12 +41,10 @@ const ApprovalCreationForm = () => {
           />
           <FormCreationInfo/>
           <hr className="hr-divider"/>
-
           { (formName === '출장신청서') ? (<BusinessTripApplicationForm/>) :
               (formName === '출장복명서') ? (<BusinessTripReportForm/>) :
                   (formName === '지출요청서') ? (<ExpenditureRequestForm/>) :
-                      (<BusinessTripReportForm/>) }
-
+                      (<ConferenceReportForm/>) }
         </ApprovalCreationContainer>
       </ViewBox>
   )
