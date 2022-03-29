@@ -30,26 +30,23 @@ const SubNavList = ({
 
   // 서브 네비게이션의 카테고리 주소에 접근 시
   // 현재 주소를 확인하여서 선택되지 않은 카테고리가 하이라이트 되는 오류를 막음
-  useEffect(() => {
-    for (let ind = 0; ind < subNavListData.length; ind++) {
-      const afterSubPath = router.pathname.substring(
-        router.pathname.indexOf(subNavListData[ind].link) +
-          subNavListData[ind].link.length +
-          2,
-      );
+  for (let ind = 0; ind < subNavListData.length; ind++) {
+    const afterSubPath = router.pathname.substring(
+      router.pathname.indexOf(subNavListData[ind].link) +
+        subNavListData[ind].link.length +
+        2,
+    );
 
-      const isSubBase =
-        afterSubPath == '' && router.pathname.includes(subNavListData[ind].link)
-          ? true
-          : false;
+    const isSubBase =
+      afterSubPath == '' && router.pathname.includes(subNavListData[ind].link)
+        ? true
+        : false;
 
-      console.log(subNavListData[ind].link);
-      if (isSubBase) {
-        handleSelectedIndex(ind);
-        break;
-      }
+    if (isSubBase) {
+      handleSelectedIndex(ind);
+      break;
     }
-  }, []);
+  }
 
   return (
     <SubNavListWrapper
@@ -83,13 +80,16 @@ const SubNavList = ({
                 object.type == 'title' && (
                   <Link
                     key={object.name + 'title-link'}
-                    href={parentLink + object.link}>
+                    href={
+                      object.disabled == true ? '' : parentLink + object.link
+                    }>
                     <SubNavListItem
                       key={object.name + 'title'}
                       type="title"
                       selected={selectedIndex == index}
                       onClick={(event) => {
-                        handleSelectedIndex(index);
+                        if (object.disabled == false)
+                          handleSelectedIndex(index);
                       }}>
                       {selectedIndex != index ? (
                         <FilloutIcon
@@ -123,12 +123,15 @@ const SubNavList = ({
                 object.type != 'title' && (
                   <Link
                     key={object.name + 'item-link'}
-                    href={parentLink + object.link}>
+                    href={
+                      object.disabled == true ? '' : parentLink + object.link
+                    }>
                     <SubNavListItem
                       key={object.name + 'item'}
                       selected={selectedIndex === index}
                       onClick={(event) => {
-                        handleSelectedIndex(index);
+                        if (object.disabled == false)
+                          handleSelectedIndex(index);
                       }}>
                       {selectedIndex != index ? (
                         <FilloutIcon

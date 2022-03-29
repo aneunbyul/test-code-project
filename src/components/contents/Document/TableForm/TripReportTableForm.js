@@ -7,7 +7,7 @@ import TableGridBody from '../../Format/TableGridBody';
 
 import {useState, useEffect} from 'react';
 
-const UnfinishedTableForm = () => {
+const TripReportTableForm = () => {
   const tempColumns = [
     {field: 'name', headerName: '기안자', flex: 1},
     {field: 'team', headerName: '담당 부서', flex: 1},
@@ -40,4 +40,4 @@ const FormContainer = styled(Box)`
   }
 `;
 
-export default UnfinishedTableForm;
+export default TripReportTableForm;

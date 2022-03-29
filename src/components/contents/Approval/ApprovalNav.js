@@ -33,7 +33,7 @@ const ApprovalNav = ({animation}) => {
   const subNavListData_base = [
     {
       name: '개인함',
-      link: '/sent',
+      link: '/storage',
       type: 'title',
       iconName: '',
     },

@@ -169,10 +169,6 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 500;
         min-height: var(--global-text-size);
       }
-
-      .MuiSvgIcon-root{
-        fill : var(--light03);
-      }
     }
 
     .MuiOutlinedInput-notchedOutline{
@@ -242,10 +238,6 @@ export const GlobalStyle = createGlobalStyle`
           top:50%;
           transform: translate(-50% , -50%);
           color : var(--light01);
-        }
-
-        & .MuiSvgIcon-root{
-          fill : var(--light03);
         }
 
         & .MuiOutlinedInput-notchedOutline{
@@ -409,6 +401,10 @@ export const GlobalStyle = createGlobalStyle`
       svg{
         fill : var(--light02);
       }
+    }
+
+    .MuiSvgIcon-root{
+      fill : var(--light03);
     }
 
 `;

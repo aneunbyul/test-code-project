@@ -1,5 +1,5 @@
 import BaseHead from '../../../src/components/base/BaseHead';
-import TableForm from '../../../src/components/contents/Document/TableForm/ConferenceReportTableFrom';
+import TableForm from '../../../src/components/contents/Document/TableForm/CardRequestTableForm';
 
 const Page = () => {
   return (

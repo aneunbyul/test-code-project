@@ -31,7 +31,7 @@ const DocumentNav = () => {
   const subNavListData_base = [
     {
       name: '내부 공문',
-      link: '/received',
+      link: '/internal',
       type: 'title',
       iconName: '',
     },
@@ -59,32 +59,38 @@ const DocumentNav = () => {
       name: '명함 신청서',
       link: '/card',
       iconName: '',
+      disabled: true,
     },
     {
       name: '품의서',
       link: '/#',
       iconName: '',
+      disabled: true,
     },
     {
       name: '초과 근무 신청서',
       link: '/#',
       iconName: '',
+      disabled: true,
     },
     {
       name: '개인카드 사용보고서',
       link: '/#',
       iconName: '',
+      disabled: true,
     },
     {
       name: '휴가신청서',
       link: '/#',
       iconName: '',
+      disabled: true,
     },
     {
       name: '외부 문서',
       link: '/received',
       type: 'title',
       iconName: '',
+      disabled: true,
     },
   ];
 

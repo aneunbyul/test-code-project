@@ -1,12 +1,10 @@
 import BaseHead from '../../../src/components/base/BaseHead';
-import DocumentNav from '../../../src/components/contents/Document/DocumentNav';
-import TripRequestListForm from '../../../src/components/contents/Document/TripRequest/TripRequestListForm';
+import TableForm from '../../../src/components/contents/Document/TableForm/TripRequestTableForm';
 
 const Page = () => {
   return (
     <>
-      <DocumentNav />
-      <TripRequestListForm />
+      <TableForm />
     </>
   );
 };
