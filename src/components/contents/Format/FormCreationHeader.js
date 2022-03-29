@@ -7,34 +7,23 @@ import {
   Grid,
   InputLabel,
   MenuItem,
-<<<<<<< Updated upstream
-  Select, Modal,
-} from '@mui/material'
-import styled from 'styled-components'
-import { useRecoilState, useRecoilValue } from 'recoil'
-import { isApprovalLineState } from '../Approval/ApprovalAtoms'
-import CheckModal from './CheckModal'
-
-const FormCreationHeader = ( { selectedFormName, handleSelectedFormName } ) => {
-
-  //기안버튼 이벤트
-  const [checkModalOpen, setCheckModalOpen] = React.useState ( false )
-  const handleOpen = () => setCheckModalOpen ( true )
-  const handleClose = () => setCheckModalOpen ( false )
-=======
   Select,
+  Modal,
 } from '@mui/material';
 import styled from 'styled-components';
-import {useRecoilState} from 'recoil';
+import {useRecoilState, useRecoilValue} from 'recoil';
 import {isApprovalLineState} from '../Approval/ApprovalAtoms';
+import CheckModal from './CheckModal';
 
 const FormCreationHeader = ({selectedFormName, handleSelectedFormName}) => {
-  const [isApprovalLine, setIsApprovalLine] =
-    useRecoilState(isApprovalLineState);
->>>>>>> Stashed changes
+  //기안버튼 이벤트
+  const [checkModalOpen, setCheckModalOpen] = React.useState(false);
+  const handleOpen = () => setCheckModalOpen(true);
+  const handleClose = () => setCheckModalOpen(false);
 
   //결재선 이벤트
-  const [isApprovalLine, setIsApprovalLine] = useRecoilState ( isApprovalLineState )
+  const [isApprovalLine, setIsApprovalLine] =
+    useRecoilState(isApprovalLineState);
   const ClickApprovalLine = () => {
     {
       isApprovalLine === true
@@ -54,29 +43,20 @@ const FormCreationHeader = ({selectedFormName, handleSelectedFormName}) => {
   let disableSelection = false;
 
   return (
-<<<<<<< Updated upstream
-      <>
-        <ToolContainer>
-          <Stack spacing={ 2 } direction="row">
-            <Button variant="contained" onClick={ handleOpen }>기안</Button>
-            <Modal
-                open={ checkModalOpen }
-                onClose={ handleClose }
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description">
-              <CheckModal/>
-            </Modal>
-
-            <Button variant="outlined" onClick={ ClickApprovalLine }>결재선</Button>
-            <Button variant="outlined">임시저장</Button>
-            <Button variant="outlined">문서연결</Button>
-          </Stack>
-        </ToolContainer>
-=======
     <>
       <ToolContainer>
         <Stack spacing={2} direction="row">
-          <Button variant="contained">기안</Button>
+          <Button variant="contained" onClick={handleOpen}>
+            기안
+          </Button>
+          <Modal
+            open={checkModalOpen}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description">
+            <CheckModal />
+          </Modal>
+
           <Button variant="outlined" onClick={ClickApprovalLine}>
             결재선
           </Button>
@@ -84,7 +64,6 @@ const FormCreationHeader = ({selectedFormName, handleSelectedFormName}) => {
           <Button variant="outlined">문서연결</Button>
         </Stack>
       </ToolContainer>
->>>>>>> Stashed changes
 
       <GridContainer className="approval-header__grid">
         <FormControl
