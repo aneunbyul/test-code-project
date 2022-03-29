@@ -28,8 +28,6 @@ const ApprovalCreationForm = () => {
   const handleSelectedFormName = ( event ) => {
     setSelectedFormName ( event.target.value )
     setFormName ( event.target.value )
-
-    console.log ( formName )
   }
 
   return (
