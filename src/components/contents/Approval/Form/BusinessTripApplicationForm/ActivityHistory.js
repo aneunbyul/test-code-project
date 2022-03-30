@@ -15,8 +15,10 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import {MobileDateRangePicker} from '@mui/lab';
 
-const ActivityHistory = () => {
+const ActivityHistory = (props) => {
   const [value, setValue] = React.useState([null, null]);
+
+  let disableSelection = props.disableSelection;
 
   return (
     <>
@@ -35,11 +37,17 @@ const ActivityHistory = () => {
         <Grid item xs={6}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <MobileDateRangePicker
+              disabled
               InputLabelProps={{shrink: false}}
               startText="출발일자"
               endText="종료일자"
+              cancelText="취소"
+              clearText="초기화"
+              okText="적용"
+              toolbarTitle="날짜 선택"
               value={value}
-              inputFormat="yyyy/MM/dd"
+              inputFormat={'yyyy-MM-dd'}
+              mask={'____-__-__'}
               onChange={(newValue) => {
                 setValue(newValue);
               }}
@@ -91,6 +99,10 @@ const ActivityHistory = () => {
       </GridContainer>
     </>
   );
+};
+
+ActivityHistory.defaultProps = {
+  disableSelection: false,
 };
 
 const GridContainer = styled(Grid)`

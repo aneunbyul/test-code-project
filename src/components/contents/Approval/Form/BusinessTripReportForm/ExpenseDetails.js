@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import styled from 'styled-components';
 
-const ExpenseDetails = () => {
+const ExpenseDetails = (props) => {
   const [Assignment, setAssignment] = React.useState('');
 
   const handleChange = (event) => {

@@ -13,7 +13,7 @@ import styled from 'styled-components';
 
 import TextField from '@mui/material/TextField';
 
-const BusinessTravelerInfo = () => {
+const BusinessTravelerInfo = (props) => {
   return (
     <>
       <GridContainer container columnSpacing={{xs: 1}}>
@@ -41,6 +41,7 @@ const BusinessTravelerInfo = () => {
         </Grid>
         <Grid item xs={2}>
           <TextField
+            disabled={props.disableSelection}
             InputLabelProps={{shrink: false}}
             fullWidth
             required
@@ -50,6 +51,7 @@ const BusinessTravelerInfo = () => {
         </Grid>
         <Grid item xs={2}>
           <TextField
+            disabled={props.disableSelection}
             InputLabelProps={{shrink: false}}
             fullWidth
             required
@@ -63,6 +65,7 @@ const BusinessTravelerInfo = () => {
         </Grid>
         <Grid item xs={3}>
           <TextField
+            disabled={props.disableSelection}
             InputLabelProps={{shrink: false}}
             fullWidth
             required
@@ -73,6 +76,10 @@ const BusinessTravelerInfo = () => {
       </GridContainer>
     </>
   );
+};
+
+BusinessTravelerInfo.defualtProps = {
+  disableSelection: false,
 };
 
 const GridContainer = styled(Grid)`

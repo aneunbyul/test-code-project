@@ -20,7 +20,7 @@ import {DesktopDateRangePicker, MobileDateRangePicker} from '@mui/lab';
 //components
 import {useStyles} from '../../../CustomMuiStyle';
 
-const BusinessTripInfo = () => {
+const BusinessTripInfo = (props) => {
   const [value, setValue] = React.useState([null, null]);
   return (
     <>
@@ -45,6 +45,7 @@ const BusinessTripInfo = () => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            disabled={props.disableSelection}
             InputLabelProps={{shrink: false}}
             fullWidth
             required
@@ -55,16 +56,23 @@ const BusinessTripInfo = () => {
         <Grid item xs={6}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <MobileDateRangePicker
+              disabled={props.disableSelection}
               startText="출발일"
-              endText="도착일"
+              endText="종료일"
+              cancelText="취소"
+              clearText="초기화"
+              okText="적용"
+              toolbarTitle="날짜 선택"
+              inputFormat={'yyyy-MM-dd'}
+              mask={'____-__-__'}
               value={value}
-              inputFormat="yyyy/MM/dd"
               onChange={(newValue) => {
                 setValue(newValue);
               }}
               renderInput={(startProps, endProps) => (
                 <React.Fragment>
                   <TextField
+                    disabled={props.disableSelection}
                     InputLabelProps={{shrink: false}}
                     {...startProps}
                     sx={{
@@ -78,6 +86,7 @@ const BusinessTripInfo = () => {
                     }}
                   />
                   <TextField
+                    disabled={props.disableSelection}
                     sx={{
                       '& .MuiOutlinedInput-root': {
                         borderRadius:
@@ -100,6 +109,7 @@ const BusinessTripInfo = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            disabled={props.disableSelection}
             InputLabelProps={{shrink: false}}
             fullWidth
             required
@@ -112,6 +122,7 @@ const BusinessTripInfo = () => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            disabled={props.disableSelection}
             InputLabelProps={{shrink: false}}
             fullWidth
             required
@@ -127,6 +138,7 @@ const BusinessTripInfo = () => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            disabled={props.disableSelection}
             InputLabelProps={{shrink: false}}
             fullWidth
             required
@@ -142,6 +154,7 @@ const BusinessTripInfo = () => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             InputLabelProps={{shrink: false}}
             required
@@ -157,6 +170,10 @@ const BusinessTripInfo = () => {
       </GridContainer>
     </>
   );
+};
+
+BusinessTripInfo.defaultProps = {
+  disableSelection: false,
 };
 
 const GridContainer = styled(Grid)`

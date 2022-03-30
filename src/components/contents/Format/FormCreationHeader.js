@@ -138,6 +138,7 @@ const FormCreationHeader = ({selectedFormName, handleSelectedFormName}) => {
 FormCreationHeader.defaultProps = {
   selectedFormName: '',
   handleSelectedFormName: function () {},
+  disableSelection: false,
 };
 
 const ToolContainer = styled(Box)`

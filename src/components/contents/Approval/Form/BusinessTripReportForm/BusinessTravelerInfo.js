@@ -13,7 +13,7 @@ import styled from 'styled-components';
 
 import TextField from '@mui/material/TextField';
 
-const BusinessTravelerInfo = () => {
+const BusinessTravelerInfo = (props) => {
   return (
     <>
       <GridContainer container columnSpacing={{xs: 1}}>

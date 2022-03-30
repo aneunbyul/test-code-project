@@ -1,54 +1,63 @@
-import * as React from 'react'
-import ApprovalHeader from './ApprovalHeader'
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import { Container, Grid } from '@mui/material'
-import styled from 'styled-components'
-import Divider from '@mui/material/Divider'
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import {Container, Grid} from '@mui/material';
+import styled from 'styled-components';
+import Divider from '@mui/material/Divider';
 
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react';
 
 //components
-import { useStyles } from '../../CustomMuiStyle'
-import ViewBox from '../../ViewBox/ViewBox'
-import SimpleBar from 'simplebar-react'
-import 'simplebar/dist/simplebar.min.css'
+import {useStyles} from '../../CustomMuiStyle';
+import ViewBox from '../../ViewBox/ViewBox';
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
 
-import FormCreationHeader from '../../Format/FormCreationHeader'
-import FormCreationInfo from '../../Format/FormCreationInfo'
-import BusinessTripApplicationForm from './BusinessTripApplicationForm/BusinessTripApplicationForm'
-import BusinessTripReportForm from './BusinessTripReportForm/BusinessTripReportForm'
-import ExpenditureRequestForm from './ExpenditureRequestForm/ExpenditureRequestForm'
-import ConferenceReportForm from './ConferenceReportForm/ConferenceReportForm'
+import FormCreationHeader from '../../Format/FormCreationHeader';
+import FormCreationInfo from '../../Format/FormCreationInfo';
+import BusinessTripApplicationForm from './BusinessTripApplicationForm/BusinessTripApplicationForm';
+import BusinessTripReportForm from './BusinessTripReportForm/BusinessTripReportForm';
+import ExpenditureRequestForm from './ExpenditureRequestForm/ExpenditureRequestForm';
+import ConferenceReportForm from './ConferenceReportForm/ConferenceReportForm';
 
-const ApprovalCreationForm = () => {
-  const [selectedFormName, setSelectedFormName] = useState ( '' )
-  const [formName, setFormName] = useState ( '' )
+const ApprovalCreationForm = (props) => {
+  const [selectedFormName, setSelectedFormName] = useState('');
+  const [formName, setFormName] = useState('');
 
-  const handleSelectedFormName = ( event ) => {
-    setSelectedFormName ( event.target.value )
-    setFormName ( event.target.value )
-  }
+  const handleSelectedFormName = (event) => {
+    setSelectedFormName(event.target.value);
+    setFormName(event.target.value);
+  };
 
   return (
-      <ViewBox>
-        <ApprovalCreationContainer>
-          <FormCreationHeader
-              selectedFormName={ selectedFormName }
-              handleSelectedFormName={ handleSelectedFormName }
-          />
-          <FormCreationInfo/>
-          <hr className="hr-divider"/>
-          { (formName === '출장신청서') ? (<BusinessTripApplicationForm/>) :
-              (formName === '출장복명서') ? (<BusinessTripReportForm/>) :
-                  (formName === '지출요청서') ? (<ExpenditureRequestForm/>) :
-                      (<ConferenceReportForm/>) }
-        </ApprovalCreationContainer>
-      </ViewBox>
-  )
-}
+    <ViewBox>
+      <ApprovalCreationContainer>
+        <FormCreationHeader
+          disabled={props.disableSelection}
+          selectedFormName={selectedFormName}
+          handleSelectedFormName={handleSelectedFormName}
+        />
+        <FormCreationInfo disabled={props.disableSelection} />
+        <hr className="hr-divider" />
+        {formName === '출장신청서' ? (
+          <BusinessTripApplicationForm disabled={props.disableSelection} />
+        ) : formName === '출장복명서' ? (
+          <BusinessTripReportForm disabled={props.disableSelection} />
+        ) : formName === '지출요청서' ? (
+          <ExpenditureRequestForm disabled={props.disableSelection} />
+        ) : (
+          <ConferenceReportForm disabled={props.disableSelection} />
+        )}
+      </ApprovalCreationContainer>
+    </ViewBox>
+  );
+};
 
-const ApprovalCreationContainer = styled ( SimpleBar )`
+ApprovalCreationForm.defualtProps = {
+  disableSelection: false,
+};
+
+const ApprovalCreationContainer = styled(SimpleBar)`
   &&& {
     position: relative;
     width: 100%;
@@ -58,6 +67,6 @@ const ApprovalCreationContainer = styled ( SimpleBar )`
     background-color: var(--transparent);
     padding-bottom: 6rem;
   }
-`
+`;
 
-export default ApprovalCreationForm
+export default ApprovalCreationForm;

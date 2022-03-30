@@ -41,7 +41,7 @@ const FormCreationInfo = (props) => {
   ];
 
   // 이 변수로 Mui select와 label의 비활성화 결정
-  let disableSelection = false;
+  let disableSelection = props.disableSelection;
 
   return (
     <>
@@ -154,8 +154,13 @@ const FormCreationInfo = (props) => {
   );
 };
 
+FormCreationInfo.defaultProps = {
+  disableSelection: false,
+};
+
 const GridContainer = styled(Grid)`
   &&& {
+    align-items: center;
     padding: 0rem var(--writing-padding);
   }
 `;
