@@ -9,17 +9,11 @@ import {useState, useEffect} from 'react';
 
 const CanceledTableForm = () => {
   const tempColumns = [
-    {field: 'name', headerName: '기안자', flex: 1},
-    {field: 'team', headerName: '담당 부서', flex: 1},
-    {field: 'subject', headerName: '제목', flex: 1.8},
-    {field: 'assignment', headerName: '과제', flex: 1.2},
-    {field: 'Classification', headerName: '문서 종류', flex: 1},
-    {
-      field: 'dateCreated',
-      headerName: '결재일',
-      type: 'date',
-      flex: 0.8,
-    },
+    { field: 'name', headerName: '과제책임자', flex: 1 },
+    { field: 'team', headerName: '발주처', flex: 1 },
+    { field: 'subject', headerName: '과제명', flex: 1.8 },
+    { field: 'assignment', headerName: '총사업기간', flex: 1.2 },
+    { field: 'Classification', headerName: '해당연차 사업기간', flex: 1 }
   ];
 
   return (

@@ -1,16 +1,16 @@
-import styled from 'styled-components';
-import BaseHead from '../src/components/base/BaseHead';
-import MainTop from '../src/components/contents/Main/MainTop';
+import styled from 'styled-components'
+import BaseHead from '../src/components/base/BaseHead'
+import MainTop from '../src/components/contents/Main/MainTop'
 
-const Main = () => {
+const Page = () => {
   return (
-    <>
-      <BaseHead title="MAIN" />
-      <MainTop>
-        <p>main</p>
-      </MainTop>
-    </>
-  );
-};
+      <>
+        <BaseHead title="MAIN"/>
+        <MainTop>
+          <p>main</p>
+        </MainTop>
+      </>
+  )
+}
 
-export default Main;
+export default Page
