@@ -3,18 +3,16 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import {Container, Grid} from '@mui/material';
 import styled from 'styled-components';
-import Divider from '@mui/material/Divider';
 
 import {useState, useEffect} from 'react';
 
 //components
 import {useStyles} from '../../../CustomMuiStyle';
 import ViewBox from '../../../ViewBox/ViewBox';
+import FormDivider from '../../../ReusableContent/FormDivider';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
-import FormCreationHeader from '../../../Format/FormCreationHeader';
-import FormCreationInfo from '../../../Format/FormCreationInfo';
 import BusinessTripInfo from './BusinessTripInfo';
 import BusinessTravelerInfo from './BusinessTravelerInfo';
 import ActivityHistory from './ActivityHistory';
@@ -25,13 +23,13 @@ const BusinessTripReportForm = (props) => {
   return (
     <div>
       <BusinessTripInfo disabled={props.disableSelection} />
-      <hr className="hr-divider" />
+      <FormDivider />
       <BusinessTravelerInfo disabled={props.disableSelection} />
-      <hr className="hr-divider" />
+      <FormDivider />
       <ActivityHistory disabled={props.disableSelection} />
-      <hr className="hr-divider" />
+      <FormDivider />
       <ExpenseDetails disabled={props.disableSelection} />
-      <hr className="hr-divider" />
+      <FormDivider />
       <AttachedFile disabled={props.disableSelection} />
     </div>
   );

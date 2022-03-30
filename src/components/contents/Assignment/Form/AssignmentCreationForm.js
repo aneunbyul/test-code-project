@@ -9,24 +9,29 @@ import AssignmentAccount from './General/AssignmentAccount';
 import BusinessExpenseCard from './General/BusinessExpenseCard';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
+import FormDivider from '../../ReusableContent/FormDivider';
 
-const AssignmentCreationForm = () => {
+const AssignmentCreationForm = (props) => {
   return (
     <ViewBox>
       <AssignmentCreationContainer>
+        <FormDivider text="과제 기본 정보" />
         <AssignmentBasicInfo />
-        <hr className="hr-divider" />
+        <FormDivider text="참여 연구원" />
         <ParticipatingResearcher />
-        <hr className="hr-divider" />
+        <FormDivider text="사업비" />
         <AssignmentBudget />
-        <hr className="hr-divider" />
+        <FormDivider text="계좌 정보" />
         <AssignmentAccount />
-        <hr className="hr-divider" />
+        <FormDivider text="사업비 사용카드" />
         <BusinessExpenseCard />
-        <hr className="hr-divider" />
       </AssignmentCreationContainer>
     </ViewBox>
   );
+};
+
+AssignmentCreationForm.defualtProps = {
+  disableSelection: false,
 };
 
 const AssignmentCreationContainer = styled(SimpleBar)`

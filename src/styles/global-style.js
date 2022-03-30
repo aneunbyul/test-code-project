@@ -465,4 +465,5 @@ export const GlobalStyle = createGlobalStyle`
       fill : var(--light03);
     }
 
+
 `;

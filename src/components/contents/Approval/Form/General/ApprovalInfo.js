@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import styled from 'styled-components';
 
-const FormCreationInfo = (props) => {
+const ApprovalInfo = (props) => {
   const [Team, setTeam] = React.useState('');
   const [Assignment, setAssignment] = React.useState('');
   const [BudgetMajorCategory, setBudgetMajorCategory] = React.useState('');
@@ -154,7 +154,7 @@ const FormCreationInfo = (props) => {
   );
 };
 
-FormCreationInfo.defaultProps = {
+ApprovalInfo.defaultProps = {
   disableSelection: false,
 };
 
@@ -165,4 +165,4 @@ const GridContainer = styled(Grid)`
   }
 `;
 
-export default FormCreationInfo;
+export default ApprovalInfo;

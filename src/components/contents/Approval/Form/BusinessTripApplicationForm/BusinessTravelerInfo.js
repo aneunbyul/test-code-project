@@ -10,8 +10,9 @@ import {
   Select,
 } from '@mui/material';
 import styled from 'styled-components';
-
 import TextField from '@mui/material/TextField';
+
+import FormDivider from '../../../ReusableContent/FormDivider';
 
 const BusinessTravelerInfo = (props) => {
   return (

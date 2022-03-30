@@ -13,8 +13,7 @@ import ViewBox from '../../../ViewBox/ViewBox';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
-import FormCreationHeader from '../../../Format/FormCreationHeader';
-import FormCreationInfo from '../../../Format/FormCreationInfo';
+import FormDivider from '../../../ReusableContent/FormDivider';
 import BusinessTripInfo from './BusinessTripInfo';
 import BusinessTravelerInfo from './BusinessTravelerInfo';
 import ActivityHistory from './ActivityHistory';
@@ -25,13 +24,13 @@ const BusinessTripApplicationForm = (props) => {
   return (
     <div>
       <BusinessTripInfo disableSelection={props.disableSelection} />
-      <hr className="hr-divider" />
+      <FormDivider />
       <BusinessTravelerInfo disabled={props.disableSelection} />
-      <hr className="hr-divider" />
+      <FormDivider />
       <ActivityHistory disabled={props.disableSelection} />
-      <hr className="hr-divider" />
+      <FormDivider />
       <ExpenseDetails disabled={props.disableSelection} />
-      <hr className="hr-divider" />
+      <FormDivider />
       <AttachedFile disabled={props.disableSelection} />
     </div>
   );

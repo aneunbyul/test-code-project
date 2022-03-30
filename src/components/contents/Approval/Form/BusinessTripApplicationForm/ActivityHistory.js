@@ -18,16 +18,14 @@ import {MobileDateRangePicker} from '@mui/lab';
 const ActivityHistory = (props) => {
   const [value, setValue] = React.useState([null, null]);
 
-  let disableSelection = props.disableSelection;
-
   return (
     <>
       <GridContainer container columnSpacing={{xs: 5}}>
         <Grid item xs={3}>
-          <Box component="h6">출발일자</Box>
+          <Box component="h6">출발일</Box>
         </Grid>
         <Grid item xs={3}>
-          <Box component="h6">종료일자</Box>
+          <Box component="h6">종료일</Box>
         </Grid>
         <Grid item xs={6}>
           <Box component="h6">활동내역</Box>
@@ -37,7 +35,7 @@ const ActivityHistory = (props) => {
         <Grid item xs={6}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <MobileDateRangePicker
-              disabled
+              disabled={props.disableSelection}
               InputLabelProps={{shrink: false}}
               startText="출발일자"
               endText="종료일자"
@@ -88,6 +86,7 @@ const ActivityHistory = (props) => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            disabled={props.disableSelection}
             InputLabelProps={{shrink: false}}
             required
             fullWidth
