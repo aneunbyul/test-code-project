@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo 'Install yarn dependencies...'
+      - yarn install --ignore-engines
+      - n stable
+
+  build:
+    commands:
+      - echo 'Build started...'
+      - yarn run build
+  post_build:
+    commands:
+      - echo 'Build completed!'
+      # copy the contents of /build to S3
+      - aws s3 cp --recursive --acl bucket-owner-full-control ./out s3://erp.telepix.net/
+artifacts:
+  files:
+    - "**/*"
+  # base-directory: build
