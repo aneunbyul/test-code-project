@@ -26,7 +26,7 @@ const ExpenseDetails = () => {
 
   return (
     <>
-      <GridContainer container columnSpacing={2} rowSpacing={0.8}>
+      <GridContainer container columnSpacing={2} rowSpacing={1.5}>
         <Grid item xs={3 / 2}>
           <Box component="h6">구분</Box>
         </Grid>
@@ -132,10 +132,7 @@ const ExpenseDetails = () => {
 
 const GridContainer = styled(Grid)`
   &&& {
-    width: 100%;
-    height: 100%;
     align-items: center;
-
     padding: 0rem var(--writing-padding);
   }
 `;

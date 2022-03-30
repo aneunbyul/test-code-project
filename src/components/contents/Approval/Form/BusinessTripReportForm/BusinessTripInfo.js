@@ -24,7 +24,7 @@ const BusinessTripInfo = () => {
   const [value, setValue] = React.useState([null, null]);
   return (
     <>
-      <GridContainer container spacing={4}>
+      <GridContainer container columnSpacing={{xs: 5}}>
         <Grid item xs={6}>
           <Box component="h6">신청인</Box>
         </Grid>
@@ -158,8 +158,6 @@ const BusinessTripInfo = () => {
 
 const GridContainer = styled(Grid)`
   &&& {
-    width: 100%;
-    height: 100%;
     align-items: center;
 
     padding: 0rem var(--writing-padding);

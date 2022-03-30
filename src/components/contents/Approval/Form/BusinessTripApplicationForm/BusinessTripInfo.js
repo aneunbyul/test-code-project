@@ -24,7 +24,7 @@ const BusinessTripInfo = () => {
   const [value, setValue] = React.useState([null, null]);
   return (
     <>
-      <GridContainer container spacing={4}>
+      <GridContainer container columnSpacing={{xs: 5}}>
         <Grid item xs={6}>
           <Box component="h6">신청인</Box>
         </Grid>
@@ -46,6 +46,7 @@ const BusinessTripInfo = () => {
         <Grid item xs={6}>
           <TextField
             InputLabelProps={{shrink: false}}
+            fullWidth
             required
             id="outlined-required"
             label="필수입력"
@@ -127,6 +128,7 @@ const BusinessTripInfo = () => {
         <Grid item xs={6}>
           <TextField
             InputLabelProps={{shrink: false}}
+            fullWidth
             required
             id="outlined-required"
             label="필수입력"
@@ -140,6 +142,7 @@ const BusinessTripInfo = () => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            fullWidth
             InputLabelProps={{shrink: false}}
             required
             id="outlined-required"
@@ -158,10 +161,7 @@ const BusinessTripInfo = () => {
 
 const GridContainer = styled(Grid)`
   &&& {
-    width: 100%;
-    height: 100%;
     align-items: center;
-
     padding: 0rem var(--writing-padding);
   }
 `;
