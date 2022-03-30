@@ -109,6 +109,7 @@ const BusinessTripInfo = (props) => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            disabled={props.disableSelection}
             InputLabelProps={{shrink: false}}
             fullWidth
             required
@@ -121,6 +122,7 @@ const BusinessTripInfo = (props) => {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            disabled={props.disableSelection}
             InputLabelProps={{shrink: false}}
             fullWidth
             required

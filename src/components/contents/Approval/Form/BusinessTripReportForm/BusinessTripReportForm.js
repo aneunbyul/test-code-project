@@ -22,15 +22,15 @@ import AttachedFile from './AttachedFile';
 const BusinessTripReportForm = (props) => {
   return (
     <div>
-      <BusinessTripInfo disabled={props.disableSelection} />
+      <BusinessTripInfo disableSelection={props.disableSelection} />
       <FormDivider />
-      <BusinessTravelerInfo disabled={props.disableSelection} />
+      <BusinessTravelerInfo disableSelection={props.disableSelection} />
       <FormDivider />
-      <ActivityHistory disabled={props.disableSelection} />
+      <ActivityHistory disableSelection={props.disableSelection} />
       <FormDivider />
-      <ExpenseDetails disabled={props.disableSelection} />
+      <ExpenseDetails disableSelection={props.disableSelection} />
       <FormDivider />
-      <AttachedFile disabled={props.disableSelection} />
+      <AttachedFile disableSelection={props.disableSelection} />
     </div>
   );
 };

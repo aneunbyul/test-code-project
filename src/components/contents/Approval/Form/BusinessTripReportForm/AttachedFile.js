@@ -30,13 +30,17 @@ const AttachedFile = (props) => {
         <Grid item xs={12}>
           <label htmlFor="contained-button-file">
             <input
+              disabled={props.disableSelection}
               accept="*"
               id="contained-button-file"
               multiple
               type="file"
               style={{display: 'none'}}
             />
-            <Button variant="contained" component="span">
+            <Button
+              disabled={props.disableSelection}
+              variant="contained"
+              component="span">
               파일추가
             </Button>
           </label>
@@ -45,7 +49,10 @@ const AttachedFile = (props) => {
           <List>
             <ListItem
               secondaryAction={
-                <IconButton edge="end" aria-label="delete">
+                <IconButton
+                  disabled={props.disableSelection}
+                  edge="end"
+                  aria-label="delete">
                   <DeleteIcon />
                 </IconButton>
               }>
@@ -58,7 +65,10 @@ const AttachedFile = (props) => {
             </ListItem>
             <ListItem
               secondaryAction={
-                <IconButton edge="end" aria-label="delete">
+                <IconButton
+                  disabled={props.disableSelection}
+                  edge="end"
+                  aria-label="delete">
                   <DeleteIcon />
                 </IconButton>
               }>

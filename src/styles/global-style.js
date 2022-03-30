@@ -135,6 +135,12 @@ export const GlobalStyle = createGlobalStyle`
       font-size: var(--global-text-size);
     }
 
+    .MuiIconButton-root{
+      &.Mui-disabled{
+        opacity: 0;
+      }
+    }
+
     .MuiInputAdornment-root *{
       color: var(--light03);
       font-weight: 400;

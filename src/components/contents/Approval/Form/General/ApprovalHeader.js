@@ -18,7 +18,12 @@ import {
 import CheckModal from '../../../Format/CheckModal';
 import styled from 'styled-components';
 
-const ApprovalHeader = ({selectedFormName, handleSelectedFormName}) => {
+const ApprovalHeader = ({
+  disableSelection,
+  setDisableSelection,
+  selectedFormName,
+  handleSelectedFormName,
+}) => {
   //기안버튼 이벤트
   const [checkModalOpen, setCheckModalOpen] = React.useState(false);
   const handleOpen = () => setCheckModalOpen(true);
@@ -55,33 +60,36 @@ const ApprovalHeader = ({selectedFormName, handleSelectedFormName}) => {
     '지출요청서',
     '회의비 사용보고',
   ];
-  // 이 변수로 Mui select와 label의 비활성화 결정
-  let disableSelection = false;
 
   return (
     <>
-      <ToolContainer>
-        <Stack spacing={2} direction="row">
-          <Button variant="contained" onClick={handleOpen}>
-            기안
-          </Button>
-          <Modal
-            open={checkModalOpen}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description">
-            <CheckModal />
-          </Modal>
+      {
+        // 문서 결제 버튼들. disabled 시에는 비활성화
+      }
+      {disableSelection == false && (
+        <ToolContainer>
+          <Stack spacing={2} direction="row">
+            <Button variant="contained" onClick={handleOpen}>
+              기안
+            </Button>
+            <Modal
+              open={checkModalOpen}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description">
+              <CheckModal />
+            </Modal>
 
-          <Button variant="outlined" onClick={ClickApprovalLine}>
-            결재선
-          </Button>
-          <Button variant="outlined">임시저장</Button>
-          <Button variant="outlined" onClick={ClickDocumentConnection}>
-            문서연결
-          </Button>
-        </Stack>
-      </ToolContainer>
+            <Button variant="outlined" onClick={ClickApprovalLine}>
+              결재선
+            </Button>
+            <Button variant="outlined">임시저장</Button>
+            <Button variant="outlined" onClick={ClickDocumentConnection}>
+              문서연결
+            </Button>
+          </Stack>
+        </ToolContainer>
+      )}
 
       <ApprovalGridContainer>
         <Grid

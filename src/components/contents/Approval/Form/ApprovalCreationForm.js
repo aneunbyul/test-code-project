@@ -34,28 +34,30 @@ const ApprovalCreationForm = (props) => {
     <ViewBox>
       <ApprovalCreationContainer>
         <ApprovalHeader
-          disabled={props.disableSelection}
+          disableSelection={props.disableSelection}
           selectedFormName={selectedFormName}
           handleSelectedFormName={handleSelectedFormName}
         />
-        <ApprovalInfo disabled={props.disableSelection} />
-        <FormDivider />
+        <ApprovalInfo disableSelection={props.disableSelection} />
+
+        {formName != '' && <FormDivider />}
+
         {formName === '출장신청서' ? (
-          <BusinessTripApplicationForm disabled={props.disableSelection} />
+          <BusinessTripApplicationForm
+            disableSelection={props.disableSelection}
+          />
         ) : formName === '출장복명서' ? (
-          <BusinessTripReportForm disabled={props.disableSelection} />
+          <BusinessTripReportForm disableSelection={props.disableSelection} />
         ) : formName === '지출요청서' ? (
-          <ExpenditureRequestForm disabled={props.disableSelection} />
+          <ExpenditureRequestForm disableSelection={props.disableSelection} />
+        ) : formName === '회의비 사용보고' ? (
+          <ConferenceReportForm disableSelection={props.disableSelection} />
         ) : (
-          <ConferenceReportForm disabled={props.disableSelection} />
+          <></>
         )}
       </ApprovalCreationContainer>
     </ViewBox>
   );
-};
-
-ApprovalCreationForm.defualtProps = {
-  disableSelection: false,
 };
 
 const ApprovalCreationContainer = styled(SimpleBar)`

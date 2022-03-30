@@ -19,7 +19,7 @@ import styled from 'styled-components';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FolderIcon from '@mui/icons-material/Folder';
 
-const AttachedFile = () => {
+const AttachedFile = (props) => {
   return (
     <>
       <GridContainer container columnSpacing={{xs: 5}}>
@@ -30,13 +30,17 @@ const AttachedFile = () => {
         <Grid item xs={12}>
           <label htmlFor="contained-button-file">
             <input
+              disabled={props.disableSelection}
               accept="*"
               id="contained-button-file"
               multiple
               type="file"
               style={{display: 'none'}}
             />
-            <Button variant="contained" component="span">
+            <Button
+              variant="contained"
+              component="span"
+              disabled={props.disableSelection}>
               파일추가
             </Button>
           </label>
@@ -45,7 +49,10 @@ const AttachedFile = () => {
           <List>
             <ListItem
               secondaryAction={
-                <IconButton edge="end" aria-label="delete">
+                <IconButton
+                  disabled={props.disableSelection}
+                  edge="end"
+                  aria-label="delete">
                   <DeleteIcon />
                 </IconButton>
               }>
@@ -58,7 +65,10 @@ const AttachedFile = () => {
             </ListItem>
             <ListItem
               secondaryAction={
-                <IconButton edge="end" aria-label="delete">
+                <IconButton
+                  disabled={props.disableSelection}
+                  edge="end"
+                  aria-label="delete">
                   <DeleteIcon />
                 </IconButton>
               }>

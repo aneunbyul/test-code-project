@@ -49,8 +49,6 @@ const OrganizationBox = () => {
     children: company.children.length === 0 ? null : company.children,
   };
 
-  console.log(company.children.length);
-
   const renderTree = (nodes) => (
     <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
       {Array.isArray(nodes.children)

@@ -40,9 +40,6 @@ const ApprovalInfo = (props) => {
     '전략기획연구팀',
   ];
 
-  // 이 변수로 Mui select와 label의 비활성화 결정
-  let disableSelection = props.disableSelection;
-
   return (
     <>
       <GridContainer container columnSpacing={{xs: 5}}>
@@ -69,7 +66,7 @@ const ApprovalInfo = (props) => {
           <Box component="h6">과제번호</Box>
         </Grid>
         <Grid item xs={6}>
-          <FormControl fullWidth disabled={disableSelection}>
+          <FormControl fullWidth disabled={props.disableSelection}>
             <InputLabel id="team-select-label">팀 선택</InputLabel>
             <Select
               InputLabelProps={{shrink: false}}
@@ -85,7 +82,7 @@ const ApprovalInfo = (props) => {
           </FormControl>
         </Grid>
         <Grid item xs={6}>
-          <FormControl fullWidth disabled={disableSelection}>
+          <FormControl fullWidth disabled={props.disableSelection}>
             <InputLabel id="demo-simple-select-label">과제선택</InputLabel>
             <Select
               InputLabelProps={{shrink: false}}
@@ -111,7 +108,7 @@ const ApprovalInfo = (props) => {
           <Box component="h6">세세목</Box>
         </Grid>
         <Grid item xs={4}>
-          <FormControl fullWidth disabled={disableSelection}>
+          <FormControl fullWidth disabled={props.disableSelection}>
             <InputLabel id="demo-simple-select-label">예산 선택</InputLabel>
             <Select
               InputLabelProps={{shrink: false}}
@@ -124,7 +121,7 @@ const ApprovalInfo = (props) => {
           </FormControl>
         </Grid>
         <Grid item xs={4}>
-          <FormControl fullWidth disabled={disableSelection}>
+          <FormControl fullWidth disabled={props.disableSelection}>
             <InputLabel id="demo-simple-select-label">예산 선택</InputLabel>
             <Select
               InputLabelProps={{shrink: false}}
@@ -137,7 +134,7 @@ const ApprovalInfo = (props) => {
           </FormControl>
         </Grid>
         <Grid item xs={4}>
-          <FormControl fullWidth disabled={disableSelection}>
+          <FormControl fullWidth disabled={props.disableSelection}>
             <InputLabel id="demo-simple-select-label">예산 선택</InputLabel>
             <Select
               InputLabelProps={{shrink: false}}
@@ -152,10 +149,6 @@ const ApprovalInfo = (props) => {
       </GridContainer>
     </>
   );
-};
-
-ApprovalInfo.defaultProps = {
-  disableSelection: false,
 };
 
 const GridContainer = styled(Grid)`
