@@ -19,6 +19,7 @@
 
   --highlight01: rgb(255, 57, 57);
   --highlight02: rgb(255, 16, 16);
+  --lowlight01: rgba(255, 16, 16, 0.418);
 
   --line-thickness: 0.06rem;
   --big-icon-size: 1.8rem;

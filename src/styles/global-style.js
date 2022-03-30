@@ -166,12 +166,14 @@ export const GlobalStyle = createGlobalStyle`
 
       .MuiOutlinedInput-input{
         color: var(--light01);
+        -webkit-text-fill-color:var(--light01);
         font-weight: 500;
         min-height: var(--global-text-size);
       }
 
-      &.Mui-disabled{
+      &.Mui-disabled , &.Mui-disabled.MuiOutlinedInput-input{
         color:var(--light01);
+        -webkit-text-fill-color:var(--light01);
         background-color: transparent;
 
         & .MuiSelect-select{
@@ -285,9 +287,30 @@ export const GlobalStyle = createGlobalStyle`
       background-color: var(--dark01-transparent);
       backdrop-filter: blur(0.1rem);
       transform: translate(0,2px) !important;
+      border: 0.08rem solid var(--light05);
+      border-radius: var(--global-border-radius);
 
       *{
         font-size : var(--global-text-size);
+      }
+
+      & * {
+        color:var(--light03);
+        
+          align-items: center;
+      }
+      & .MuiButton-root{
+        padding: 0.5rem;
+      }
+
+      & .MuiTypography-root {
+        color:var(--light03);
+        user-select: none;
+
+        &.Mui-selected {
+          font-weight: 500;
+          color:var(--light02);
+        }
       }
 
       .MuiMenuItem-root{
@@ -299,20 +322,32 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
 
-    .MuiButton-root{
-      background-color:var(--dark03);
-      color: var(--light02);
-      box-shadow: 0 0 0 var(--line-thickness) var(--dark05);
-      border: none !important;
+    .MuiDateRangePickerDay-root{
+
+      &&&.MuiDateRangePickerDay-rangeIntervalDayHighlight {
+        background-color: var(--lowlight01);
+      }
+      &&& .Mui-selected {
+        background-color: var(--highlight02) !important;
+      }
+    }
+
+    .MuiButton-root {
+      &&& {
+        background-color:var(--dark03);
+        color: var(--light02);
+        box-shadow: 0 0 0 var(--line-thickness) var(--dark05);
+        border: none !important;
+      }
       
-      &:hover{
+      &&&:hover{
         background-color: var(--dark02) !important;
         box-shadow: 0 0 0 calc(var(--line-thickness)*2) var(--light03);
         color: var(--light01);
       }
 
-      &.Mui-disabled {
-      background-color:var(--dark02);
+      &&&.Mui-disabled {
+        background-color:var(--dark02);
         color : var(--dark05);
         box-shadow: 0 0 0 var(--line-thickness) var(--dark04);
       }

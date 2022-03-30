@@ -33,7 +33,15 @@ const ConferenceInfo = () => {
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <MobileDatePicker
               label="회의 일자"
+              startText="출발일자"
+              endText="종료일자"
+              cancelText="취소"
+              clearText="초기화"
+              okText="적용"
+              toolbarTitle="날짜 선택"
               value={value}
+              inputFormat={'yyyy-MM-dd'}
+              mask={'____-__-__'}
               minDate={new Date('2017-01-01')}
               onChange={(newValue) => {
                 setValue(newValue);

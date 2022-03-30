@@ -15,7 +15,7 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import {MobileDateRangePicker} from '@mui/lab';
 
-const ActivityHistory = () => {
+const ActivityHistory = (props) => {
   const [value, setValue] = React.useState([null, null]);
 
   return (
@@ -35,11 +35,17 @@ const ActivityHistory = () => {
         <Grid item xs={6}>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <MobileDateRangePicker
+              disabled={props.disableSelection}
               InputLabelProps={{shrink: false}}
               startText="출발일자"
               endText="종료일자"
+              cancelText="취소"
+              clearText="초기화"
+              okText="적용"
+              toolbarTitle="날짜 선택"
               value={value}
-              inputFormat="yyyy/MM/dd"
+              inputFormat={'yyyy-MM-dd'}
+              mask={'____-__-__'}
               onChange={(newValue) => {
                 setValue(newValue);
               }}
@@ -47,6 +53,7 @@ const ActivityHistory = () => {
                 <React.Fragment>
                   <React.Fragment>
                     <TextField
+                      disabled={props.disableSelection}
                       InputLabelProps={{shrink: false}}
                       {...startProps}
                       sx={{
@@ -60,6 +67,7 @@ const ActivityHistory = () => {
                       }}
                     />
                     <TextField
+                      disabled={props.disableSelection}
                       sx={{
                         '& .MuiOutlinedInput-root': {
                           borderRadius:
@@ -80,6 +88,7 @@ const ActivityHistory = () => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            disabled={props.disableSelection}
             InputLabelProps={{shrink: false}}
             required
             id="outlined-required"
