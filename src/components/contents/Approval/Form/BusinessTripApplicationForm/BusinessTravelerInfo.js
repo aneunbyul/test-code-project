@@ -16,7 +16,7 @@ import TextField from '@mui/material/TextField';
 const BusinessTravelerInfo = () => {
   return (
     <>
-      <GridContainer container row-spacing={0}>
+      <GridContainer container columnSpacing={{xs: 1}}>
         <Grid item xs={2}>
           <Box component="h6">출장자</Box>
         </Grid>
@@ -59,7 +59,7 @@ const BusinessTravelerInfo = () => {
           />
         </Grid>
         <Grid item xs={3}>
-          <Box component="h5">{'2020.08.07\n2020.08.07'}</Box>
+          <Box component="h5">{'2020.08.07 - 2020.08.07'}</Box>
         </Grid>
         <Grid item xs={3}>
           <TextField
@@ -77,10 +77,7 @@ const BusinessTravelerInfo = () => {
 
 const GridContainer = styled(Grid)`
   &&& {
-    width: 100%;
-    height: 100%;
     align-items: center;
-
     padding: 0rem var(--writing-padding);
   }
 `;

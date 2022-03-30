@@ -238,7 +238,8 @@ export const GlobalStyle = createGlobalStyle`
       }
 
       & .MuiFormControl-root.approval-header__form-select{
-        width: 60%;
+        min-width: 20rem;
+        max-width: 30rem;
 
         & .MuiOutlinedInput-root{
           line-height: 0rem;
@@ -318,15 +319,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .MuiGrid-root{
-      padding: 0;
-      margin: 0;
-
       & .MuiGrid-item{
-        display:flex;
-        flex-direction: column;
-        gap : 1rem;
-        padding: 0rem 0.6rem;
-        margin: 0;
 
       }
     }

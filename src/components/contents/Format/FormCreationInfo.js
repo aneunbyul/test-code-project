@@ -45,7 +45,7 @@ const FormCreationInfo = (props) => {
 
   return (
     <>
-      <GridContainer container spacing={4}>
+      <GridContainer container columnSpacing={{xs: 5}}>
         <Grid item xs={6}>
           <Box component="h6">발의번호</Box>
         </Grid>
@@ -61,7 +61,7 @@ const FormCreationInfo = (props) => {
         </Grid>
       </GridContainer>
 
-      <GridContainer container spacing={4}>
+      <GridContainer container columnSpacing={{xs: 5}}>
         <Grid item xs={6}>
           <Box component="h6">문서분류</Box>
         </Grid>
@@ -100,7 +100,7 @@ const FormCreationInfo = (props) => {
       </GridContainer>
 
       {/*세부예산항목 제공된 양식이 없어서 임의로 생성함 -> 추후 변경 예정*/}
-      <GridContainer container spacing={4}>
+      <GridContainer container columnSpacing={{xs: 5}}>
         <Grid item xs={4}>
           <Box component="h6">비목</Box>
         </Grid>
@@ -156,10 +156,6 @@ const FormCreationInfo = (props) => {
 
 const GridContainer = styled(Grid)`
   &&& {
-    width: 100%;
-    height: 100%;
-    align-items: center;
-
     padding: 0rem var(--writing-padding);
   }
 `;

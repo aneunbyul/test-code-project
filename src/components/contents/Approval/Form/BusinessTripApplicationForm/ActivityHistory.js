@@ -20,7 +20,7 @@ const ActivityHistory = () => {
 
   return (
     <>
-      <GridContainer container>
+      <GridContainer container columnSpacing={{xs: 5}}>
         <Grid item xs={3}>
           <Box component="h6">출발일자</Box>
         </Grid>
@@ -82,6 +82,7 @@ const ActivityHistory = () => {
           <TextField
             InputLabelProps={{shrink: false}}
             required
+            fullWidth
             id="outlined-required"
             label="선택입력"
             placeholder="활동내역 입력"
@@ -94,10 +95,7 @@ const ActivityHistory = () => {
 
 const GridContainer = styled(Grid)`
   &&& {
-    width: 100%;
-    height: 100%;
     align-items: center;
-
     padding: 0rem var(--writing-padding);
   }
 `;

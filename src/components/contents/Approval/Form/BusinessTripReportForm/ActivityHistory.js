@@ -20,7 +20,7 @@ const ActivityHistory = () => {
 
   return (
     <>
-      <GridContainer container>
+      <GridContainer container columnSpacing={{xs: 5}}>
         <Grid item xs={3}>
           <Box component="h6">출발일자</Box>
         </Grid>
@@ -94,8 +94,6 @@ const ActivityHistory = () => {
 
 const GridContainer = styled(Grid)`
   &&& {
-    width: 100%;
-    height: 100%;
     align-items: center;
 
     padding: 0rem var(--writing-padding);

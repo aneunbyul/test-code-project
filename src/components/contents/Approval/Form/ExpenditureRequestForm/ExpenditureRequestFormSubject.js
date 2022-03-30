@@ -1,34 +1,32 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import { Box, Grid, TextField } from '@mui/material'
+import * as React from 'react';
+import styled from 'styled-components';
+import {Box, Grid, TextField} from '@mui/material';
 
 const ExpenditureRequestFormSubject = () => {
   return (
-      <GridContainer container spacing={ 4 }>
-        <Grid item xs={ 12 }>
-          <Box component="h6">제목</Box>
-        </Grid>
-        <Grid item xs={ 12 }>
-          <TextField
-              InputLabelProps={ { shrink: false } }
-              fullWidth
-              required
-              id="outlined-required"
-              label="자동입력 형식 필요"
-          />
-        </Grid>
-      </GridContainer>
-  )
-}
+    <GridContainer container columnSpacing={5}>
+      <Grid item xs={12}>
+        <Box component="h6">제목</Box>
+      </Grid>
+      <Grid item xs={12}>
+        <TextField
+          InputLabelProps={{shrink: false}}
+          fullWidth
+          required
+          id="outlined-required"
+          label="자동입력 형식 필요"
+        />
+      </Grid>
+    </GridContainer>
+  );
+};
 
-const GridContainer = styled ( Grid )`
+const GridContainer = styled(Grid)`
   &&& {
-    width: 100%;
-    height: 100%;
     align-items: center;
 
     padding: 0 var(--writing-padding);
   }
-`
+`;
 
-export default ExpenditureRequestFormSubject
+export default ExpenditureRequestFormSubject;
