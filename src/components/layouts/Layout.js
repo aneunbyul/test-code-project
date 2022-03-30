@@ -71,11 +71,11 @@ const Layout = ({children}) => {
           gridTemplateColumns: isApprovalBasePage
             ? 'calc(var(--box-expanded-length)*0.8) auto'
             : isInApprovalCreationPage
-            ? 'minmax(32rem, 3.5fr) 2.9fr'
+            ? 'minmax(50rem, 55vw) 2.9fr'
             : isAssignmentBasePage
             ? 'calc(var(--box-expanded-length)*0.8) auto'
             : isInAssignmentCreationPage
-            ? 'minmax(32rem, 3.5fr) 2.9fr'
+            ? 'minmax(50rem, 70vw) 2.9fr'
             : isDocumentBasePage
             ? 'calc(var(--box-expanded-length)*0.9) auto'
             : isOrganizationBasePage

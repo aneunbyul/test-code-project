@@ -39,23 +39,23 @@ const Input = ({
   };
 
   return (
-      <>
-        <div
-            className={classNames(
-                classes.inputWrapperDiv,
-                `inputWrapperDiv${tableName}`,
-            )}>
-          <input
-              className={classNames(classes.input, `input${tableName}`)}
-              name={name}
-              value={value || ''}
-              onChange={handleOnChange}
-          />
-          <p className={classNames(classes.error, `error${tableName}`)}>
-            {hasError && error}
-          </p>
-        </div>
-      </>
+    <>
+      <div
+        className={classNames(
+          classes.inputWrapperDiv,
+          `inputWrapperDiv${tableName}`,
+        )}>
+        <input
+          className={classNames(classes.input, `input${tableName}`)}
+          name={name}
+          value={value || ''}
+          onChange={handleOnChange}
+        />
+        <p className={classNames(classes.error, `error${tableName}`)}>
+          {hasError && error}
+        </p>
+      </div>
+    </>
   );
 };
 
@@ -72,44 +72,45 @@ const OurSelect = ({
     props.onChange(e);
   };
   return (
-      <FormControl
-          className={classNames(
-              classes.selectFormControl,
-              `selectFormControl_${tableName}`,
-          )}>
-        <InputLabel
-            className={classNames(
-                classes.selectInputLabel,
-                `selectInputLabel_${tableName}`,
-            )}
-            htmlFor={name}>
-          {selectMessage}
-        </InputLabel>
-        <Select
-            className={classNames(classes.select, `select_${tableName}`)}
-            value={value || ''}
-            onChange={handleSelect}
-            inputProps={{
-              name: name,
-              id: name,
-            }}>
-          {(options || []).map((item) => {
-            return (
-                <MenuItem
-                    className={classNames(
-                        classes.selectMenuItem,
-                        `selectMenutItem_${tableName}`,
-                    )}
-                    key={item.value}
-                    value={item.value}>
-                  {item.label}
-                </MenuItem>
-            );
-          })}
-        </Select>
-      </FormControl>
+    <FormControl
+      className={classNames(
+        classes.selectFormControl,
+        `selectFormControl_${tableName}`,
+      )}>
+      <InputLabel
+        className={classNames(
+          classes.selectInputLabel,
+          `selectInputLabel_${tableName}`,
+        )}
+        htmlFor={name}>
+        {selectMessage}
+      </InputLabel>
+      <Select
+        className={classNames(classes.select, `select_${tableName}`)}
+        value={value || ''}
+        onChange={handleSelect}
+        inputProps={{
+          name: name,
+          id: name,
+        }}>
+        {(options || []).map((item) => {
+          return (
+            <MenuItem
+              className={classNames(
+                classes.selectMenuItem,
+                `selectMenutItem_${tableName}`,
+              )}
+              key={item.value}
+              value={item.value}>
+              {item.label}
+            </MenuItem>
+          );
+        })}
+      </Select>
+    </FormControl>
   );
 };
+
 const EditableRow = ({
   fieldsArr = [],
   editData = {},
@@ -128,7 +129,7 @@ const EditableRow = ({
   });
   const [rowHasError, setRowHasError] = useState(false);
   const [rowData, setRowData] = useState(
-      editData ? Object.assign({}, initializeObj, editData) : initializeObj,
+    editData ? Object.assign({}, initializeObj, editData) : initializeObj,
   );
   const handleSave = () => {
     props.handleSave(rowData);
@@ -147,71 +148,71 @@ const EditableRow = ({
     }
   };
   return (
-      <TableRow
-          className={classNames(classes.tableBodyRow, `tableBodyRow_${tableName}`)}>
-        {fieldsArr.map((item, i) => {
-          return (
-              <TableCell
-                  className={classNames(
-                      classes.tableBodyCell,
-                      `tableBodyCell_${tableName}`,
-                  )}
-                  key={i}>
-                {item.type === 'select' ? (
-                    <OurSelect
-                        tableName={tableName}
-                        classes={{
-                          ...selectClasses,
-                        }}
-                        name={item.name}
-                        onChange={handleOnChange}
-                        options={item.options}
-                        value={rowData[item.name]}
-                        childHasError={(bool) => setRowHasError(bool)}
-                        error={item.error}
-                        selectMessage={item.selectMessage}
-                        validation={item.validation}
-                    />
-                ) : (
-                    <Input
-                        columnDataArr={(allRowsData || []).map(
-                            (obj) => obj.rowData[item.name],
-                        )}
-                        tableName={tableName}
-                        classes={{...inputClasses}}
-                        type={item.type}
-                        name={item.name}
-                        onChange={handleOnChange}
-                        value={rowData[item.name]}
-                        item={item.name}
-                        childHasError={(bool) => setRowHasError(bool)}
-                        error={item.error}
-                        validation={item.validation}
-                    />
-                )}
-              </TableCell>
-          );
-        })}
-        <TableCell
+    <TableRow
+      className={classNames(classes.tableBodyRow, `tableBodyRow_${tableName}`)}>
+      {fieldsArr.map((item, i) => {
+        return (
+          <TableCell
             className={classNames(
-                classes.tableBodyCell,
-                `tableBodyCell_${tableName}`,
-            )}>
-          <Button
-              className={classNames(classes.saveBtn, `saveBtn${tableName}`)}
-              disabled={rowHasError}
-              type="button"
-              onClick={handleSave}>
-            Save
-          </Button>
+              classes.tableBodyCell,
+              `tableBodyCell_${tableName}`,
+            )}
+            key={i}>
+            {item.type === 'select' ? (
+              <OurSelect
+                tableName={tableName}
+                classes={{
+                  ...selectClasses,
+                }}
+                name={item.name}
+                onChange={handleOnChange}
+                options={item.options}
+                value={rowData[item.name]}
+                childHasError={(bool) => setRowHasError(bool)}
+                error={item.error}
+                selectMessage={item.selectMessage}
+                validation={item.validation}
+              />
+            ) : (
+              <Input
+                columnDataArr={(allRowsData || []).map(
+                  (obj) => obj.rowData[item.name],
+                )}
+                tableName={tableName}
+                classes={{...inputClasses}}
+                type={item.type}
+                name={item.name}
+                onChange={handleOnChange}
+                value={rowData[item.name]}
+                item={item.name}
+                childHasError={(bool) => setRowHasError(bool)}
+                error={item.error}
+                validation={item.validation}
+              />
+            )}
+          </TableCell>
+        );
+      })}
+      <TableCell
+        className={classNames(
+          classes.tableBodyCell,
+          `tableBodyCell_${tableName}`,
+        )}>
+        <Button
+          className={classNames(classes.saveBtn, `saveBtn${tableName}`)}
+          disabled={rowHasError}
+          type="button"
+          onClick={handleSave}>
+          Save
+        </Button>
 
-          <Button
-              className={classNames(classes.cancelBtn, `cancelBtn${tableName}`)}
-              onClick={handleCancel}>
-            Cancel
-          </Button>
-        </TableCell>
-      </TableRow>
+        <Button
+          className={classNames(classes.cancelBtn, `cancelBtn${tableName}`)}
+          onClick={handleCancel}>
+          Cancel
+        </Button>
+      </TableCell>
+    </TableRow>
   );
 };
 
@@ -225,39 +226,39 @@ const Row = ({
   isEditing,
 }) => {
   return (
-      <TableRow
-          className={classNames(classes.tableBodyRow, `tableBodyRow_${tableName}`)}>
-        {Object.keys(data).map((key) => {
-          return (
-              <TableCell
-                  className={classNames(
-                      classes.tableBodyCell,
-                      `tableBodyCell_${tableName}`,
-                  )}>
-                {data[key]}
-              </TableCell>
-          );
-        })}
-        <TableCell
+    <TableRow
+      className={classNames(classes.tableBodyRow, `tableBodyRow_${tableName}`)}>
+      {Object.keys(data).map((key) => {
+        return (
+          <TableCell
             className={classNames(
-                classes.tableBodyCell,
-                `tableBodyCell_${tableName}`,
+              classes.tableBodyCell,
+              `tableBodyCell_${tableName}`,
             )}>
-          <Button
-              disabled={isAdding || isEditing}
-              className={classNames(classes.editBtn, `editBtn_${tableName}`)}
-              onClick={handleEditRow}>
-            Edit
-          </Button>
+            {data[key]}
+          </TableCell>
+        );
+      })}
+      <TableCell
+        className={classNames(
+          classes.tableBodyCell,
+          `tableBodyCell_${tableName}`,
+        )}>
+        <Button
+          disabled={isAdding || isEditing}
+          className={classNames(classes.editBtn, `editBtn_${tableName}`)}
+          onClick={handleEditRow}>
+          Edit
+        </Button>
 
-          <Button
-              disabled={isAdding || isEditing}
-              className={classNames(classes.deleteBtn, `deleteBtn_${tableName}`)}
-              onClick={handleDeleteRow}>
-            Delete
-          </Button>
-        </TableCell>
-      </TableRow>
+        <Button
+          disabled={isAdding || isEditing}
+          className={classNames(classes.deleteBtn, `deleteBtn_${tableName}`)}
+          onClick={handleDeleteRow}>
+          Delete
+        </Button>
+      </TableCell>
+    </TableRow>
   );
 };
 
@@ -283,19 +284,19 @@ class EditableTableSrc extends React.Component {
         } else return item;
       });
       this.setState(
-          {allRowsData: arr, editingIndex: null, isEditing: false},
-          this.setToParent,
+        {allRowsData: arr, editingIndex: null, isEditing: false},
+        this.setToParent,
       );
     } else {
       this.setState(
-          {
-            allRowsData: [
-              ...this.state.allRowsData,
-              {isEditing: false, rowData: row},
-            ],
-            isAdding: false,
-          },
-          this.setToParent,
+        {
+          allRowsData: [
+            ...this.state.allRowsData,
+            {isEditing: false, rowData: row},
+          ],
+          isAdding: false,
+        },
+        this.setToParent,
       );
     }
   };
@@ -322,10 +323,10 @@ class EditableTableSrc extends React.Component {
   handleDeleteRow = (index) => {
     const arr = this.state.allRowsData.filter((item, i) => i !== index);
     this.setState(
-        {
-          allRowsData: arr,
-        },
-        this.setToParent,
+      {
+        allRowsData: arr,
+      },
+      this.setToParent,
     );
   };
   handleEditRow = (index) => {
@@ -354,128 +355,130 @@ class EditableTableSrc extends React.Component {
       {label: '수정/삭제', name: '수정/삭제'},
     ];
     const showHeader =
-        initWithoutHead && !allRowsData.length && !isAdding ? false : true;
+      initWithoutHead && !allRowsData.length && !isAdding ? false : true;
     return (
-        <>
-          <Table className={classNames(classes.table, `table_${tableName}`)}>
-            {showHeader && (
-                <TableHead className={classNames(classes.tableHead)}>
-                  <TableRow
-                      className={classNames(
-                          classes.tableHeadRow,
-                          `tableHeadRow_${tableName}`,
-                      )}>
-                    {headRow.map(({label, name}, i) => (
-                        <TableCell
-                            className={classNames(
-                                classes.tableHeadCell,
-                                classes[`tableHeadCell${name}`],
-                                `tableHeadCell_${tableName} tableHeadCell_${name}`,
-                            )}
-                            key={i}>
-                          {label}
-                        </TableCell>
-                    ))}
-                  </TableRow>
-                </TableHead>
-            )}
-            <TableBody
-                className={classNames(classes.tableBody, `tableBody_${tableName}`)}>
-              {!!allRowsData.length &&
+      <>
+        <Table className={classNames(classes.table, `table_${tableName}`)}>
+          {showHeader && (
+            <TableHead className={classNames(classes.tableHead)}>
+              <TableRow
+                className={classNames(
+                  classes.tableHeadRow,
+                  `tableHeadRow_${tableName}`,
+                )}>
+                {headRow.map(({label, name}, i) => (
+                  <TableCell
+                    className={classNames(
+                      classes.tableHeadCell,
+                      classes[`tableHeadCell${name}`],
+                      `tableHeadCell_${tableName} tableHeadCell_${name}`,
+                    )}
+                    key={i}>
+                    {label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+          )}
+          <TableBody
+            className={classNames(classes.tableBody, `tableBody_${tableName}`)}>
+            {!!allRowsData.length &&
               allRowsData.map(({isEditing, rowData}, i) => {
                 return isEditing ? (
-                    <EditableRow
-                        tableName={tableName}
-                        isEditing={isEditing}
-                        editingIndex={editingIndex}
-                        selectClasses={{
-                          selectFormControl: classes.selectFormControl,
-                          selectInputLabel: classes.selectInputLabel,
-                          select: classes.select,
-                          selectMenuItem: classes.selectMenuItem,
-                        }}
-                        inputClasses={{
-                          inputWrapperDiv: classes.inputWrapperDiv,
-                          input: classes.input,
-                          error: classes.error,
-                        }}
-                        classes={{
-                          tableBodyRow: classes.tableBodyRow,
-                          tableBodyCell: classes.tableBodyCell,
-                          tableCellRow: classes.tableCellRow,
-                          saveBtn: classes.saveBtn,
-                          cancelBtn: classes.cancelBtn,
-                        }}
-                        allRowsData={this.state.allRowsData}
-                        editData={rowData}
-                        handleSave={this.handleSave}
-                        handleCancel={this.handleCancel}
-                        fieldsArr={fieldsArr}
-                    />
+                  <EditableRow
+                    tableName={tableName}
+                    isEditing={isEditing}
+                    editingIndex={editingIndex}
+                    selectClasses={{
+                      selectFormControl: classes.selectFormControl,
+                      selectInputLabel: classes.selectInputLabel,
+                      select: classes.select,
+                      selectMenuItem: classes.selectMenuItem,
+                    }}
+                    inputClasses={{
+                      inputWrapperDiv: classes.inputWrapperDiv,
+                      input: classes.input,
+                      error: classes.error,
+                    }}
+                    classes={{
+                      tableBodyRow: classes.tableBodyRow,
+                      tableBodyCell: classes.tableBodyCell,
+                      tableCellRow: classes.tableCellRow,
+                      saveBtn: classes.saveBtn,
+                      cancelBtn: classes.cancelBtn,
+                    }}
+                    allRowsData={this.state.allRowsData}
+                    editData={rowData}
+                    handleSave={this.handleSave}
+                    handleCancel={this.handleCancel}
+                    fieldsArr={fieldsArr}
+                  />
                 ) : (
-                    <Row
-                        key={i}
-                        tableName={tableName}
-                        classes={{
-                          tableBodyRow: classes.tableBodyRow,
-                          tableBodyCell: classes.tableBodyCell,
-                          tableCellRow: classes.tableCellRow,
-                          editBtn: classes.editBtn,
-                          deleteBtn: classes.deleteBtn,
-                        }}
-                        isAdding={isAdding}
-                        isEditing={this.state.isEditing}
-                        handleEditRow={() => this.handleEditRow(i)}
-                        handleDeleteRow={() => this.handleDeleteRow(i)}
-                        data={rowData}
-                    />
+                  <Row
+                    key={i}
+                    tableName={tableName}
+                    classes={{
+                      tableBodyRow: classes.tableBodyRow,
+                      tableBodyCell: classes.tableBodyCell,
+                      tableCellRow: classes.tableCellRow,
+                      editBtn: classes.editBtn,
+                      deleteBtn: classes.deleteBtn,
+                    }}
+                    isAdding={isAdding}
+                    isEditing={this.state.isEditing}
+                    handleEditRow={() => this.handleEditRow(i)}
+                    handleDeleteRow={() => this.handleDeleteRow(i)}
+                    data={rowData}
+                  />
                 );
               })}
-              {isAdding && (
-                  <EditableRow
-                      tableName={tableName}
-                      allRowsData={this.state.allRowsData}
-                      selectClasses={{
-                        selectFormControl: classes.selectFormControl,
-                        selectInputLabel: classes.selectInputLabel,
-                        select: classes.select,
-                        selectMenuItem: classes.selectMenuItem,
-                      }}
-                      inputClasses={{
-                        inputWrapperDiv: classes.inputWrapperDiv,
-                        input: classes.input,
-                        error: classes.error,
-                      }}
-                      classes={{
-                        tableBodyRow: classes.tableBodyRow,
-                        tableBodyCell: classes.tableBodyCell,
-                        saveBtn: classes.saveBtn,
-                        cancelBtn: classes.cancelBtn,
-                        tableCellRow: classes.tableCellRow,
-                      }}
-                      handleSave={this.handleSave}
-                      handleCancel={this.handleCancel}
-                      fieldsArr={fieldsArr}
-                  />
-              )}
-            </TableBody>
-          </Table>
-          <div>
-            <Button
-                className={classNames(classes.addBtn, `addBtn_${tableName}`)}
-                disabled={isAdding || isEditing}
-                onClick={() => this.setState({isAdding: true})}>
-              {addRowBtnText || 'Add Row'}
-            </Button>
-          </div>
-        </>
+            {isAdding && (
+              <EditableRow
+                tableName={tableName}
+                allRowsData={this.state.allRowsData}
+                selectClasses={{
+                  selectFormControl: classes.selectFormControl,
+                  selectInputLabel: classes.selectInputLabel,
+                  select: classes.select,
+                  selectMenuItem: classes.selectMenuItem,
+                }}
+                inputClasses={{
+                  inputWrapperDiv: classes.inputWrapperDiv,
+                  input: classes.input,
+                  error: classes.error,
+                }}
+                classes={{
+                  tableBodyRow: classes.tableBodyRow,
+                  tableBodyCell: classes.tableBodyCell,
+                  saveBtn: classes.saveBtn,
+                  cancelBtn: classes.cancelBtn,
+                  tableCellRow: classes.tableCellRow,
+                }}
+                handleSave={this.handleSave}
+                handleCancel={this.handleCancel}
+                fieldsArr={fieldsArr}
+              />
+            )}
+          </TableBody>
+        </Table>
+        <div>
+          <Button
+            className={classNames(classes.addBtn, `addBtn_${tableName}`)}
+            disabled={isAdding || isEditing}
+            onClick={() => this.setState({isAdding: true})}>
+            {addRowBtnText || 'Add Row'}
+          </Button>
+        </div>
+      </>
     );
   }
 }
 
 const styles = () => ({
   table: {},
-  tableHead: {},
+  tableHead: {
+    color: 'var(--light03)',
+  },
   tableHeadRow: {},
   tableHeadCell: {},
   tableBody: {},

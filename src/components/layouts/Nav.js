@@ -195,7 +195,6 @@ const NavTabItem = styled(ListItemButton)`
   &&& {
     position: relative;
     display: grid;
-    grid-template-columns: 2.6rem auto;
     align-items: center;
     width: 100%;
     padding: calc((var(--box-contracted-length) - var(--big-icon-size)) / 2);

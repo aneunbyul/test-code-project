@@ -10,11 +10,12 @@ import {useState, useEffect} from 'react';
 //components
 import {useStyles} from '../../CustomMuiStyle';
 import ViewBox from '../../ViewBox/ViewBox';
+import FormDivider from '../../ReusableContent/FormDivider';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
-import FormCreationHeader from '../../Format/FormCreationHeader';
-import FormCreationInfo from '../../Format/FormCreationInfo';
+import ApprovalHeader from './General/ApprovalHeader';
+import ApprovalInfo from './General/ApprovalInfo';
 import BusinessTripApplicationForm from './BusinessTripApplicationForm/BusinessTripApplicationForm';
 import BusinessTripReportForm from './BusinessTripReportForm/BusinessTripReportForm';
 import ExpenditureRequestForm from './ExpenditureRequestForm/ExpenditureRequestForm';
@@ -32,13 +33,13 @@ const ApprovalCreationForm = (props) => {
   return (
     <ViewBox>
       <ApprovalCreationContainer>
-        <FormCreationHeader
+        <ApprovalHeader
           disabled={props.disableSelection}
           selectedFormName={selectedFormName}
           handleSelectedFormName={handleSelectedFormName}
         />
-        <FormCreationInfo disabled={props.disableSelection} />
-        <hr className="hr-divider" />
+        <ApprovalInfo disabled={props.disableSelection} />
+        <FormDivider />
         {formName === '출장신청서' ? (
           <BusinessTripApplicationForm disabled={props.disableSelection} />
         ) : formName === '출장복명서' ? (

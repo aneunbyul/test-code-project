@@ -1,7 +1,7 @@
-import * as React from 'react'
-import EditableTable from './EditableTableSrc'
-import BusinessExpenseCardValue from './BusinessExpenseCardValue'
-import { Box, Container, Stack, Typography } from '@mui/material'
+import * as React from 'react';
+import EditableTable from './EditableTableSrc';
+import BusinessExpenseCardValue from './BusinessExpenseCardValue';
+import {Box, Container, Stack, Typography} from '@mui/material';
 
 const defaultData = [
   {
@@ -9,24 +9,23 @@ const defaultData = [
     account: '20220311',
     name: '권아롱새',
   },
-]
+];
 
-const getData = ( row ) => {
-  console.log ( row, 'rows data' )
-}
+const getData = (row) => {
+  console.log(row, 'rows data');
+};
 
 const BusinessExpenseCard = () => {
   return (
-      <Stack bgcolor={ 'white' }>
-        <Typography bgcolor={ 'Background' }>사업비 사용카드</Typography>
-        <EditableTable
-            initWithoutHead
-            defaultData={ defaultData }
-            getData={ getData }
-            fieldsArr={ BusinessExpenseCardValue }
-        />
-      </Stack>
-  )
-}
+    <Stack bgcolor={'transparent'}>
+      <EditableTable
+        initWithoutHead
+        defaultData={defaultData}
+        getData={getData}
+        fieldsArr={BusinessExpenseCardValue}
+      />
+    </Stack>
+  );
+};
 
-export default BusinessExpenseCard
+export default BusinessExpenseCard;

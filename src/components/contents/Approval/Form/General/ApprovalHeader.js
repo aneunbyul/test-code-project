@@ -14,11 +14,11 @@ import {useRecoilState, useRecoilValue} from 'recoil';
 import {
   isApprovalLineState,
   isDocumentConnectionState,
-} from '../../recoil/store';
-import CheckModal from './CheckModal';
+} from '../../../../recoil/store';
+import CheckModal from '../../../Format/CheckModal';
 import styled from 'styled-components';
 
-const FormCreationHeader = ({selectedFormName, handleSelectedFormName}) => {
+const ApprovalHeader = ({selectedFormName, handleSelectedFormName}) => {
   //기안버튼 이벤트
   const [checkModalOpen, setCheckModalOpen] = React.useState(false);
   const handleOpen = () => setCheckModalOpen(true);
@@ -135,7 +135,7 @@ const FormCreationHeader = ({selectedFormName, handleSelectedFormName}) => {
   );
 };
 
-FormCreationHeader.defaultProps = {
+ApprovalHeader.defaultProps = {
   selectedFormName: '',
   handleSelectedFormName: function () {},
   disableSelection: false,
@@ -179,4 +179,4 @@ const ApprovalLineBox = styled(Box)`
   //box-shadow: 0 0 0 var(--line-thickness) var(--dark05);
 `;
 
-export default FormCreationHeader;
+export default ApprovalHeader;
