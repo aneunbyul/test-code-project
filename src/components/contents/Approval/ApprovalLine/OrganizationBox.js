@@ -1,18 +1,18 @@
-import * as React from 'react';
-import styled from 'styled-components';
-import {Box, Container, Card, Typography} from '@mui/material';
-import {TreeItem, TreeView} from '@mui/lab';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import * as React from 'react'
+import styled from 'styled-components'
+import { Box, Container, Card, Typography } from '@mui/material'
+import { TreeItem, TreeView } from '@mui/lab'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
 //components
-import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
+import SimpleBar from 'simplebar-react'
+import 'simplebar/dist/simplebar.min.css'
 
 const OrganizationBox = () => {
   const company = {
     id: '1',
-    name: '텔리픽스 주식회사',
+    name: '텔레픽스 주식회사',
     children: [
       {
         id: '2',
@@ -41,49 +41,49 @@ const OrganizationBox = () => {
         ],
       },
     ],
-  };
+  }
 
   const data = {
     id: company.id,
     name: company.name,
     children: company.children.length === 0 ? null : company.children,
-  };
+  }
 
-  const renderTree = (nodes) => (
-    <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
-      {Array.isArray(nodes.children)
-        ? nodes.children.map((node) => renderTree(node))
-        : null}
-    </TreeItem>
-  );
+  const renderTree = ( nodes ) => (
+      <TreeItem key={ nodes.id } nodeId={ nodes.id } label={ nodes.name }>
+        { Array.isArray ( nodes.children )
+            ? nodes.children.map ( ( node ) => renderTree ( node ) )
+            : null }
+      </TreeItem>
+  )
 
   return (
-    <OrganizationBoxContainer>
-      <TreeView
-        aria-label="rich object"
-        defaultCollapseIcon={<ExpandMoreIcon />}
-        defaultExpanded={['1', '2', '3', '4']}
-        defaultExpandIcon={<ChevronRightIcon />}
-        sx={{
-          height: '100%',
-          flexGrow: 1,
-          maxWidth: '100%',
-          padding: '0.4rem 0.7rem',
-          overflowY: 'auto',
-        }}>
-        {renderTree(data)}
-      </TreeView>
-    </OrganizationBoxContainer>
-  );
-};
+      <OrganizationBoxContainer>
+        <TreeView
+            aria-label="rich object"
+            defaultCollapseIcon={ <ExpandMoreIcon/> }
+            defaultExpanded={ ['1', '2', '3', '4'] }
+            defaultExpandIcon={ <ChevronRightIcon/> }
+            sx={ {
+              height: '100%',
+              flexGrow: 1,
+              maxWidth: '100%',
+              padding: '0.4rem 0.7rem',
+              overflowY: 'auto',
+            } }>
+          { renderTree ( data ) }
+        </TreeView>
+      </OrganizationBoxContainer>
+  )
+}
 
-const OrganizationBoxContainer = styled(Card)`
+const OrganizationBoxContainer = styled ( Card )`
   width: 100%;
   height: 32vh;
   border-right-width: 0 !important;
   border-radius: var(--global-border-radius) 0 0 var(--global-border-radius) !important;
   background-color: var(--dark01);
   padding: 12px 0px;
-`;
+`
 
-export default OrganizationBox;
+export default OrganizationBox
