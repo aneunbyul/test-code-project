@@ -7,7 +7,7 @@ import SimpleBar from 'simplebar-react'
 
 const defaultData = [
   {
-    name: '이름',
+    name: '연구원 이름',
     start: '20220311',
     finish: '20220311',
   },

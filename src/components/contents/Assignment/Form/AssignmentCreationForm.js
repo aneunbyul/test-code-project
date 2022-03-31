@@ -48,6 +48,11 @@ const AssignmentCreationContainer = styled ( SimpleBar )`
   &&& .MuiTable-root {
     border-bottom: 0.1rem solid var(--dark03);
     color: var(--light03);
+    width: inherit;
+  }
+
+  &&& .MuiTable-root tr {
+    border-bottom: 0.1rem solid var(--dark03);
   }
 
   &&& .MuiTable-root td {
@@ -58,6 +63,11 @@ const AssignmentCreationContainer = styled ( SimpleBar )`
     border-bottom: 0.1rem solid var(--dark03);
     color: var(--light03);
   }
+
+  &&& .MuiTableCell-root input {
+    color: var(--light03);
+    padding: 16.5px 14px;
+    border: 0.1rem solid var(--dark03);
 
 `
 export default AssignmentCreationForm
