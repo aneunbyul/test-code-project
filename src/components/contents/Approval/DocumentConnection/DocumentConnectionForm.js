@@ -17,10 +17,8 @@ const DocumentConnectionForm = () => {
 
   const tempColumns = [
     {field: 'name', headerName: '기안자', flex: 1},
-    {field: 'team', headerName: '담당 부서', flex: 1},
     {field: 'subject', headerName: '제목', flex: 1.8},
     {field: 'assignment', headerName: '과제', flex: 1.2},
-    {field: 'Classification', headerName: '문서 종류', flex: 1},
     {
       field: 'dateCreated',
       headerName: '결재일',
@@ -51,7 +49,7 @@ const DocumentConnectionForm = () => {
 
 const FormContainer = styled(Box)`
   width: 100%;
-  height: 100%;
+  height: 70%;
 `;
 
 export default DocumentConnectionForm;
