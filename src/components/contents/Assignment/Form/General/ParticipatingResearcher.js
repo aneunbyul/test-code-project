@@ -19,32 +19,15 @@ const getData = ( row ) => {
 
 const ParticipatingResearcher = () => {
   return (
-      <TableContainer bgcolor={ 'transparent' }>
+      <Stack bgcolor={ 'transparent' }>
         <EditableTable
             initWithoutHead
             defaultData={ defaultData }
             getData={ getData }
             fieldsArr={ ParticipatingResearcherValue }
         />
-      </TableContainer>
+      </Stack>
   )
 }
 
-const TableContainer = styled ( Stack )`
-  &&& .MuiTable-root {
-    border-bottom: 0.1rem solid var(--dark03);
-    color: var(--light03);
-  }
-
-  &&& .MuiTable-root td {
-    color: var(--light03);
-  }
-
-  &&& .MuiTableCell-head {
-    border-bottom: 0.1rem solid var(--dark03);
-    color: var(--light03);
-  }
-
-,
-`
 export default ParticipatingResearcher

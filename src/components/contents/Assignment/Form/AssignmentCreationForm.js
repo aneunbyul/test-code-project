@@ -1,40 +1,40 @@
-import * as React from 'react';
-import styled from 'styled-components';
-import {Box, Container, Stack, Typography} from '@mui/material';
-import ViewBox from '../../ViewBox/ViewBox';
-import AssignmentBasicInfo from './General/AssignmentBasicInfo';
-import ParticipatingResearcher from './General/ParticipatingResearcher';
-import AssignmentBudget from './General/AssignmentBudget';
-import AssignmentAccount from './General/AssignmentAccount';
-import BusinessExpenseCard from './General/BusinessExpenseCard';
-import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
-import FormDivider from '../../ReusableContent/FormDivider';
+import * as React from 'react'
+import styled from 'styled-components'
+import { Box, Container, Stack, Typography } from '@mui/material'
+import ViewBox from '../../ViewBox/ViewBox'
+import AssignmentBasicInfo from './General/AssignmentBasicInfo'
+import ParticipatingResearcher from './General/ParticipatingResearcher'
+import AssignmentBudget from './General/AssignmentBudget'
+import AssignmentAccount from './General/AssignmentAccount'
+import BusinessExpenseCard from './General/BusinessExpenseCard'
+import SimpleBar from 'simplebar-react'
+import 'simplebar/dist/simplebar.min.css'
+import FormDivider from '../../ReusableContent/FormDivider'
 
-const AssignmentCreationForm = (props) => {
+const AssignmentCreationForm = ( props ) => {
   return (
-    <ViewBox>
-      <AssignmentCreationContainer>
-        <FormDivider text="과제 기본 정보" />
-        <AssignmentBasicInfo />
-        <FormDivider text="참여 연구원" />
-        <ParticipatingResearcher />
-        <FormDivider text="사업비" />
-        <AssignmentBudget />
-        <FormDivider text="계좌 정보" />
-        <AssignmentAccount />
-        <FormDivider text="사업비 사용카드" />
-        <BusinessExpenseCard />
-      </AssignmentCreationContainer>
-    </ViewBox>
-  );
-};
+      <ViewBox>
+        <AssignmentCreationContainer>
+          <FormDivider text="과제 기본 정보"/>
+          <AssignmentBasicInfo/>
+          <FormDivider text="참여 연구원"/>
+          <ParticipatingResearcher/>
+          <FormDivider text="사업비"/>
+          <AssignmentBudget/>
+          <FormDivider text="계좌 정보"/>
+          <AssignmentAccount/>
+          <FormDivider text="사업비 사용카드"/>
+          <BusinessExpenseCard/>
+        </AssignmentCreationContainer>
+      </ViewBox>
+  )
+}
 
 AssignmentCreationForm.defualtProps = {
   disableSelection: false,
-};
+}
 
-const AssignmentCreationContainer = styled(SimpleBar)`
+const AssignmentCreationContainer = styled ( SimpleBar )`
   &&& {
     position: relative;
     width: 100%;
@@ -44,5 +44,20 @@ const AssignmentCreationContainer = styled(SimpleBar)`
     background-color: var(--transparent);
     padding-bottom: 6rem;
   }
-`;
-export default AssignmentCreationForm;
+
+  &&& .MuiTable-root {
+    border-bottom: 0.1rem solid var(--dark03);
+    color: var(--light03);
+  }
+
+  &&& .MuiTable-root td {
+    color: var(--light03);
+  }
+
+  &&& .MuiTableCell-head {
+    border-bottom: 0.1rem solid var(--dark03);
+    color: var(--light03);
+  }
+
+`
+export default AssignmentCreationForm
