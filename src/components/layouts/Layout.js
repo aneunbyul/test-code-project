@@ -71,7 +71,7 @@ const Layout = ({children}) => {
           gridTemplateColumns: isApprovalBasePage
             ? 'calc(var(--box-expanded-length)*0.8) auto'
             : isInApprovalCreationPage
-            ? 'minmax(50rem, 55vw) 2.9fr'
+            ? 'minmax(50vw, 55vw) 2.9fr'
             : isAssignmentBasePage
             ? 'calc(var(--box-expanded-length)*0.8) auto'
             : isInAssignmentCreationPage

@@ -122,6 +122,31 @@ export const GlobalStyle = createGlobalStyle`
       white-space: pre-wrap;
     }
 
+    
+
+    & *::-webkit-scrollbar {
+      width: 0.8rem;
+    }
+
+    & *::-webkit-scrollbar-thumb {
+      overflow: visible;
+      background-color: var(--dark03);
+      border-radius: 1rem;
+      box-shadow: inset 0 0 1px 1px  var(--light05);
+      background-clip: content-box;
+      border: solid 2px transparent;
+      opacity: 0.7;
+    }
+
+    & *::-webkit-scrollbar-thumb:hover {
+      background-color: var(--light05) !important;
+      border: 1px solid var(--light03);
+    }
+
+    & *::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
     .Mui-selected {
       outline: none !important;
     }
@@ -374,14 +399,14 @@ export const GlobalStyle = createGlobalStyle`
       padding: 0.4rem 0.1rem;
 
       & * {
-        font-size: calc(var(--global-text-size) * 0.8) !important;
+        font-size: calc(var(--global-text-size) * 1) !important;
       }
 
       &.Mui-selected, .Mui-selected.Mui-focused {
-        background-color: transparent !important;
+        background-color: var(--dark03) !important;
         font-weight: 500;
         color: var(--light01);
-        box-shadow: 0 0 0 var(--line-thickness) var(--dark05);
+        box-shadow: inset 0 0 0 var(--line-thickness) var(--dark05);
         border-radius: var(--global-border-radius);
       }
     }

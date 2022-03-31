@@ -6,9 +6,15 @@ const FormDivider = (props) => {
   return (
     <FormDividerContainer
       sx={{
+        marginTop: '2rem',
         marginBottom: '1.5rem',
         ...(props.text != null && {
+          marginTop: '2rem',
           marginBottom: '2.8rem',
+        }),
+        ...(props.size == 'compact' && {
+          marginTop: '0',
+          marginBottom: '0',
         }),
       }}>
       <DividingLine />
@@ -30,7 +36,6 @@ FormDivider.defualtProps = {
 const FormDividerContainer = styled(Box)`
   position: relative;
   width: 100%;
-  margin-top: 2rem;
 `;
 
 const DividingLine = styled.hr`

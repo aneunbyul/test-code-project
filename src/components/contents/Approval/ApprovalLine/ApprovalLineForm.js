@@ -16,6 +16,7 @@ import {
 import OrganizationBox from './OrganizationBox';
 import EmployeeListBox from './EmployeeListBox';
 import AuthorizedPerson from './AuthorizedPerson';
+import PersonelListBox from './PersonelListBox';
 
 import {useState, useEffect} from 'react';
 
@@ -26,15 +27,112 @@ import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
 const ApprovalLineForm = () => {
+  function not(a, b) {
+    return a.filter((value) => b.indexOf(value) === -1);
+  }
+
+  function intersection(a, b) {
+    return a.filter((value) => b.indexOf(value) !== -1);
+  }
+
+  function union(a, b) {
+    return [...a, ...not(b, a)];
+  }
+
+  const [checked, setChecked] = React.useState([]);
+  const [left, setLeft] = React.useState([0, 1, 2, 3]);
+  const [right, setRight] = React.useState([4, 5, 6, 7]);
+  const [bottom, setBottom] = React.useState([8, 9]);
+
+  const leftChecked = intersection(checked, left);
+  const rightChecked = intersection(checked, right);
+  const bottomChecked = intersection(checked, bottom);
+
+  const handleToggle = (value) => () => {
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    setChecked(newChecked);
+  };
+
+  const numberOfChecked = (items) => intersection(checked, items).length;
+
+  const handleToggleAll = (items) => () => {
+    if (numberOfChecked(items) === items.length) {
+      setChecked(not(checked, items));
+    } else {
+      setChecked(union(checked, items));
+    }
+  };
+
+  const handleCheckedRight = () => {
+    setRight(right.concat(leftChecked));
+    setLeft(not(left, leftChecked));
+    setChecked(not(checked, leftChecked));
+  };
+
+  const handleCheckedBottom = () => {
+    setBottom(bottom.concat(leftChecked));
+    setLeft(not(left, leftChecked));
+    setChecked(not(checked, leftChecked));
+  };
+
+  const handleCheckedLeft = () => {
+    setLeft(left.concat(rightChecked));
+    setRight(not(right, rightChecked));
+    setChecked(not(checked, rightChecked));
+  };
+
+  const handleCheckedLeftFromBottom = () => {
+    setLeft(left.concat(bottomChecked));
+    setBottom(not(bottom, bottomChecked));
+    setChecked(not(checked, bottomChecked));
+  };
+
   return (
     <ViewBox>
       <FormContainer>
-        <Box component="h6">결재선</Box>
-        <Stack direction={'row'} sx={{marginBottom: '3rem'}}>
-          <OrganizationBox />
-          {/*<EmployeeListBox/>*/}
-          <AuthorizedPerson />
-        </Stack>
+        <GridContainer container columnSpacing={{xs: 0}}>
+          <Grid item xs={5}>
+            <OrganizationBox />
+          </Grid>
+          <Grid item xs={7}>
+            <PersonelListBox
+              borderType="leftOff"
+              title="임직원 목록"
+              checked={checked}
+              assignedHooks={left}
+              numberOfChecked={numberOfChecked}
+              handleToggle={handleToggle}
+              handleToggleAll={handleToggleAll}></PersonelListBox>
+          </Grid>
+
+          <Grid item xs={6}>
+            <PersonelListBox
+              title="결재자 목록"
+              checked={checked}
+              assignedHooks={right}
+              numberOfChecked={numberOfChecked}
+              handleToggle={handleToggle}
+              handleToggleAll={handleToggleAll}></PersonelListBox>
+          </Grid>
+
+          <Grid item xs={6}>
+            <PersonelListBox
+              title="참조자 목록"
+              checked={checked}
+              assignedHooks={bottom}
+              numberOfChecked={numberOfChecked}
+              handleToggle={handleToggle}
+              handleToggleAll={handleToggleAll}></PersonelListBox>
+          </Grid>
+        </GridContainer>
         <Button size={'large'}>적용하기</Button>
       </FormContainer>
     </ViewBox>
@@ -43,7 +141,13 @@ const ApprovalLineForm = () => {
 
 const FormContainer = styled(Box)`
   width: 100%;
-  height: 100px;
+  height: 100%;
+  padding: var(--writing-padding);
 `;
-
+const GridContainer = styled(Grid)`
+  &&& {
+    align-items: center;
+  }
+  }
+`;
 export default ApprovalLineForm;
