@@ -6,6 +6,7 @@ import TableSearchTab from '../../Format/TableSearchTab'
 import TableGridBody from '../../Format/TableGridBody'
 
 import { useState, useEffect } from 'react'
+import AssignmentTableGridBody from '../../Format/AssignmentTableGridBody'
 
 const OngoingTableForm = () => {
   const tempColumns = [
@@ -20,7 +21,7 @@ const OngoingTableForm = () => {
       <ViewBox>
         <FormContainer>
           <TableSearchTab filter={ ['담당부서', '과제선택'] }/>
-          <TableGridBody columnData={ tempColumns }/>
+          <AssignmentTableGridBody columnData={ tempColumns }/>
         </FormContainer>
       </ViewBox>
   )

@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import * as React from 'react'
 import { Button, Container, Stack, TextField, Typography } from '@mui/material'
-import React, { useState, useRef, useCallback, useEffect } from 'react'
+import { useState, useRef, useCallback, useEffect } from 'react'
 import { render } from 'react-dom'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
@@ -9,6 +9,12 @@ import 'ag-grid-community/dist/styles/ag-theme-balham-dark.css'
 
 const AssignmentBudgetDetail = () => {
   const gridRef = useRef ()
+  const defaultColDef = {
+    width: 100,
+    editable: true,
+    // make every column use 'text' filter by default
+    filter: 'agTextColumnFilter',
+  }
 
   const [rowData, setRowData] = useState ( [
     { 비목: '직접비', 세목: '인건비', 세세목: '내부인건비', 현금: '30000' },
@@ -114,12 +120,10 @@ const AssignmentBudgetDetail = () => {
 
   return (
       <>
-        <Typography bgcolor={ 'Background' } sx={ { marginTop: '5rem' } }>
-          사업비
-        </Typography>
         <Button variant="contained" onClick={ addRow }>항목 추가</Button>
-        <div className="ag-theme-alpine" style={ { height: 400, width: '100%' } }>
+        <div className="ag-theme-balham-dark" style={ { height: 400, width: '100%' } }>
           <AgGridReact
+              defaultColDef={ defaultColDef }
               ref={ gridRef }
               rowData={ rowData }
               columnDefs={ columnDefs }

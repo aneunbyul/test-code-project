@@ -17,6 +17,7 @@ import {
 } from '../../../../recoil/store';
 import CheckModal from '../../../Format/CheckModal';
 import styled from 'styled-components';
+import { useEffect } from 'react'
 
 const ApprovalHeader = ({
   disableSelection,
@@ -54,6 +55,10 @@ const ApprovalHeader = ({
     }
   };
 
+  useEffect(()=>{
+    isApprovalLineState;
+        isDocumentConnectionState;
+  },[])
   const formNames = [
     '출장신청서',
     '출장복명서',

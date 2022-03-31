@@ -9,6 +9,12 @@ import 'ag-grid-community/dist/styles/ag-theme-balham-dark.css'
 
 const AssignmentBudget = () => {
   const gridRef = useRef ()
+  const defaultColDef = {
+    // width: 100,
+    editable: true,
+    // make every column use 'text' filter by default
+    filter: 'agTextColumnFilter',
+  }
 
   const [rowData, setRowData] = useState ( [
     { 비목: '직접비', 세목: '인건비', 세세목: '내부인건비', 현금: '30000' },
@@ -54,6 +60,7 @@ const AssignmentBudget = () => {
             className="ag-theme-balham-dark"
             style={ { height: 400, width: '100%' } }>
           <AgGridReact
+              defaultColDef={ defaultColDef }
               ref={ gridRef }
               rowData={ rowData }
               columnDefs={ columnDefs }

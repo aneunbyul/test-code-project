@@ -2,10 +2,10 @@ import { atom } from 'recoil'
 
 export const isApprovalLineState = atom ( {
   key: 'isApprovalLineState',
-  default: 'false'
+  default: false
 } )
 
 export const isDocumentConnectionState = atom ( {
   key: 'isDocumentConnectionState',
-  default: 'false'
+  default: false
 } )
