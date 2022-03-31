@@ -68,6 +68,31 @@ const AssignmentCreationContainer = styled ( SimpleBar )`
     color: var(--light03);
     padding: 16.5px 14px;
     border: 0.1rem solid var(--dark03);
+  }
+
+  &&& .ag-center-cols-viewport {
+    background-color: var(--dark02);
+  }
+
+  &&& .ag-body-horizontal-scroll-viewport {
+    background-color: var(--dark02);
+  }
+
+  &&& .ag-header-container {
+    background-color: var(--dark02);
+  }
+
+  &&& .ag-row {
+    color: var(--light02);
+  }
+
+  &&& .ag-row-even {
+    background-color: var(--dark02);
+  }
+
+  &&& .ag-row-odd {
+    background-color: var(--dark03);
+  }
 
 `
 export default AssignmentCreationForm

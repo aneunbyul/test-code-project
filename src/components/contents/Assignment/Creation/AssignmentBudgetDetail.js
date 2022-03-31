@@ -9,6 +9,26 @@ import 'ag-grid-community/dist/styles/ag-theme-balham-dark.css'
 
 const AssignmentBudgetDetail = () => {
   const gridRef = useRef ()
+
+  const printResult = ( res ) => {
+    console.log ( '---------------------------------------' )
+    if (res.add) {
+      res.add.forEach ( function ( rowNode ) {
+        console.log ( 'Added Row Node', rowNode )
+      } )
+    }
+    if (res.remove) {
+      res.remove.forEach ( function ( rowNode ) {
+        console.log ( 'Removed Row Node', rowNode )
+      } )
+    }
+    if (res.update) {
+      res.update.forEach ( function ( rowNode ) {
+        console.log ( 'Updated Row Node', rowNode )
+      } )
+    }
+  }
+
   const defaultColDef = {
     width: 100,
     editable: true,
@@ -31,6 +51,16 @@ const AssignmentBudgetDetail = () => {
     setRowData ( [...rowData, newData] )
     return rowData
   }
+
+  const onRemoveSelected = useCallback ( () => {
+    const selectedData = gridRef.current.api.getSelectedRows ()
+    const res = gridRef.current.api.applyTransaction ( { remove: selectedData } )
+    printResult ( res )
+  }, [] )
+
+  const clearData = useCallback ( () => {
+    setRowData ( [] )
+  }, [] )
 
   const GenderCellRenderer = ( props ) => {
     return props.value
@@ -120,7 +150,15 @@ const AssignmentBudgetDetail = () => {
 
   return (
       <>
-        <Button variant="contained" onClick={ addRow }>항목 추가</Button>
+        <Button variant="contained" onClick={ addRow }>
+          항목 추가
+        </Button>
+        <Button variant="contained" onClick={ onRemoveSelected }>
+          항목 삭제
+        </Button>
+        <Button variant="contained" onClick={ clearData }>
+          전체 삭제
+        </Button>
         <div className="ag-theme-balham-dark" style={ { height: 400, width: '100%' } }>
           <AgGridReact
               defaultColDef={ defaultColDef }
