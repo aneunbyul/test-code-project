@@ -30,6 +30,13 @@ const ApprovalCreationForm = (props) => {
     setFormName(event.target.value);
   };
 
+  useEffect(() => {
+    if (formName == '') {
+      setSelectedFormName('출장신청서');
+      setFormName('출장신청서');
+    }
+  }, []);
+
   return (
     <ViewBox>
       <ApprovalCreationContainer>
@@ -38,6 +45,7 @@ const ApprovalCreationForm = (props) => {
           selectedFormName={selectedFormName}
           handleSelectedFormName={handleSelectedFormName}
         />
+
         <ApprovalInfo disableSelection={props.disableSelection} />
 
         {formName != '' && <FormDivider />}

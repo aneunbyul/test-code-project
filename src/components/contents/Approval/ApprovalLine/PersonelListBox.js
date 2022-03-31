@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
   Button,
   Card,
+  Box,
   CardHeader,
   Checkbox,
   Container,
@@ -24,11 +25,17 @@ import FormDivider from '../../ReusableContent/FormDivider';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
-const AuthorizedPerson = (props) => {
+const PersonelListBox = (props) => {
   const customList = (title, items = []) => (
-    <Card sx={{}}>
+    <Card
+      sx={{
+        height: '32vh',
+        ...(props.borderType == 'leftOff' && {
+          borderRadius:
+            ' 0 var(--global-border-radius) var(--global-border-radius) 0 !important',
+        }),
+      }}>
       <CardHeader
-        sx={{px: 2, py: 1}}
         avatar={
           <Checkbox
             onClick={props.handleToggleAll(items)}
@@ -50,15 +57,7 @@ const AuthorizedPerson = (props) => {
         subheader={`${props.numberOfChecked(items)}/${items.length} selected`}
       />
       <FormDivider size="compact" />
-      <List
-        sx={{
-          width: '17rem',
-          height: 230,
-          overflow: 'auto',
-        }}
-        dense
-        component="div"
-        role="list">
+      <List dense component="div" role="list">
         <SliderContainer>
           {items.map((value) => {
             const labelId = `transfer-list-all-item-${value}-label`;
@@ -92,82 +91,22 @@ const AuthorizedPerson = (props) => {
     </Card>
   );
 
-  return (
-    <Grid container spacing={2} justifyContent="center" alignItems="flex-start">
-      <Grid item>{customList('임직원 목록', props.left)}</Grid>
-
-      <Stack direction={'row'} alignItems="center">
-        <Grid item>
-          <Grid container direction="column" alignItems="center">
-            <Button
-              sx={{my: 0.5}}
-              variant="outlined"
-              size="small"
-              onClick={props.handleCheckedRight}
-              disabled={props.leftChecked.length === 0}
-              aria-label="move selected right">
-              &gt;
-            </Button>
-            <Button
-              sx={{my: 0.5}}
-              variant="outlined"
-              size="small"
-              onClick={props.handleCheckedLeft}
-              disabled={props.rightChecked.length === 0}
-              aria-label="move selected left">
-              &lt;
-            </Button>
-          </Grid>
-        </Grid>
-        <Grid item>{customList('결재자', props.right)}</Grid>
-      </Stack>
-
-      <Stack direction={'row'} alignItems="center">
-        <Grid item>
-          <Grid container direction="column" alignItems="center">
-            <Button
-              sx={{my: 0.5}}
-              variant="outlined"
-              size="small"
-              onClick={props.handleCheckedBottom}
-              disabled={props.leftChecked.length === 0}
-              aria-label="move selected right">
-              &gt;
-            </Button>
-            <Button
-              sx={{my: 0.5}}
-              variant="outlined"
-              size="small"
-              onClick={props.handleCheckedLeftFromBottom}
-              disabled={props.bottomChecked.length === 0}
-              aria-label="move selected left">
-              &lt;
-            </Button>
-          </Grid>
-        </Grid>
-        <Grid item>{customList('참조자', props.bottom)}</Grid>
-      </Stack>
-    </Grid>
-  );
+  return <Box>{customList(props.title, props.assignedHooks)}</Box>;
 };
 
-AuthorizedPerson.defaultProps = {
+PersonelListBox.defaultProps = {
+  title: null,
   handleToggle: () => {},
   handleToggleAll: () => {},
   numberOfChecked: () => {},
-  leftChecked: [],
-  rightChecked: [],
-  bottomChecked: [],
-  topChecked: [],
 };
 
 const SliderContainer = styled(SimpleBar)`
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 0;
   overflow-x: hidden;
   overflow-y: auto;
 `;
 
-export default AuthorizedPerson;
+export default PersonelListBox;

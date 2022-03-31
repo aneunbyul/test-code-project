@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import {Box, Container, Typography} from '@mui/material';
+import {Box, Container, Card, Typography} from '@mui/material';
 import {TreeItem, TreeView} from '@mui/lab';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -58,33 +58,32 @@ const OrganizationBox = () => {
   );
 
   return (
-    <Container sx={{width: '15vw', border: '1px solid white'}}>
-      <SliderContainer>
-        <TreeView
-          aria-label="rich object"
-          defaultCollapseIcon={<ExpandMoreIcon />}
-          defaultExpanded={['1', '2', '3', '4']}
-          defaultExpandIcon={<ChevronRightIcon />}
-          sx={{
-            height: '100%',
-            flexGrow: 1,
-            maxWidth: '100%',
-            overflowY: 'auto',
-          }}>
-          {renderTree(data)}
-        </TreeView>
-      </SliderContainer>
-    </Container>
+    <OrganizationBoxContainer>
+      <TreeView
+        aria-label="rich object"
+        defaultCollapseIcon={<ExpandMoreIcon />}
+        defaultExpanded={['1', '2', '3', '4']}
+        defaultExpandIcon={<ChevronRightIcon />}
+        sx={{
+          height: '100%',
+          flexGrow: 1,
+          maxWidth: '100%',
+          padding: '0.4rem 0.7rem',
+          overflowY: 'auto',
+        }}>
+        {renderTree(data)}
+      </TreeView>
+    </OrganizationBoxContainer>
   );
 };
 
-const SliderContainer = styled(SimpleBar)`
-  position: relative;
+const OrganizationBoxContainer = styled(Card)`
   width: 100%;
-  height: 100%;
-  padding: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
+  height: 32vh;
+  border-right-width: 0 !important;
+  border-radius: var(--global-border-radius) 0 0 var(--global-border-radius) !important;
+  background-color: var(--dark01);
+  padding: 12px 0px;
 `;
 
 export default OrganizationBox;
