@@ -164,6 +164,10 @@ export const GlobalStyle = createGlobalStyle`
       &.Mui-disabled{
         opacity: 0;
       }
+
+      &.Mui-disabled svg{
+        fill: var(--dark02);
+      }
     }
 
     .MuiInputAdornment-root *{
@@ -364,6 +368,11 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .MuiButton-root {
+
+      &.Mui-disabled .MuiSvgIcon-root{
+        fill: var(--dark03) !important;
+      }
+      
       &&& {
         background-color:var(--dark03);
         color: var(--light02);

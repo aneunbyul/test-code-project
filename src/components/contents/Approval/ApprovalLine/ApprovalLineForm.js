@@ -17,6 +17,8 @@ import OrganizationBox from './OrganizationBox';
 import EmployeeListBox from './EmployeeListBox';
 import AuthorizedPerson from './AuthorizedPerson';
 import PersonelListBox from './PersonelListBox';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 import {useState, useEffect} from 'react';
 
@@ -112,7 +114,71 @@ const ApprovalLineForm = () => {
               handleToggle={handleToggle}
               handleToggleAll={handleToggleAll}></PersonelListBox>
           </Grid>
-
+        </GridContainer>
+        <GridContainer
+          sx={{marginTop: '3rem'}}
+          container
+          columnSpacing={{xs: 5}}>
+          <Grid item xs={6}>
+            <Button
+              sx={{
+                my: 0.5,
+                borderTopRightRadius: '0 !important',
+                borderBottomRightRadius: '0 !important',
+                borderRightWidth: '0 !important',
+              }}
+              variant="outlined"
+              size="small"
+              onClick={handleCheckedRight}
+              disabled={leftChecked.length === 0}
+              aria-label="move selected left"
+              startIcon={<ArrowDropDownIcon />}
+            />
+            <Button
+              sx={{
+                my: 0.5,
+                borderTopLeftRadius: '0 !important',
+                borderBottomLeftRadius: '0 !important',
+                borderLeftWidth: '0 !important',
+              }}
+              variant="outlined"
+              size="small"
+              onClick={handleCheckedLeft}
+              disabled={rightChecked.length === 0}
+              aria-label="move selected left"
+              startIcon={<ArrowDropUpIcon />}
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <Grid container direction="rows" alignItems="center">
+              <Button
+                sx={{
+                  my: 0.5,
+                  borderTopRightRadius: '0 !important',
+                  borderBottomRightRadius: '0 !important',
+                  borderRightWidth: '0 !important',
+                }}
+                variant="outlined"
+                size="small"
+                onClick={handleCheckedBottom}
+                disabled={leftChecked.length === 0}
+                startIcon={<ArrowDropDownIcon />}
+              />
+              <Button
+                sx={{
+                  my: 0.5,
+                  borderTopLeftRadius: '0 !important',
+                  borderBottomLeftRadius: '0 !important',
+                  borderLeftWidth: '0 !important',
+                }}
+                variant="outlined"
+                size="small"
+                onClick={handleCheckedLeftFromBottom}
+                disabled={bottomChecked.length === 0}
+                startIcon={<ArrowDropUpIcon />}
+              />
+            </Grid>
+          </Grid>
           <Grid item xs={6}>
             <PersonelListBox
               title="결재자 목록"

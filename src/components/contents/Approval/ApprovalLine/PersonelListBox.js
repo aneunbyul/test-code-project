@@ -31,6 +31,7 @@ const PersonelListBox = (props) => {
       sx={{
         height: '32vh',
         ...(props.borderType == 'leftOff' && {
+          borderLeftWidth: '0px !important',
           borderRadius:
             ' 0 var(--global-border-radius) var(--global-border-radius) 0 !important',
         }),
