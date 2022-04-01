@@ -40,22 +40,10 @@ const TableSearchTab = ({filter}) => {
       <Box sx={{width: '35%'}}>
         <SearchBox />
       </Box>
-      {/*<Paper
-        component="form"
-        sx={{display: 'flex', alignItems: 'center', width: 600}}>
-        <InputBase
-          sx={{ml: 1, flex: 1}}
-          placeholder="제목, 기안자, 담당 부서 등을 입력하세요 "
-          inputProps={{'aria-label': '받아 올 검색 값'}}
-        />
-        <IconButton type="submit" sx={{p: '10px'}} aria-label="search">
-          <SearchIcon />
-        </IconButton>
-  </Paper>*/}
 
       <FilterBoxContainer>
         {filter != null && filter.length > 0 && filter.includes('과제선택') && (
-          <FormControl sx={{width: '8rem'}}>
+          <FormControl sx={{width: '14.5rem'}}>
             <InputLabel id="demo-simple-select-label">과제선택</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -68,7 +56,7 @@ const TableSearchTab = ({filter}) => {
           </FormControl>
         )}
         {filter != null && filter.length > 0 && filter.includes('담당부서') && (
-          <FormControl sx={{width: '8rem'}}>
+          <FormControl sx={{width: '12rem'}}>
             <InputLabel id="team-select-label">담당부서</InputLabel>
             <Select
               labelId="team-select-label"
