@@ -35,15 +35,15 @@ const AssignmentModal = ({disableSelection, handleClose}) => {
         </StickyContainer>
         <AssignmentCreationContainer>
           <FormDivider text="과제 기본 정보" />
-          <AssignmentBasicInfo disableSelection={true} />
+          <AssignmentBasicInfo disableSelection={false} />
           <FormDivider text="참여 연구원" />
-          <ParticipatingResearcher disableSelection={true} />
+          <ParticipatingResearcher disableSelection={false} />
           <FormDivider text="사업비" />
-          <AssignmentBudgetDetail disableSelection={true} />
+          <AssignmentBudgetDetail disableSelection={false} />
           <FormDivider text="계좌 정보" />
-          <AssignmentAccount disableSelection={true} />
+          <AssignmentAccount disableSelection={false} />
           <FormDivider text="사업비 사용카드" />
-          <BusinessExpenseCard disableSelection={true} />
+          <BusinessExpenseCard disableSelection={false} />
         </AssignmentCreationContainer>
       </ViewBox>
     </ModalWrapper>
