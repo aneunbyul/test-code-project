@@ -18,6 +18,8 @@ import { MobileDateRangePicker } from '@mui/lab'
 
 const BusinessTravelerInfo = ( props ) => {
   const [value, setValue] = React.useState ( [null, null] )
+
+  const travelerInfo = ['1', '2', '3', '4']
   return (
       <>
         <GridContainer container columnSpacing={ { xs: 1 } }>
@@ -121,7 +123,6 @@ const BusinessTravelerInfo = ( props ) => {
               />
             </LocalizationProvider>
           </Grid>
-
           <Grid item xs={ 2 }>
             <TextField
                 disabled={ props.disableSelection }
