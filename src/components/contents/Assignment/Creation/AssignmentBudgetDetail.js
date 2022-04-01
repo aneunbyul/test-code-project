@@ -30,7 +30,7 @@ const AssignmentBudgetDetail = () => {
   }
 
   const defaultColDef = {
-    width: 100,
+    width: 150,
     editable: true,
     // make every column use 'text' filter by default
     filter: 'agTextColumnFilter',
@@ -71,15 +71,12 @@ const AssignmentBudgetDetail = () => {
       children: [
         {
           field: '비목',
-          maxWidth: 150,
         },
         {
           field: '세목',
-          maxWidth: 150,
         },
         {
           field: '세세목',
-          maxWidth: 150,
         },
       ]
     },
@@ -88,19 +85,15 @@ const AssignmentBudgetDetail = () => {
       children: [
         {
           field: '현금',
-          maxWidth: 100,
         },
         {
           field: '현금(이월분)',
-          maxWidth: 150,
         },
         {
           field: '현물',
-          maxWidth: 100,
         },
         {
           field: '계',
-          maxWidth: 100,
         },
       ]
     },
@@ -109,19 +102,15 @@ const AssignmentBudgetDetail = () => {
       children: [
         {
           field: '현금',
-          maxWidth: 100,
         },
         {
           field: '현금(이월분)',
-          maxWidth: 150,
         },
         {
           field: '현물',
-          maxWidth: 100,
         },
         {
           field: '계',
-          maxWidth: 100,
         },
       ]
     },
@@ -130,19 +119,15 @@ const AssignmentBudgetDetail = () => {
       children: [
         {
           field: '현금',
-          maxWidth: 100,
         },
         {
           field: '현금(이월분)',
-          maxWidth: 150,
         },
         {
           field: '현물',
-          maxWidth: 100,
         },
         {
           field: '계',
-          maxWidth: 100,
         },
       ]
     },

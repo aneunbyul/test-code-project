@@ -1,45 +1,51 @@
-import * as React from 'react';
-import styled from 'styled-components';
-import {useState, useEffect} from 'react';
+import * as React from 'react'
+import styled from 'styled-components'
+import { useState, useEffect } from 'react'
 import {
   Box,
   Modal,
+  Slide,
   Button,
   Typography,
-  Container,
-  Divider,
-  FormControl,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from '@mui/material';
+  TextField, AppBar, Toolbar, IconButton, Grid,
+} from '@mui/material'
 
+import CloseIcon from '@mui/icons-material/Close'
 //components
-import ViewBox from '../ViewBox/ViewBox';
-import FilloutIcon from '../Icon/FilloutIcon';
-import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
-import BusinessTripApplicationForm from '../Approval/Form/BusinessTripApplicationForm/BusinessTripApplicationForm';
-import ApprovalCreationForm from '../Approval/Form/ApprovalCreationForm';
+import ViewBox from '../ViewBox/ViewBox'
+import FilloutIcon from '../Icon/FilloutIcon'
+import SimpleBar from 'simplebar-react'
+import 'simplebar/dist/simplebar.min.css'
+import BusinessTripApplicationForm from '../Approval/Form/BusinessTripApplicationForm/BusinessTripApplicationForm'
+import ApprovalCreationForm from '../Approval/Form/ApprovalCreationForm'
 
-const DocumentModal = () => {
-  const [disableFlag, setDisableFlag] = useState(true);
+const DocumentModal = ( { handleClose } ) => {
+  const [disableFlag, setDisableFlag] = useState ( true )
+
+  // const handleClose = () => {
+  //   setOpen ( false )
+  // }
 
   return (
-    <ModalWrapper sx={{boxShadow: 24}}>
-      <ViewBox>
-        <ApprovalCreationForm
-          disableSelection={disableFlag}
-          setDisableSelection={setDisableFlag}
-        />
-      </ViewBox>
-    </ModalWrapper>
-  );
-};
+      <ModalWrapper sx={ { boxShadow: 24 } }>
+        <ViewBox>
+          <AppBar sx={ { position: 'relative' } }>
+            <Toolbar>
+              <Button onClick={ handleClose } variant={ 'contained' }>
+                닫기
+              </Button>
+            </Toolbar>
+          </AppBar>
+          <ApprovalCreationForm
+              disableSelection={ disableFlag }
+              setDisableSelection={ setDisableFlag }
+          />
+        </ViewBox>
+      </ModalWrapper>
+  )
+}
 
-const ModalWrapper = styled(Box)`
+const ModalWrapper = styled ( Box )`
   position: absolute;
   top: 5%;
   left: 25%;
@@ -47,6 +53,6 @@ const ModalWrapper = styled(Box)`
   width: 50%;
   height: 90%;
   background-color: transparent;
-`;
+`
 
-export default DocumentModal;
+export default DocumentModal

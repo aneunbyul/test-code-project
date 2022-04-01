@@ -2,7 +2,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { useState, useEffect } from 'react'
 import {
-  Box,
+  AppBar,
+  Box, Button, Toolbar, Typography,
 } from '@mui/material'
 
 //components
@@ -19,12 +20,24 @@ import BusinessExpenseCard from '../Assignment/Form/General/BusinessExpenseCard'
 import SimpleBar from 'simplebar-react'
 import AssignmentBudgetDetail from '../Assignment/Creation/AssignmentBudgetDetail'
 
-const AssignmentModal = () => {
+const AssignmentModal = ( { handleClose } ) => {
   const [disableFlag, setDisableFlag] = useState ( true )
 
   return (
       <ModalWrapper sx={ { boxShadow: 24 } }>
         <ViewBox>
+          <AppBar sx={ { position: 'relative' } }>
+            <Toolbar>
+              <Button onClick={ handleClose } variant={ 'contained' }>
+                닫기
+              </Button>
+            </Toolbar>
+          </AppBar>
+          <Typography variant={ 'h3' } sx={ {
+            color: 'var(--light02)',
+            textAlign: 'center',
+            marginTop: '2rem'
+          } }>과제 조회</Typography>
           <AssignmentCreationContainer>
             <FormDivider text="과제 기본 정보"/>
             <AssignmentBasicInfo/>
@@ -62,6 +75,32 @@ const AssignmentCreationContainer = styled ( SimpleBar )`
     background-color: var(--transparent);
     padding-bottom: 6rem;
   }
+
+  &&& .MuiTable-root {
+    border-bottom: 0.1rem solid var(--dark03);
+    color: var(--light03);
+    width: inherit;
+  }
+
+  &&& .MuiTable-root tr {
+    border-bottom: 0.1rem solid var(--dark03);
+  }
+
+  &&& .MuiTable-root td {
+    color: var(--light03);
+  }
+
+  &&& .MuiTableCell-head {
+    border-bottom: 0.1rem solid var(--dark03);
+    color: var(--light03);
+  }
+
+  &&& .MuiTableCell-root input {
+    color: var(--light03);
+    padding: 16.5px 14px;
+    border: 0.1rem solid var(--dark03);
+  }
+
 
   &&& .ag-center-cols-viewport {
     background-color: var(--dark02);

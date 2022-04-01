@@ -13,6 +13,7 @@ import styled from 'styled-components'
 import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
 import AssignmentModal from './AssignmentModal'
+import DocumentModal from './DocumentModal'
 
 const AssignmentTableGridBody = ( { columnData } ) => {
   const [profileOpen, setProfileOpen] = React.useState ( false )
@@ -56,7 +57,7 @@ const AssignmentTableGridBody = ( { columnData } ) => {
             onClose={ handleClose }
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description">
-          <AssignmentModal/>
+          <AssignmentModal  handleClose={ handleClose }/>
         </Modal>
       </SliderContainer>
   )
