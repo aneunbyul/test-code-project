@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "yarn clean",
+    "prebuild": "npm run clean",
     "build": "next build",
-    "prestart": "yarn build",
+    "prestart": "npm run build",
     "start": "next start",
     "lint": "next lint",
     "clean": "rm -rf .next"
