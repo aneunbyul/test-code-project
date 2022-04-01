@@ -72,7 +72,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html {
-    font-size: var(--global-text-size);
+    font-size: 14px;
     }
     
     * {

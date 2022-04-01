@@ -17,8 +17,6 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import OrganizationBox from './OrganizationBox';
-import EmployeeListBox from './EmployeeListBox';
 import FormDivider from '../../ReusableContent/FormDivider';
 
 //components
@@ -36,30 +34,30 @@ const PersonelListBox = (props) => {
             ' 0 var(--global-border-radius) var(--global-border-radius) 0 !important',
         }),
       }}>
-      <CardHeader
-        avatar={
-          <Checkbox
-            onClick={props.handleToggleAll(items)}
-            checked={
-              props.numberOfChecked(items) === items.length &&
-              items.length !== 0
-            }
-            indeterminate={
-              props.numberOfChecked(items) !== items.length &&
-              props.numberOfChecked(items) !== 0
-            }
-            disabled={items.length === 0}
-            inputProps={{
-              'aria-label': 'all items selected',
-            }}
-          />
-        }
-        title={title}
-        subheader={`${props.numberOfChecked(items)}/${items.length} selected`}
-      />
-      <FormDivider size="compact" />
-      <List dense component="div" role="list">
-        <SliderContainer>
+      <SliderContainer>
+        <CardHeader
+          avatar={
+            <Checkbox
+              onClick={props.handleToggleAll(items)}
+              checked={
+                props.numberOfChecked(items) === items.length &&
+                items.length !== 0
+              }
+              indeterminate={
+                props.numberOfChecked(items) !== items.length &&
+                props.numberOfChecked(items) !== 0
+              }
+              disabled={items.length === 0}
+              inputProps={{
+                'aria-label': 'all items selected',
+              }}
+            />
+          }
+          title={title}
+          subheader={`${props.numberOfChecked(items)}/${items.length} selected`}
+        />
+        <FormDivider size="compact" />
+        <List dense component="div" role="list">
           {items.map((value) => {
             const labelId = `transfer-list-all-item-${value}-label`;
 
@@ -87,8 +85,8 @@ const PersonelListBox = (props) => {
             );
           })}
           <ListItem />
-        </SliderContainer>
-      </List>
+        </List>
+      </SliderContainer>
     </Card>
   );
 

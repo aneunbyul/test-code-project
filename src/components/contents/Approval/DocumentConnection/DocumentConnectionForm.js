@@ -33,7 +33,7 @@ const DocumentConnectionForm = () => {
           direction={'row'}
           alignSelf={'center'}
           justifyContent={'center'}
-          sx={{margin: '3rem'}}>
+          sx={{margin: '1.5rem'}}>
           <Box component="h5">문서연결</Box>
         </Stack>
         <TableSearchTab filter={'과제선택 담당부서'} />
