@@ -53,7 +53,6 @@ const AssignmentNav = ({animation}) => {
   };
 
   const convertToCreationPage = (linkPath) => {
-    setIsBasePage(false);
     router.push(linkPath);
   };
 

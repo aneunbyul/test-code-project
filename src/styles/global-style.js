@@ -72,7 +72,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html {
-    font-size: var(--global-text-size);
+    font-size: 14px;
     }
     
     * {
@@ -376,7 +376,7 @@ export const GlobalStyle = createGlobalStyle`
       &&& {
         background-color:var(--dark03);
         color: var(--light02);
-        box-shadow: 0 0 0 var(--line-thickness) var(--dark05);
+        box-shadow: inset 0 0 0 var(--line-thickness) var(--dark05) , 0 5px 8px rgba(0,0,0,0.1), 0 3px 3px rgba(0,0,0,0.2);
         border: none !important;
       }
       
@@ -390,6 +390,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color:var(--dark02);
         color : var(--dark05);
         box-shadow: 0 0 0 var(--line-thickness) var(--dark04);
+        opacity: 0.6;
       }
     }
 

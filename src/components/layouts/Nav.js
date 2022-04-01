@@ -41,26 +41,31 @@ const Nav = () => {
       text: '홈 화면',
       link: '',
       iconName: 'home',
+      isDisabled: false,
     },
     {
       text: '전자 결재',
       link: 'approval',
       iconName: 'approval',
+      isDisabled: false,
     },
     {
       text: '문서 관리',
       link: 'document',
       iconName: 'document',
+      isDisabled: false,
     },
     {
       text: '과제 정보',
       link: 'assignment',
       iconName: 'assignment',
+      isDisabled: false,
     },
     {
       text: '조직 정보',
       link: 'organization',
       iconName: 'organization',
+      isDisabled: true,
     },
   ];
 
@@ -84,34 +89,35 @@ const Nav = () => {
         <NavTabGroup>
           <NavTabList component="nav" aria-label="nav list selection">
             {mainNavListData.map((object, index) => {
-              return (
-                <Link key={object.text + 'link'} href={'/' + object.link}>
-                  <NavTabItem
-                    key={object.text + 'link'}
-                    selected={selectedIndex === index}
-                    onClick={(event) => handleListItemClick(event, index)}>
-                    <NavTabIconContainer>
-                      {selectedIndex === index ? (
-                        <FilloutIcon
-                          name={object.iconName}
-                          size="big"
-                          type="filled"
-                        />
-                      ) : (
-                        <FilloutIcon
-                          name={object.iconName}
-                          size="big"
-                          type="outlined"
-                        />
-                      )}
-                    </NavTabIconContainer>
-                    <NavTabText
-                      key={object.text + 'text'}
-                      primary={object.text}
-                    />
-                  </NavTabItem>
-                </Link>
-              );
+              if (object.isDisabled != true)
+                return (
+                  <Link key={object.text + 'link'} href={'/' + object.link}>
+                    <NavTabItem
+                      key={object.text + 'link'}
+                      selected={selectedIndex === index}
+                      onClick={(event) => handleListItemClick(event, index)}>
+                      <NavTabIconContainer>
+                        {selectedIndex === index ? (
+                          <FilloutIcon
+                            name={object.iconName}
+                            size="big"
+                            type="filled"
+                          />
+                        ) : (
+                          <FilloutIcon
+                            name={object.iconName}
+                            size="big"
+                            type="outlined"
+                          />
+                        )}
+                      </NavTabIconContainer>
+                      <NavTabText
+                        key={object.text + 'text'}
+                        primary={object.text}
+                      />
+                    </NavTabItem>
+                  </Link>
+                );
             })}
           </NavTabList>
           <MyIcon onClick={handleOpen}>A</MyIcon>

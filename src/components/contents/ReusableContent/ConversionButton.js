@@ -49,7 +49,6 @@ const InteractiveButton = styled(Button)`
 
     background-color: var(--highlight01);
     border-radius: calc(var(--global-border-radius) * 0.9);
-    box-shadow: inset 0 0 0 var(--line-thickness) var(--dark04);
   }
 
   &&&:hover {

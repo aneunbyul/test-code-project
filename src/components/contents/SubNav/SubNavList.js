@@ -55,7 +55,6 @@ const SubNavList = ({
     <SubNavListWrapper
       forceVisible="y"
       autoHide={true}
-      className="sub-nav__list"
       component="nav"
       aria-label="nav selection">
       {subNavListData.map((object, index, array) => {

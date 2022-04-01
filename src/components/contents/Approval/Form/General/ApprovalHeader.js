@@ -75,7 +75,7 @@ const ApprovalHeader = ({
       <StickyContainer>
         {disableSelection == false && (
           <ToolContainer>
-            <Stack spacing={2} direction="row">
+            <Stack spacing={1.3} direction="row">
               <Button variant="contained" onClick={handleOpen}>
                 기안
               </Button>
@@ -100,35 +100,34 @@ const ApprovalHeader = ({
             </Stack>
           </ToolContainer>
         )}
-
-        <ApprovalGridContainer>
-          <Grid
-            container
-            justifyContent="flex-end"
-            rowSpacing={1}
-            columnSpacing={{xs: 0}}>
-            {/*결재선 컨텐츠 수는 유동적임*/}
-            <Grid item xs={4}>
-              <p>기안</p>
-            </Grid>
-            <Grid item xs={4}>
-              <p>팀장</p>
-            </Grid>
-            <Grid item xs={4}>
-              <p>팀장</p>
-            </Grid>
-            <Grid item xs={4}>
-              <h5>안은별</h5>
-            </Grid>
-            <Grid item xs={4}>
-              <h5>함선정</h5>
-            </Grid>
-            <Grid item xs={4}>
-              <h5>권아롱새</h5>
-            </Grid>
-          </Grid>
-        </ApprovalGridContainer>
       </StickyContainer>
+      <ApprovalGridContainer>
+        <Grid
+          container
+          justifyContent="flex-end"
+          rowSpacing={1}
+          columnSpacing={{xs: 0}}>
+          {/*결재선 컨텐츠 수는 유동적임*/}
+          <Grid item xs={4}>
+            <p>기안</p>
+          </Grid>
+          <Grid item xs={4}>
+            <p>팀장</p>
+          </Grid>
+          <Grid item xs={4}>
+            <p>팀장</p>
+          </Grid>
+          <Grid item xs={4}>
+            <h5>안은별</h5>
+          </Grid>
+          <Grid item xs={4}>
+            <h5>함선정</h5>
+          </Grid>
+          <Grid item xs={4}>
+            <h5>권아롱새</h5>
+          </Grid>
+        </Grid>
+      </ApprovalGridContainer>
 
       <GridContainer
         sx={{marginTop: '3rem', marginBottom: '2rem'}}
@@ -172,8 +171,7 @@ const StickyContainer = styled(Stack)`
   left: 0;
   width: 100%;
   height: 7rem;
-  z-index: 999;
-  background-color: var(--dark02);
+  z-index: 10;
 `;
 
 const GridContainer = styled(Grid)`
@@ -188,6 +186,7 @@ const ApprovalGridContainer = styled(Box)`
     position: absolute;
     top: 1rem;
     right: 1rem;
+    z-index: 20;
     user-select: none;
   }
 
