@@ -68,33 +68,38 @@ const AssignmentBudgetDetail = () => {
   const [columnDefs] = useState ( [
     {
       headerName: '사업비 항목',
+      field: 'c1',
       children: [
         {
           field: '비목',
+          cellEditor: 'agSelectCellEditor',
+          cellEditorParams: {
+            values: ['직접비', '간접비'],
+          }
         },
         {
           field: '세목',
+          cellEditor: 'agSelectCellEditor',
+          cellEditorParams: {
+            values: ['인건비', '연구활동비', '연구재료비'],
+          }
         },
         {
           field: '세세목',
-        },
-      ]
+          cellEditor: 'agSelectCellEditor',
+          cellEditorParams: {
+            values: ['내부인건비', '연구시설', 'others', 'others', 'others', 'others', 'others'],
+          }
+        },],
     },
     {
       headerName: '예산금액',
+      field: 'c2',
       children: [
-        {
-          field: '현금',
-        },
-        {
-          field: '현금(이월분)',
-        },
-        {
-          field: '현물',
-        },
-        {
-          field: '계',
-        },
+        { headerName: '현금', field: 'cash' },
+        { headerName: '현금(이월분)', field: 'preCash' },
+        { headerName: '현물', field: 'actual' },
+        { headerName: '계', field: 'total' },
       ]
     },
     {
