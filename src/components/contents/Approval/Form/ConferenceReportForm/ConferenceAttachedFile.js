@@ -19,7 +19,7 @@ import styled from 'styled-components';
 import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const ConferenceAttachedFile = () => {
+const ConferenceAttachedFile = (props) => {
   return (
     <>
       <GridContainer container columnSpacing={5}>

@@ -64,15 +64,15 @@ const BackgroundComponent = styled.div`
   border-radius: 0 0 1rem 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 0rem;
-  padding-bottom: 0.3rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.5rem;
   user-select: none;
 `;
 
 const DividingText = styled.span`
-  font-weight: 400;
+  font-weight: 500;
   color: var(--light02);
-  font-size: calc(var(--global-text-size) * 0.85);
+  font-size: calc(var(--global-text-size) * 1.34);
 `;
 
 export default FormDivider;
