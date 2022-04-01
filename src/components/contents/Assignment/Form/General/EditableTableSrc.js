@@ -23,6 +23,7 @@ const Input = ({
   value,
   classes,
   tableName,
+  disableSelection,
   ...props
 }) => {
   const [hasError, setError] = useState(false);
@@ -66,6 +67,7 @@ const OurSelect = ({
   options,
   classes,
   tableName,
+  disableSelection,
   ...props
 }) => {
   const handleSelect = (e) => {
@@ -226,6 +228,7 @@ const Row = ({
   handleDeleteRow,
   isAdding,
   isEditing,
+  disableSelection,
 }) => {
   return (
     <TableRow

@@ -13,11 +13,11 @@ import FormDivider from '../../../ReusableContent/FormDivider';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 
-import BusinessTripInfo from './BusinessTripInfo';
-import BusinessTravelerInfo from './BusinessTravelerInfo';
-import ActivityHistory from './ActivityHistory';
-import ExpenseDetails from './ExpenseDetails';
-import AttachedFile from './AttachedFile';
+import BusinessTripInfo from '../BusinessTripApplicationForm/BusinessTripInfo';
+import BusinessTravelerInfo from '../BusinessTripApplicationForm/BusinessTravelerInfo';
+import ActivityHistory from '../BusinessTripApplicationForm/ActivityHistory';
+import ExpenseDetails from '../BusinessTripApplicationForm/ExpenseDetails';
+import AttachedFile from '../BusinessTripApplicationForm/AttachedFile';
 
 const BusinessTripReportForm = (props) => {
   return (
