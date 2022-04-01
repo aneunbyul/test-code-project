@@ -59,45 +59,6 @@ const ApprovalNav = ({animation}) => {
     },
   ];
 
-  // sub nav data for creation
-  const subNavListData_creation = [
-    {
-      name: '출장 신청서',
-      link: '/trip-request',
-      iconName: '',
-    },
-    {
-      name: '출장 복명서',
-      link: '/trip-report',
-      iconName: '',
-    },
-    {
-      name: '지출 요청서',
-      link: '/expenditure-request',
-      iconName: '',
-    },
-    {
-      name: '회의비 보고서',
-      link: '/conference-report',
-      iconName: '',
-    },
-    {
-      name: '명함 신청서',
-      link: '/card',
-      iconName: '',
-    },
-    {
-      name: '임시 문서1',
-      link: '/temp1',
-      iconName: '',
-    },
-    {
-      name: '임시 문서2',
-      link: '/temp2',
-      iconName: '',
-    },
-  ];
-
   /*
   const afterPath = router.pathname.substring(
     router.pathname.indexOf(parentLink) + parentLink.length + 2,
@@ -106,50 +67,64 @@ const ApprovalNav = ({animation}) => {
     afterPath == '' && router.pathname.includes(parentLink) ? true : false;
     */
 
-  // base 화면을 출력해야 하는지 확인하는 hook
-  const [isBasePage, setIsBasePage] = React.useState(true);
-
   // selected category index hooks for base page & creation page
   const [selectedBaseIndex, setSelectedBaseIndex] = React.useState(-1);
-  const [selectedCreationIndex, setSelectedCreationIndex] = React.useState(-1);
 
   const handleSelectedBaseIndex = (selectedIndex) => {
     setSelectedBaseIndex((selectedBaseIndex) => selectedIndex);
   };
 
-  const handleSelectedCreationIndex = (selectedIndex) => {
-    setSelectedCreationIndex((selectedCreationIndex) => selectedIndex);
-  };
-
   const convertToCreationPage = (linkPath) => {
-    setIsBasePage(false);
     router.push(linkPath);
   };
 
+  //첫 입장 시 정해진 서브 네비게이션이 기본적으로 활성화 되게 함
+  function checkPathValidity(myLink, openingIndex) {
+    if (openingIndex < 0 && openingIndex >= subNavListData_base.length) return;
+
+    const afterSubPath = router.pathname.substring(
+      router.pathname.indexOf(myLink) + myLink.length + 2,
+    );
+
+    const isLinkBase =
+      afterSubPath == '' && router.pathname.includes(myLink) ? true : false;
+
+    if (isLinkBase) {
+      handleSelectedBaseIndex(openingIndex);
+      router.push(
+        subNavListData_base[openingIndex].disabled == true
+          ? ''
+          : myLink + subNavListData_base[openingIndex].link,
+      );
+    }
+  }
+
+  useEffect(() => {
+    checkPathValidity(parentLink, 0);
+  }, [router.asPath]);
+
   return (
     <ViewBox>
-      {isBasePage && (
-        <Box className="sub-nav__container" role="presentation">
-          <SubNavHeader
-            text="전자 결재"
-            button={
-              <ConversionButton
-                icon={<FilloutIcon name="write" size="small" type="outlined" />}
-                clickAction={convertToCreationPage}
-                clickActionValue={parentLink + '/creation'}
-              />
-            }
-          />
+      <Box className="sub-nav__container" role="presentation">
+        <SubNavHeader
+          text="전자 결재"
+          button={
+            <ConversionButton
+              icon={<FilloutIcon name="write" size="small" type="outlined" />}
+              clickAction={convertToCreationPage}
+              clickActionValue={parentLink + '/creation'}
+            />
+          }
+        />
 
-          <Divider className="line-divider" />
+        <Divider className="line-divider" />
 
-          <SubNavList
-            handleSelectedIndex={handleSelectedBaseIndex}
-            selectedIndex={selectedBaseIndex}
-            parentLink={parentLink}
-            subNavListData={subNavListData_base}></SubNavList>
-        </Box>
-      )}
+        <SubNavList
+          handleSelectedIndex={handleSelectedBaseIndex}
+          selectedIndex={selectedBaseIndex}
+          parentLink={parentLink}
+          subNavListData={subNavListData_base}></SubNavList>
+      </Box>
     </ViewBox>
   );
 };

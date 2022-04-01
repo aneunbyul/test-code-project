@@ -46,18 +46,10 @@ const AssignmentNav = ({animation}) => {
     },
   ];
 
-  // base 화면을 출력해야 하는지 확인하는 hook
-  const [isBasePage, setIsBasePage] = React.useState(true);
-
   const [selectedBaseIndex, setSelectedBaseIndex] = useState(-1);
-  const [selectedCreationIndex, setSelectedCreationIndex] = useState(-1);
 
   const handleSelectedBaseIndex = (selectedIndex) => {
     setSelectedBaseIndex((selectedBaseIndex) => selectedIndex);
-  };
-
-  const handleSelectedCreationIndex = (selectedIndex) => {
-    setSelectedCreationIndex((selectedCreationIndex) => selectedIndex);
   };
 
   const convertToCreationPage = (linkPath) => {
@@ -65,60 +57,54 @@ const AssignmentNav = ({animation}) => {
     router.push(linkPath);
   };
 
+  //첫 입장 시 정해진 서브 네비게이션이 기본적으로 활성화 되게 함
+  function checkPathValidity(myLink, openingIndex) {
+    if (openingIndex < 0 && openingIndex >= subNavListData_base.length) return;
+
+    const afterSubPath = router.pathname.substring(
+      router.pathname.indexOf(myLink) + myLink.length + 2,
+    );
+
+    const isLinkBase =
+      afterSubPath == '' && router.pathname.includes(myLink) ? true : false;
+
+    if (isLinkBase) {
+      handleSelectedBaseIndex(openingIndex);
+      router.push(
+        subNavListData_base[openingIndex].disabled == true
+          ? ''
+          : myLink + subNavListData_base[openingIndex].link,
+      );
+    }
+  }
+
+  useEffect(() => {
+    checkPathValidity(parentLink, 0);
+  }, [router.asPath]);
+
   return (
     <ViewBox>
-      {isBasePage && (
-        <Box className="sub-nav__container" role="presentation">
-          <SubNavHeader
-            text="과제 정보"
-            button={
-              <ConversionButton
-                icon={<FilloutIcon name="write" size="small" type="outlined" />}
-                clickAction={convertToCreationPage}
-                clickActionValue={parentLink + '/creation'}
-              />
-            }
-          />
+      <Box className="sub-nav__container" role="presentation">
+        <SubNavHeader
+          text="과제 정보"
+          button={
+            <ConversionButton
+              icon={<FilloutIcon name="write" size="small" type="outlined" />}
+              clickAction={convertToCreationPage}
+              clickActionValue={parentLink + '/creation'}
+            />
+          }
+        />
 
-          <Divider className="line-divider" />
+        <Divider className="line-divider" />
 
-          <SubNavList
-            handleSelectedIndex={handleSelectedBaseIndex}
-            selectedIndex={selectedBaseIndex}
-            parentLink={parentLink}
-            subNavListData={subNavListData_base}
-            subNavTitles={null}></SubNavList>
-        </Box>
-      )}
-      {!isBasePage && (
-        <Box className="sub-nav__container" role="presentation">
-          {/*<ConversionButton
-            icon={
-              <FilloutIcon
-                sx={{
-                  marginLeft: '-12%',
-                }}
-                name="toright"
-                size="small"
-                type="outlined"
-              />
-            }
-            text="돌아가기"
-            clickAction={setIsBasePage}
-            clickActionValue={true}
-          />
-
-          <Divider className="line-divider" />
-
-          <SubNavList
-            handleSelectedIndex={handleSelectedCreationIndex}
-            selectedIndex={selectedCreationIndex}
-            parentLink={parentLink + '/creation'}
-            subNavListData={subNavListData_creation}
-            subNavTitles={null}></SubNavList>
-          */}
-        </Box>
-      )}
+        <SubNavList
+          handleSelectedIndex={handleSelectedBaseIndex}
+          selectedIndex={selectedBaseIndex}
+          parentLink={parentLink}
+          subNavListData={subNavListData_base}
+          subNavTitles={null}></SubNavList>
+      </Box>
     </ViewBox>
   );
 };

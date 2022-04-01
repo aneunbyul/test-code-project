@@ -103,6 +103,31 @@ const DocumentNav = () => {
     setSelectedBaseIndex((selectedBaseIndex) => selectedIndex);
   };
 
+  //첫 입장 시 정해진 서브 네비게이션이 기본적으로 활성화 되게 함
+  function checkPathValidity(myLink, openingIndex) {
+    if (openingIndex < 0 && openingIndex >= subNavListData_base.length) return;
+
+    const afterSubPath = router.pathname.substring(
+      router.pathname.indexOf(myLink) + myLink.length + 2,
+    );
+
+    const isLinkBase =
+      afterSubPath == '' && router.pathname.includes(myLink) ? true : false;
+
+    if (isLinkBase) {
+      handleSelectedBaseIndex(openingIndex);
+      router.push(
+        subNavListData_base[openingIndex].disabled == true
+          ? ''
+          : myLink + subNavListData_base[openingIndex].link,
+      );
+    }
+  }
+
+  useEffect(() => {
+    checkPathValidity(parentLink, 0);
+  }, [router.asPath]);
+
   return (
     <ViewBox>
       {isBasePage && (
