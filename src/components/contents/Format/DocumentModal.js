@@ -39,28 +39,35 @@ const DocumentModal = ({handleClose}) => {
         <StickyContainer>
           <ToolContainer>
             <Stack spacing={1.3} direction="row">
-              <Button onClick={handleClose} variant={'contained'}>
+              <Button
+                onClick={handleClose}
+                className="floatingButton"
+                variant={'contained'}>
                 닫기
               </Button>
               <Button
+                className="floatingButton"
                 onClick={handleClose}
                 variant={'contained'}
                 disabled={isInUnfinishedPage ? false : true}>
                 결재
               </Button>
               <Button
+                className="floatingButton"
                 onClick={handleClose}
                 variant={'contained'}
                 disabled={isInUnfinishedPage ? false : true}>
                 반려
               </Button>
               <Button
+                className="floatingButton"
                 onClick={handleClose}
                 variant={'contained'}
                 disabled={isInUnfinishedPage ? false : true}>
                 취소
               </Button>
               <Button
+                className="floatingButton"
                 onClick={handleClose}
                 variant={'contained'}
                 disabled={isInRejectedPage ? false : true}>

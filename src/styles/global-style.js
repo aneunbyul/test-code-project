@@ -394,7 +394,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color:var(--dark02);
         color : var(--dark05);
         box-shadow: 0 0 0 var(--line-thickness) var(--dark04);
-        opacity: 0.6;
+        opacity: 0.3;
       }
     }
 

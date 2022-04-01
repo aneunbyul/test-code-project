@@ -250,6 +250,9 @@ const Row = ({
           `tableBodyCell_${tableName}`,
         )}>
         <Button
+          style={{
+            visibility: disableSelection == true ? 'hidden' : 'visible',
+          }}
           disabled={isAdding || isEditing || disableSelection}
           className={classNames(classes.editBtn, `editBtn_${tableName}`)}
           onClick={handleEditRow}>
@@ -257,6 +260,9 @@ const Row = ({
         </Button>
 
         <Button
+          style={{
+            visibility: disableSelection == true ? 'hidden' : 'visible',
+          }}
           disabled={isAdding || isEditing || disableSelection}
           className={classNames(classes.deleteBtn, `deleteBtn_${tableName}`)}
           onClick={handleDeleteRow}>
@@ -348,6 +354,7 @@ class EditableTableSrc extends React.Component {
 
   render() {
     const {
+      disableSelection = false,
       fieldsArr = [],
       classes = {},
       tableName,
@@ -420,6 +427,7 @@ class EditableTableSrc extends React.Component {
                   />
                 ) : (
                   <Row
+                    disableSelection={disableSelection}
                     key={i}
                     tableName={tableName}
                     classes={{
@@ -468,10 +476,13 @@ class EditableTableSrc extends React.Component {
         </Table>
         <div>
           <Button
+            style={{
+              visibility: disableSelection == true ? 'hidden' : 'visible',
+            }}
             className={classNames(classes.addBtn, `addBtn_${tableName}`)}
-            disabled={isAdding || isEditing}
+            disabled={isAdding || isEditing || disableSelection}
             onClick={() => this.setState({isAdding: true})}>
-            {addRowBtnText || 'Add Row'}
+            {addRowBtnText || '항목 추가'}
           </Button>
         </div>
       </>

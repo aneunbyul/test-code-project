@@ -15,10 +15,11 @@ const getData = (row) => {
   console.log(row, 'rows data');
 };
 
-const BusinessExpenseCard = () => {
+const BusinessExpenseCard = (props) => {
   return (
     <Stack bgcolor={'transparent'}>
       <EditableTable
+        disableSelection={props.disableSelection}
         initWithoutHead
         defaultData={defaultData}
         getData={getData}

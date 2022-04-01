@@ -25,13 +25,16 @@ const BusinessTripInfo = (props) => {
   return (
     <>
       <GridContainer container columnSpacing={{xs: 3}}>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <Box component="h6">신청인</Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <Box component="h6">신청번호(사번)</Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
+          <Box component="h6">목적지</Box>
+        </Grid>
+        <Grid item xs={4}>
           <TextField
             disabled={true}
             InputLabelProps={{shrink: false}}
@@ -43,7 +46,7 @@ const BusinessTripInfo = (props) => {
             }}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <TextField
             disabled={true}
             InputLabelProps={{shrink: false}}
@@ -55,13 +58,7 @@ const BusinessTripInfo = (props) => {
             }}
           />
         </Grid>
-        <Grid item xs={6}>
-          <Box component="h6">목적지</Box>
-        </Grid>
-        <Grid item xs={6}>
-          <Box component="h6">출장기간</Box>
-        </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <TextField
             disabled={props.disableSelection}
             InputLabelProps={{shrink: false}}
@@ -69,6 +66,48 @@ const BusinessTripInfo = (props) => {
             required
             id="outlined-required"
             label="필수입력"
+          />
+        </Grid>
+
+        <Grid item xs={3}>
+          <Box component="h6">출장자</Box>
+        </Grid>
+        <Grid item xs={3}>
+          <Box component="h6">식비유보</Box>
+        </Grid>
+        <Grid item xs={6}>
+          <Box component="h6">출장기간</Box>
+        </Grid>
+        <Grid item xs={3}>
+          <TextField
+            disabled={props.disableSelection}
+            InputLabelProps={{shrink: false}}
+            fullWidth
+            required
+            id="outlined-required"
+            label="필수입력"
+            type="number"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="start">명</InputAdornment>
+              ),
+            }}
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <TextField
+            disabled={props.disableSelection}
+            fullWidth
+            InputLabelProps={{shrink: false}}
+            required
+            id="outlined-required"
+            label="선택입력"
+            type="number"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="start">회</InputAdornment>
+              ),
+            }}
           />
         </Grid>
         <Grid item xs={6}>
@@ -146,44 +185,6 @@ const BusinessTripInfo = (props) => {
             required
             id="outlined-required"
             label="선택입력"
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <Box component="h6">출장자</Box>
-        </Grid>
-        <Grid item xs={6}>
-          <Box component="h6">식비유보</Box>
-        </Grid>
-        <Grid item xs={6}>
-          <TextField
-            disabled={props.disableSelection}
-            InputLabelProps={{shrink: false}}
-            fullWidth
-            required
-            id="outlined-required"
-            label="필수입력"
-            type="number"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="start">명</InputAdornment>
-              ),
-            }}
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <TextField
-            disabled={props.disableSelection}
-            fullWidth
-            InputLabelProps={{shrink: false}}
-            required
-            id="outlined-required"
-            label="선택입력"
-            type="number"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="start">회</InputAdornment>
-              ),
-            }}
           />
         </Grid>
       </GridContainer>

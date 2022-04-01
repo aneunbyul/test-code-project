@@ -38,7 +38,6 @@ const BusinessTravelerInfo = (props) => {
         <Grid item xs={2}>
           <Box component="h6">교통수단</Box>
         </Grid>
-
         {/*신청인이 디폴트값으로 들어감*/}
         {/*추가 버튼 누를때마다 한줄씩 추가*/}
         {/*추가버튼은 위치 미정*/}
@@ -133,6 +132,7 @@ const BusinessTravelerInfo = (props) => {
             label="입력"
           />
         </Grid>
+        <Grid item sx={{width: '100%', height: '0.6rem'}} xs={12}></Grid>
       </GridContainer>
     </>
   );

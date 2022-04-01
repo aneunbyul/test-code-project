@@ -16,10 +16,11 @@ const getData = (row) => {
   console.log(row, 'rows data');
 };
 
-const AssignmentAccount = () => {
+const AssignmentAccount = (props) => {
   return (
     <Stack bgcolor={'transparent'}>
       <EditableTable
+        disableSelection={props.disableSelection}
         initWithoutHead
         defaultData={defaultData}
         getData={getData}

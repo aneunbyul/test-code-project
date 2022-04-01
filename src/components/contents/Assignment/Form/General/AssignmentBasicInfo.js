@@ -10,9 +10,6 @@ import {
 } from '@mui/material';
 
 const AssignmentBasicInfo = (props) => {
-  // 이 변수로 Mui select와 label의 비활성화 결정
-  let disableSelection = props.disableSelection;
-
   return (
     <>
       <GridContainer container columnSpacing={{xs: 3}}>
@@ -27,6 +24,7 @@ const AssignmentBasicInfo = (props) => {
         </Grid>
         <Grid item xs={4}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             id="outlined-basic"
             label="상위사업명"
@@ -35,6 +33,7 @@ const AssignmentBasicInfo = (props) => {
         </Grid>
         <Grid item xs={4}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             id="outlined-basic"
             label="과제명"
@@ -43,6 +42,7 @@ const AssignmentBasicInfo = (props) => {
         </Grid>
         <Grid item xs={4}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             id="outlined-basic"
             label="계정번호"
@@ -60,6 +60,7 @@ const AssignmentBasicInfo = (props) => {
         </Grid>
         <Grid item xs={3}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             id="outlined-basic"
             label="과제책임자"
@@ -68,6 +69,7 @@ const AssignmentBasicInfo = (props) => {
         </Grid>
         <Grid item xs={3}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             id="outlined-basic"
             label="실무책임자"
@@ -76,6 +78,7 @@ const AssignmentBasicInfo = (props) => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             id="outlined-basic"
             label="총사업기간"
@@ -95,6 +98,7 @@ const AssignmentBasicInfo = (props) => {
 
         <Grid item xs={3}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             id="outlined-basic"
             label="총사업비"
@@ -103,6 +107,7 @@ const AssignmentBasicInfo = (props) => {
         </Grid>
         <Grid item xs={3}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             id="outlined-basic"
             label="해당연차 사업비"
@@ -111,6 +116,7 @@ const AssignmentBasicInfo = (props) => {
         </Grid>
         <Grid item xs={6}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             id="outlined-basic"
             label="해당연차 사업기간"
@@ -130,6 +136,7 @@ const AssignmentBasicInfo = (props) => {
 
         <Grid item xs={4}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             id="outlined-basic"
             label="발주처"
@@ -138,6 +145,7 @@ const AssignmentBasicInfo = (props) => {
         </Grid>
         <Grid item xs={4}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             id="outlined-basic"
             label="관리기관"
@@ -146,6 +154,7 @@ const AssignmentBasicInfo = (props) => {
         </Grid>
         <Grid item xs={4}>
           <TextField
+            disabled={props.disableSelection}
             fullWidth
             id="outlined-basic"
             label="연관과제"

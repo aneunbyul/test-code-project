@@ -17,7 +17,7 @@ import BusinessExpenseCard from '../Assignment/Form/General/BusinessExpenseCard'
 import SimpleBar from 'simplebar-react';
 import AssignmentBudgetDetail from '../Assignment/Creation/AssignmentBudgetDetail';
 
-const AssignmentModal = ({handleClose}) => {
+const AssignmentModal = ({disableSelection, handleClose}) => {
   const [disableFlag, setDisableFlag] = useState(true);
 
   return (
@@ -35,15 +35,15 @@ const AssignmentModal = ({handleClose}) => {
         </StickyContainer>
         <AssignmentCreationContainer>
           <FormDivider text="과제 기본 정보" />
-          <AssignmentBasicInfo />
+          <AssignmentBasicInfo disableSelection={true} />
           <FormDivider text="참여 연구원" />
-          <ParticipatingResearcher />
+          <ParticipatingResearcher disableSelection={true} />
           <FormDivider text="사업비" />
-          <AssignmentBudgetDetail />
+          <AssignmentBudgetDetail disableSelection={true} />
           <FormDivider text="계좌 정보" />
-          <AssignmentAccount />
+          <AssignmentAccount disableSelection={true} />
           <FormDivider text="사업비 사용카드" />
-          <BusinessExpenseCard />
+          <BusinessExpenseCard disableSelection={true} />
         </AssignmentCreationContainer>
       </ViewBox>
     </ModalWrapper>
