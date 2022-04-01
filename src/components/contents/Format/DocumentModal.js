@@ -18,13 +18,17 @@ import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
 import BusinessTripApplicationForm from '../Approval/Form/BusinessTripApplicationForm/BusinessTripApplicationForm'
 import ApprovalCreationForm from '../Approval/Form/ApprovalCreationForm'
+import { useRouter } from 'next/router'
 
 const DocumentModal = ( { handleClose } ) => {
   const [disableFlag, setDisableFlag] = useState ( true )
 
-  // const handleClose = () => {
-  //   setOpen ( false )
-  // }
+  const router = useRouter ()
+
+  const isInUnfinishedPage =
+      router.pathname.includes ( '/approval/unfinished' )
+  const isInRejectedPage =
+      router.pathname.includes ( '/approval/rejected' )
 
   return (
       <ModalWrapper sx={ { boxShadow: 24 } }>
@@ -33,6 +37,22 @@ const DocumentModal = ( { handleClose } ) => {
             <Toolbar>
               <Button onClick={ handleClose } variant={ 'contained' }>
                 닫기
+              </Button>
+              <Button onClick={ handleClose } variant={ 'contained' }
+                      disabled={ isInUnfinishedPage ? false : true }>
+                결재
+              </Button>
+              <Button onClick={ handleClose } variant={ 'contained' }
+                      disabled={ isInUnfinishedPage ? false : true }>
+                반려
+              </Button>
+              <Button onClick={ handleClose } variant={ 'contained' }
+                      disabled={ isInUnfinishedPage ? false : true }>
+                취소
+              </Button>
+              <Button onClick={ handleClose } variant={ 'contained' }
+                      disabled={ isInRejectedPage ? false : true }>
+                수정
               </Button>
             </Toolbar>
           </AppBar>
