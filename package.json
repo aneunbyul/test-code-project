@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "yarn clean",
     "build": "next build",
+    "prestart": "yarn build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rm -rf .next"
   },
   "dependencies": {
     "@emotion/core": "^11.0.0",
@@ -22,6 +25,7 @@
     "@mui/styles": "latest",
     "@mui/x-data-grid": "^5.6.1",
     "@mui/x-data-grid-generator": "^5.6.1",
+    "@react-pdf/renderer": "^2.1.1",
     "ag-grid-community": "^27.1.0",
     "ag-grid-react": "^27.1.0",
     "build": "^0.1.4",
