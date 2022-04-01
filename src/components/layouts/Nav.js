@@ -65,7 +65,7 @@ const Nav = () => {
       text: '조직 정보',
       link: 'organization',
       iconName: 'organization',
-      isDisabled: true,
+      isDisabled: false,
     },
   ];
 

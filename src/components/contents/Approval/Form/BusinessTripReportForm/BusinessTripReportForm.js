@@ -22,6 +22,7 @@ import AttachedFile from './AttachedFile';
 const BusinessTripReportForm = (props) => {
   return (
     <div>
+      <FormDivider />
       <BusinessTripInfo disableSelection={props.disableSelection} />
       <FormDivider />
       <BusinessTravelerInfo disableSelection={props.disableSelection} />

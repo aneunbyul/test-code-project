@@ -357,27 +357,31 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
 
-    .MuiDateRangePickerDay-root{
-
-      &&&.MuiDateRangePickerDay-rangeIntervalDayHighlight {
+    .MuiDateRangePickerDay-root , .MuiPickersDay-root {
+      background-color: transparent;
+      &&&.MuiDateRangePickerDay-rangeIntervalDayHighlight{
         background-color: var(--lowlight01);
       }
-      &&& .Mui-selected {
+      &&& .Mui-selected , &&&.MuiPickersDay-root.Mui-selected  {
         background-color: var(--highlight02) !important;
       }
     }
 
-    .MuiButton-root {
+    .MuiButton-root, .MuiIconButton-root {
 
       &.Mui-disabled .MuiSvgIcon-root{
         fill: var(--dark03) !important;
       }
       
-      &&& {
+      &&&{
         background-color:var(--dark03);
         color: var(--light02);
-        box-shadow: inset 0 0 0 var(--line-thickness) var(--dark05) , 0 5px 8px rgba(0,0,0,0.1), 0 3px 3px rgba(0,0,0,0.2);
+        box-shadow: inset 0 0 0 var(--line-thickness) var(--dark05);
         border: none !important;
+      }
+
+      &&&.floatingButton {
+        box-shadow: inset 0 0 0 var(--line-thickness) var(--dark05) , 0 5px 8px rgba(0,0,0,0.1), 0 3px 3px rgba(0,0,0,0.2);
       }
       
       &&&:hover{

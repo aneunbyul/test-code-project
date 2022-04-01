@@ -46,6 +46,8 @@ const SearchButton = styled(IconButton)`
   &&& {
     color: var(--light04);
     margin-left: 0.4rem;
+    background-color: transparent !important;
+    box-shadow: none !important;
   }
 `;
 
