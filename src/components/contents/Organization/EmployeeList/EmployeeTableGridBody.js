@@ -12,23 +12,19 @@ import styled from 'styled-components'
 
 import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
-import AssignmentModal from './AssignmentModal'
+// import AssignmentModal from './AssignmentModal'
 
-const AssignmentTableGridBody = ( { columnData } ) => {
-  const [profileOpen, setProfileOpen] = React.useState ( false )
-  const handleOpen = () => setProfileOpen ( true )
-  const handleClose = () => setProfileOpen ( false )
+const EmployeeTableGridBody = ( { columnData } ) => {
   //더미 데이터로 그리드 생성
   const rows = []
   for (let i = 0; i < 100; i++) {
     rows.push ( {
       id: i,
       name: randomTraderName (),
-      team: randomTraderName (),
-      subject: randomCommodity (),
-      assignment: randomCommodity (),
-      dateCreated: randomCreatedDate (),
-      Classification: '출장 신청서',
+      team: randomJobTitle (),
+      position: randomCommodity () + ', ' + randomCommodity (),
+      phone: randomPhoneNumber (),
+      mail: randomEmail (),
     } )
   }
 
@@ -45,19 +41,16 @@ const AssignmentTableGridBody = ( { columnData } ) => {
               LoadingOverlay: LinearProgress,
             } }
             loading={ false }
-            onRowClick={ ( params, event ) => {
-              console.log ( params.row )
-              handleOpen ()
 
-            } }
+
         />
-        <Modal
-            open={ profileOpen }
-            onClose={ handleClose }
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description">
-          <AssignmentModal/>
-        </Modal>
+        {/*<Modal*/ }
+        {/*    open={ profileOpen }*/ }
+        {/*    onClose={ handleClose }*/ }
+        {/*    aria-labelledby="modal-modal-title"*/ }
+        {/*    aria-describedby="modal-modal-description">*/ }
+        {/*  <임직원 정보 모달/>*/ }
+        {/*</Modal>*/ }
       </SliderContainer>
   )
 }
@@ -91,4 +84,4 @@ const SliderContainer = styled ( Box )`
   }
 `
 
-export default AssignmentTableGridBody
+export default EmployeeTableGridBody
